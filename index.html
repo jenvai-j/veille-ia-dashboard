@@ -3,655 +3,545 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Veille IA — 07 April 2026</title>
+<title>Veille IA Stratégique — 2026-04-08</title>
 <style>
-  
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0d1117;
+  --bg2: #161b22;
+  --bg3: #21262d;
+  --border: #30363d;
+  --text: #e6edf3;
+  --text-muted: #8b949e;
+  --accent: #58a6ff;
+  --accent2: #3fb950;
+  --warn: #d29922;
+  --danger: #f85149;
+  --purple: #bc8cff;
+  --radius: 8px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; line-height: 1.6; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: #11111b;
-      color: #cdd6f4;
-      line-height: 1.6;
-      font-size: 15px;
-    }
+/* Header */
+.site-header { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 16px 24px; }
+.header-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.header-title h1 { font-size: 20px; font-weight: 600; color: var(--accent); }
+.header-date { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+.header-stats { display: flex; gap: 10px; flex-wrap: wrap; }
+.stat-pill { background: var(--bg3); border: 1px solid var(--border); border-radius: 20px; padding: 4px 12px; display: flex; align-items: center; gap: 6px; }
+.stat-pill.highlight { border-color: var(--accent); }
+.stat-num { font-weight: 700; font-size: 15px; color: var(--text); }
+.stat-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
 
-    /* NAVIGATION */
-    .nav-bar {
-      border-top: 1px solid #313244;
-      padding: 10px 32px;
-      max-width: 100%;
-    }
-    .nav-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .nav-btn {
-      background: #313244;
-      color: #cdd6f4;
-      border: none;
-      border-radius: 6px;
-      padding: 6px 14px;
-      font-size: 13px;
-      cursor: pointer;
-      text-decoration: none;
-      white-space: nowrap;
-      transition: background 0.2s;
-    }
-    .nav-btn:hover { background: #45475a; }
-    .nav-disabled {
-      background: #1e1e2e;
-      color: #45475a;
-      cursor: default;
-    }
-    .nav-select {
-      flex: 1;
-      background: #313244;
-      color: #cdd6f4;
-      border: 1px solid #45475a;
-      border-radius: 6px;
-      padding: 6px 12px;
-      font-size: 13px;
-      cursor: pointer;
-    }
+/* Navigation */
+.top-nav { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 0 24px; display: flex; gap: 4px; max-width: 100%; overflow-x: auto; }
+.nav-link { display: inline-block; padding: 10px 16px; font-size: 13px; color: var(--text-muted); border-bottom: 2px solid transparent; white-space: nowrap; }
+.nav-link:hover, .nav-link.active { color: var(--accent); border-bottom-color: var(--accent); text-decoration: none; }
 
-    /* HEADER */
-    header {
-      background: #1e1e2e;
-      border-bottom: 1px solid #313244;
-      padding: 24px 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .header-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 32px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .header-title { display: flex; align-items: center; gap: 16px; }
-    .logo { font-size: 28px; color: #cba6f7; }
-    h1 { font-size: 22px; font-weight: 700; color: #cdd6f4; letter-spacing: -0.3px; }
-    .header-date { font-size: 13px; color: #6c7086; margin-top: 2px; }
-    .header-stats { display: flex; gap: 32px; }
-    .stat { text-align: center; }
-    .stat-num { display: block; font-size: 26px; font-weight: 700; color: #cba6f7; }
-    .stat-label { font-size: 11px; color: #6c7086; text-transform: uppercase; letter-spacing: 0.5px; }
+/* Container */
+.container { max-width: 1200px; margin: 0 auto; padding: 24px 16px; }
 
-    /* MAIN */
-    main {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 40px 32px;
-      display: flex;
-      flex-direction: column;
-      gap: 48px;
-    }
+/* Sections */
+section { margin-bottom: 40px; }
+.section-title { font-size: 18px; font-weight: 600; color: var(--text); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+.empty-state { color: var(--text-muted); font-style: italic; padding: 16px 0; }
 
-    section h2 {
-      font-size: 18px;
-      font-weight: 600;
-      color: #cdd6f4;
-      margin-bottom: 20px;
-      margin-top: 8px;
-    }
+/* Badges */
+.badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; }
+.badge-émergent { background: rgba(188,140,255,0.15); color: var(--purple); border: 1px solid rgba(188,140,255,0.3); }
+.badge-accélération { background: rgba(88,166,255,0.15); color: var(--accent); border: 1px solid rgba(88,166,255,0.3); }
+.badge-structuration { background: rgba(63,185,80,0.15); color: var(--accent2); border: 1px solid rgba(63,185,80,0.3); }
+.badge-mainstream { background: rgba(210,153,34,0.15); color: var(--warn); border: 1px solid rgba(210,153,34,0.3); }
+.badge-role { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; }
+.badge-success { background: rgba(63,185,80,0.15); color: var(--accent2); }
+.badge-warning { background: rgba(210,153,34,0.15); color: var(--warn); }
+.badge-danger { background: rgba(248,81,73,0.15); color: var(--danger); }
+.badge-info { background: rgba(88,166,255,0.15); color: var(--accent); }
+.badge-evolution { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 10px; font-weight: 600; }
+.badge-en-hausse { background: rgba(63,185,80,0.15); color: var(--accent2); }
+.badge-en-baisse { background: rgba(248,81,73,0.15); color: var(--danger); }
+.badge-stable { background: rgba(139,148,158,0.15); color: var(--text-muted); }
+.badge-nouveau { background: rgba(188,140,255,0.15); color: var(--purple); }
+.tier-badge { display: inline-block; padding: 1px 6px; border-radius: 4px; font-size: 10px; font-weight: 700; }
+.tier-1 { background: rgba(63,185,80,0.15); color: var(--accent2); }
+.tier-2 { background: rgba(88,166,255,0.15); color: var(--accent); }
+.tier-3 { background: rgba(139,148,158,0.15); color: var(--text-muted); }
 
-    .section-tag {
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #cba6f7;
-      margin-bottom: 4px;
-    }
+/* Force dots */
+.force-dots { display: flex; gap: 3px; align-items: center; }
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot-on { background: var(--accent); }
+.dot-off { background: var(--bg3); border: 1px solid var(--border); }
+.force-dots.small .dot { width: 7px; height: 7px; }
 
-    /* INSIGHT */
-    .section-insight {
-      background: linear-gradient(135deg, #1e1e2e, #2a1a3a);
-      border: 1px solid #cba6f7;
-      border-radius: 12px;
-      padding: 28px 32px;
-    }
-    .insight-text {
-      font-size: 17px;
-      line-height: 1.7;
-      color: #e0e0f0;
-      font-style: italic;
-    }
+/* Top mouvements */
+.mouvements-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.carte-mouvement { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; position: relative; }
+.carte-mouvement[data-score="8"],.carte-mouvement[data-score="9"],.carte-mouvement[data-score="10"] { border-color: rgba(88,166,255,0.4); }
+.carte-header { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+.carte-badges { display: flex; gap: 4px; flex-wrap: wrap; }
+.carte-force { display: flex; align-items: center; gap: 6px; }
+.force-label { font-size: 10px; color: var(--text-muted); text-transform: uppercase; }
+.carte-score { font-size: 18px; font-weight: 700; color: var(--accent); min-width: 40px; text-align: right; }
+.carte-titre { font-size: 14px; font-weight: 600; color: var(--text); margin: 8px 0 6px; line-height: 1.4; }
+.carte-horizon { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
 
-    /* CLASSEMENT */
-    .ranking { display: flex; flex-direction: column; gap: 12px; }
-    .ranking-item {
-      background: #1e1e2e;
-      border-radius: 10px;
-      padding: 16px 20px;
-      border: 1px solid #313244;
-    }
-    .ranking-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-    .ranking-medal { font-size: 20px; min-width: 28px; }
-    .ranking-info { flex: 1; }
-    .ranking-title { display: block; font-weight: 500; color: #cdd6f4; }
-    .ranking-topic { font-size: 12px; color: #6c7086; }
-    .ranking-score { font-size: 20px; font-weight: 700; min-width: 48px; text-align: right; }
-    .score-bar-bg { height: 4px; background: #313244; border-radius: 2px; }
-    .score-bar-fill { height: 4px; border-radius: 2px; transition: width 0.8s ease; }
+/* Sous-thèmes */
+.sous-theme { margin-bottom: 24px; }
+.sous-theme-titre { font-size: 14px; font-weight: 600; color: var(--accent); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+.signaux-liste { display: flex; flex-direction: column; gap: 8px; }
 
-    /* GRID 2 COLONNES */
-    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+/* Cartes signal */
+.carte-signal { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+.carte-signal-header { padding: 12px 16px; cursor: pointer; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; transition: background 0.15s; }
+.carte-signal-header:hover { background: var(--bg3); }
+.signal-meta { display: flex; gap: 4px; flex-shrink: 0; }
+.signal-titre { flex: 1; font-size: 13px; font-weight: 500; color: var(--text); min-width: 200px; }
+.signal-indicateurs { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.signal-score { font-size: 13px; font-weight: 700; color: var(--accent); }
+.toggle-arrow { font-size: 10px; color: var(--text-muted); transition: transform 0.2s; }
 
-    /* CARDS */
-    .cards-list { display: flex; flex-direction: column; gap: 12px; }
-    .card {
-      background: #1e1e2e;
-      border-radius: 10px;
-      padding: 16px 20px;
-      border: 1px solid #313244;
-    }
-    .card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
-    .card-icon { font-size: 14px; }
-    .card-header strong { flex: 1; color: #cdd6f4; }
-    .card p { font-size: 13px; color: #9399b2; line-height: 1.6; }
-    .badge {
-      font-size: 11px;
-      padding: 2px 8px;
-      border-radius: 20px;
-      font-weight: 600;
-      white-space: nowrap;
-    }
+/* Signal body */
+.signal-body { padding: 16px; border-top: 1px solid var(--border); }
+.sources-liste { margin-bottom: 16px; }
+.sources-liste ul { list-style: none; margin-top: 6px; }
+.sources-liste li { padding: 3px 0; }
+.source-link { color: var(--accent); font-size: 12px; }
+.source-name { font-size: 11px; color: var(--text-muted); }
 
-    /* RECOMMANDATION */
-    .section-reco {
-      background: linear-gradient(135deg, #1a2a1a, #1e1e2e);
-      border: 1px solid #a5d6a7;
-      border-radius: 12px;
-      padding: 28px 32px;
-    }
-    .reco-card { display: flex; gap: 20px; align-items: flex-start; margin-top: 4px; }
-    .reco-icon { font-size: 32px; color: #a5d6a7; min-width: 40px; }
-    .reco-content h3 { font-size: 16px; color: #cdd6f4; margin-bottom: 8px; }
-    .reco-content p { color: #9399b2; font-size: 14px; margin-bottom: 12px; }
-    .reco-timing { font-size: 13px; color: #a5d6a7; font-weight: 600; }
+/* Analyse container (tabs) */
+.analyse-container { }
+.tab-nav { display: flex; flex-wrap: wrap; gap: 2px; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+.tab-btn { background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; padding: 4px 10px; font-size: 11px; color: var(--text-muted); cursor: pointer; transition: all 0.15s; }
+.tab-btn:hover { color: var(--text); }
+.tab-btn.active { background: var(--accent); color: var(--bg); border-color: var(--accent); font-weight: 600; }
+.tab-panel { }
+.analyse-section { }
+.analyse-section p { margin-bottom: 8px; font-size: 13px; }
+.analyse-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 8px; }
+.analyse-table tr { border-bottom: 1px solid var(--border); }
+.analyse-table td { padding: 6px 8px; vertical-align: top; }
+.td-label { font-weight: 600; color: var(--text-muted); width: 160px; white-space: nowrap; }
+.tag { display: inline-block; background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; padding: 1px 6px; font-size: 11px; margin: 2px; }
+.group-bloc { margin-bottom: 12px; }
+.group-bloc ul { margin-top: 4px; margin-left: 16px; }
+.group-bloc li { font-size: 13px; margin-bottom: 3px; }
+.risk-item { color: #f0a0a0; }
+.alert-text { color: var(--warn); }
+.horizon-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.horizon-item { background: var(--bg3); border: 1px solid var(--border); border-radius: 6px; padding: 12px; }
+.horizon-label { font-size: 11px; font-weight: 700; color: var(--accent); text-transform: uppercase; display: block; margin-bottom: 6px; }
+.contradiction-bloc { background: rgba(210,153,34,0.06); border: 1px solid rgba(210,153,34,0.2); border-radius: 6px; padding: 12px; }
+.contradiction-bloc p { margin-bottom: 8px; }
 
-    /* BRIEFS */
-    .briefs-list { display: flex; flex-direction: column; gap: 12px; }
-    .brief-card {
-      background: #1e1e2e;
-      border-radius: 10px;
-      overflow: hidden;
-      border: 1px solid #313244;
-    }
-    .brief-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 18px 24px;
-      cursor: pointer;
-      gap: 16px;
-      transition: background 0.2s;
-    }
-    .brief-header:hover { background: #252535; }
-    .brief-header-left { display: flex; align-items: center; gap: 12px; flex: 1; }
-    .brief-header-right { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
-    .brief-topic-badge {
-      font-size: 11px;
-      font-weight: 600;
-      padding: 3px 10px;
-      border-radius: 20px;
-      white-space: nowrap;
-    }
-    .brief-header h3 { font-size: 14px; font-weight: 500; color: #cdd6f4; }
-    .brief-score { font-size: 18px; font-weight: 700; }
-    .brief-source { font-size: 12px; color: #6c7086; }
-    .brief-toggle { color: #6c7086; font-size: 12px; transition: transform 0.3s; }
-    .brief-toggle.open { transform: rotate(180deg); }
-    .brief-body { padding: 0 24px 24px; border-top: 1px solid #313244; }
-    .brief-meta {
-      display: flex;
-      gap: 20px;
-      padding: 16px 0;
-      font-size: 12px;
-      color: #6c7086;
-      flex-wrap: wrap;
-    }
-    .brief-link { color: #89b4fa; text-decoration: none; }
-    .brief-link:hover { text-decoration: underline; }
-    .brief-content { font-size: 14px; color: #9399b2; line-height: 1.8; }
-    .brief-section-title {
-      display: block;
-      color: #cba6f7;
-      font-weight: 600;
-      margin-top: 16px;
-      font-size: 13px;
-    }
-    .empty { color: #6c7086; font-style: italic; }
+/* Idées exploitables */
+.idees-bloc { margin-bottom: 24px; }
+.idees-bloc h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 12px; }
+.posts-grid, .missions-grid, .questions-grid { display: flex; flex-direction: column; gap: 12px; }
+.post-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; }
+.post-header { display: flex; justify-content: space-between; margin-bottom: 8px; }
+.post-signal { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+.post-contenu { font-size: 12px; white-space: pre-wrap; line-height: 1.6; color: var(--text); max-height: 300px; overflow-y: auto; background: var(--bg3); padding: 12px; border-radius: 4px; margin-bottom: 8px; }
+.btn-copy { background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; padding: 6px 14px; font-size: 12px; color: var(--text); cursor: pointer; }
+.btn-copy:hover { border-color: var(--accent); color: var(--accent); }
+.mission-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; }
+.mission-theme { display: block; font-size: 11px; font-weight: 700; color: var(--accent); text-transform: uppercase; margin-bottom: 6px; }
+.question-card { background: var(--bg3); border-left: 3px solid var(--accent); padding: 12px 16px; border-radius: 0 6px 6px 0; font-size: 13px; color: var(--text); }
 
-    /* POSTS LINKEDIN */
-    .posts-list { display: flex; flex-direction: column; gap: 24px; }
-    .post-card {
-      background: #1e1e2e;
-      border-radius: 12px;
-      padding: 24px;
-      border: 1px solid #313244;
-    }
-    .post-card-title { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
-    .post-card-title h3 { font-size: 15px; color: #cdd6f4; }
-    .post-versions { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .post-version { display: flex; flex-direction: column; gap: 12px; }
-    .post-version-label {
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: #6c7086;
-    }
-    .post-text {
-      background: #11111b;
-      border: 1px solid #313244;
-      border-radius: 8px;
-      padding: 16px;
-      font-size: 13px;
-      color: #cdd6f4;
-      line-height: 1.7;
-      flex: 1;
-    }
-    .copy-btn {
-      background: #313244;
-      color: #cdd6f4;
-      border: none;
-      border-radius: 6px;
-      padding: 8px 16px;
-      font-size: 13px;
-      cursor: pointer;
-      transition: background 0.2s;
-      align-self: flex-start;
-    }
-    .copy-btn:hover { background: #45475a; }
-    .copy-btn.copied { background: #a5d6a7; color: #11111b; }
+/* Sessions nav */
+.sessions-nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.nav-session { background: var(--bg2); border: 1px solid var(--border); border-radius: 4px; padding: 6px 14px; font-size: 12px; color: var(--text-muted); }
+.nav-session.active { border-color: var(--accent); color: var(--accent); font-weight: 600; }
+.nav-session:hover { text-decoration: none; color: var(--text); }
 
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 32px;
-      color: #45475a;
-      font-size: 12px;
-      border-top: 1px solid #1e1e2e;
-    }
-
-    @media (max-width: 768px) {
-      .grid-2 { grid-template-columns: 1fr; }
-      .post-versions { grid-template-columns: 1fr; }
-      .header-stats { display: none; }
-    }
-    
+@media (max-width: 768px) {
+  .horizon-grid { grid-template-columns: 1fr; }
+  .mouvements-grid { grid-template-columns: 1fr; }
+  .header-inner { flex-direction: column; }
+}
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<header>
+<header class="site-header">
   <div class="header-inner">
     <div class="header-title">
-      <span class="logo">◈</span>
-      <div>
-        <h1>Veille IA</h1>
-        <p class="header-date">Semaine du 07 April 2026</p>
-      </div>
+      <h1>Veille IA Stratégique</h1>
+      <p class="header-date">2026-04-08</p>
     </div>
     <div class="header-stats">
-      <div class="stat"><span class="stat-num">2</span><span class="stat-label">signaux analysés</span></div>
-      <div class="stat"><span class="stat-num">2</span><span class="stat-label">posts LinkedIn prêts</span></div>
-    </div>
-  </div>
-  
-  <div class="nav-bar">
-    <div class="nav-inner">
-      <a class="nav-btn" href="../2026-04-01/dashboard.html">&#8592; 2026-04-01</a>
-      <select class="nav-select" onchange="window.location.href=this.value">
-        <option value="../2026-04-07/dashboard.html" selected>2026-04-07 (actuelle)</option><option value="../2026-04-01/dashboard.html" >2026-04-01</option>
-      </select>
-      <span class="nav-btn nav-disabled">Plus récent &#8594;</span>
+      <div class="stat-pill"><span class="stat-num">3</span><span class="stat-label">signaux</span></div>
+      <div class="stat-pill highlight"><span class="stat-num">1</span><span class="stat-label">signaux forts</span></div>
+      <div class="stat-pill"><span class="stat-num">6.0/10</span><span class="stat-label">score moyen</span></div>
+      <div class="stat-pill"><span class="stat-num">1</span><span class="stat-label">posts générés</span></div>
     </div>
   </div>
 </header>
+<nav class="top-nav">
+  <a href="#mouvements" class="nav-link active">Mouvements</a>
+  <a href="#veille-ia" class="nav-link">Veille IA</a>
+  <a href="#veille-cyber" class="nav-link">Veille Cyber</a>
+  <a href="#idees" class="nav-link">Idées</a>
+  <a href="#sessions" class="nav-link">Sessions</a>
+</nav>
 
-<main>
+<main class="container">
 
-<!-- INSIGHT DE LA SEMAINE -->
-<section class="section-insight">
-  <div class="section-tag">Signal dominant</div>
-  <h2>Insight de la semaine</h2>
-  <p class="insight-text">L'IA entre dans une phase d'auto-régulation intelligente : les modèles apprennent à savoir quand s'arrêter (CoDE-Stop) et à négocier entre eux sans supervision humaine (Agentic FL). Le signal dominant est clair — 2025 marque le passage de l'IA 'brute force' à l'IA économe et autonome, où l'intelligence se mesure autant à ce qu'on ne calcule PAS qu'à ce qu'on calcule.</p>
-</section>
-
-<!-- CLASSEMENT -->
-<section>
-  <div class="section-tag">Scoring</div>
-  <h2>Classement de la semaine</h2>
-  <div class="ranking">
-    
-    <div class="ranking-item">
-      <div class="ranking-meta">
-        <span class="ranking-medal">🥇</span>
-        <div class="ranking-info">
-          <span class="ranking-title">Early Stopping for Large Reasoning Models via Confidence Dynamics</span>
-          <span class="ranking-topic" style="color:#ffcc80">LLMs & Fondation · ArXiv</span>
-        </div>
-        <span class="ranking-score" style="color:#ffcc80">8/10</span>
-      </div>
-      <div class="score-bar-bg">
-        <div class="score-bar-fill" style="width:80%;background:#ffcc80"></div>
-      </div>
+<section id="mouvements">
+  <h2 class="section-title">Top Mouvements de Marché</h2>
+  <div class="mouvements-grid">
+    <div class="carte-mouvement" data-score="8">
+  <div class="carte-header">
+    <div class="carte-badges">
+      <span class="badge badge-accélération">ACCÉLÉRATION</span>
+      
+      <span class="tier-badge tier-2">T2</span>
     </div>
-    <div class="ranking-item">
-      <div class="ranking-meta">
-        <span class="ranking-medal">🥈</span>
-        <div class="ranking-info">
-          <span class="ranking-title">Agentic Federated Learning: The Future of Distributed Training Orchestratio...</span>
-          <span class="ranking-topic" style="color:#4fc3f7">Agents IA · ArXiv</span>
-        </div>
-        <span class="ranking-score" style="color:#4fc3f7">8/10</span>
-      </div>
-      <div class="score-bar-bg">
-        <div class="score-bar-fill" style="width:80%;background:#4fc3f7"></div>
-      </div>
+    <div class="carte-force">
+      <span class="force-label">Force</span>
+      <div class="force-dots"><span class="dot dot-on"></span><span class="dot dot-on"></span><span class="dot dot-on"></span></div>
     </div>
+    <div class="carte-score">8/10</div>
   </div>
-</section>
-
-<!-- OPPORTUNITÉS + CHALLENGES -->
-<div class="grid-2">
-  <section>
-    <div class="section-tag">Actions</div>
-    <h2>Opportunités à saisir</h2>
-    <div class="cards-list">
+  <h3 class="carte-titre">Agents IA autonomes accélèrent vers l&#x27;automatisation massive</h3>
+  <p class="carte-horizon">Auditer l&#x27;exposition au shadow AI (qui utilise déjà des agents via API personnelles ?). Lancer un POC contrôlé sur un périmètre non critique pour mont</p>
+</div><div class="carte-mouvement" data-score="6">
+  <div class="carte-header">
+    <div class="carte-badges">
+      <span class="badge badge-émergent">ÉMERGENT</span>
       
-    <div class="card card-opp">
-      <div class="card-header">
-        <span class="card-icon">◆</span>
-        <strong>Réduire 30% coûts inférence</strong>
-        <span class="badge" style="background:#a5d6a722;color:#a5d6a7;border:1px solid #a5d6a744">Court terme</span>
-      </div>
-      <p>CoDE-Stop est plug-and-play sur vos déploiements o1/Claude existants. POC en 2 semaines, ROI immédiat sur la facture API — parfait pour justifier les budgets IA 2025 au COMEX.</p>
+      <span class="tier-badge tier-2">T2</span>
     </div>
-    <div class="card card-opp">
-      <div class="card-header">
-        <span class="card-icon">◆</span>
-        <strong>FL souverain multi-entités santé/finance</strong>
-        <span class="badge" style="background:#fff17622;color:#fff176;border:1px solid #fff17644">Moyen terme</span>
-      </div>
-      <p>L'Agentic FL résout le blocage historique des consortiums data français (Health Data Hub, Banque de France). Positionnez-vous comme orchestrateur d'un premier pilote sectoriel avant que les Big4 ne packagent l'offre.</p>
+    <div class="carte-force">
+      <span class="force-label">Force</span>
+      <div class="force-dots"><span class="dot dot-on"></span><span class="dot dot-on"></span><span class="dot dot-on"></span></div>
     </div>
-    <div class="card card-opp">
-      <div class="card-header">
-        <span class="card-icon">◆</span>
-        <strong>Offre 'IA frugale' différenciante</strong>
-        <span class="badge" style="background:#fff17622;color:#fff176;border:1px solid #fff17644">Moyen terme</span>
-      </div>
-      <p>Combinez les deux papiers pour créer une proposition RSE/GreenIT crédible : moins de compute, données décentralisées. Les appels d'offres publics français vont l'exiger sous 18 mois.</p>
-    </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="section-tag">Vigilance</div>
-    <h2>Challenges à surveiller</h2>
-    <div class="cards-list">
+    <div class="carte-score">6/10</div>
+  </div>
+  <h3 class="carte-titre">LLMs auto-correcteurs : vers des raisonnements fiables autonomes</h3>
+  <p class="carte-horizon">Veille active sur les évolutions des modèles (GPT-5, Claude 4, Mistral). Identifier les cas d&#x27;usage internes où la vérification humaine est un goulot </p>
+</div><div class="carte-mouvement" data-score="4">
+  <div class="carte-header">
+    <div class="carte-badges">
+      <span class="badge badge-émergent">ÉMERGENT</span>
       
-    <div class="card card-challenge">
-      <div class="card-header">
-        <span class="card-icon">⚠</span>
-        <strong>Perte contrôle agents autonomes</strong>
-        <span class="badge" style="background:#f48fb122;color:#f48fb1;border:1px solid #f48fb144">Élevé</span>
-      </div>
-      <p>Des agents LLM qui négocient budgets privacy et ressources sans humain = audit trail complexe. Les RSSI vont bloquer si vous n'anticipez pas la gouvernance dès le POC.</p>
+      <span class="tier-badge tier-2">T2</span>
     </div>
-    <div class="card card-challenge">
-      <div class="card-header">
-        <span class="card-icon">⚠</span>
-        <strong>Early stopping mal calibré</strong>
-        <span class="badge" style="background:#ffcc8022;color:#ffcc80;border:1px solid #ffcc8044">Modéré</span>
-      </div>
-      <p>Couper trop tôt sur des cas edge (juridique, médical) peut créer des hallucinations tronquées plus dangereuses que l'overthinking. Les équipes métier doivent valider les seuils, pas juste MLOps.</p>
+    <div class="carte-force">
+      <span class="force-label">Force</span>
+      <div class="force-dots"><span class="dot dot-on"></span><span class="dot dot-off"></span><span class="dot dot-off"></span></div>
     </div>
-    <div class="card card-challenge">
-      <div class="card-header">
-        <span class="card-icon">⚠</span>
-        <strong>Fragmentation standards FL agents</strong>
-        <span class="badge" style="background:#fff17622;color:#fff176;border:1px solid #fff17644">Émergent</span>
-      </div>
-      <p>Chaque vendor va pousser son framework d'agents fédérés. Sans interopérabilité, risque de lock-in sur des écosystèmes incompatibles — le 'browser wars' de l'IA distribuée commence.</p>
-    </div>
-    </div>
-  </section>
+    <div class="carte-score">4/10</div>
+  </div>
+  <h3 class="carte-titre">Incertitudes critiques sur l&#x27;état réel des risques IA</h3>
+  <p class="carte-horizon">Cartographier les déploiements IA existants (shadow inclus) et évaluer l&#x27;exposition données. Décision COMEX sur la posture risque IA d&#x27;ici fin Q2 2026</p>
 </div>
-
-<!-- RECOMMANDATION ÉDITORIALE -->
-
-<section class="section-reco">
-  <div class="section-tag">Editorial</div>
-  <h2>Recommandation de publication</h2>
-  <div class="reco-card">
-    <div class="reco-icon">✦</div>
-    <div class="reco-content">
-      <h3>Early Stopping for Large Reasoning Models via Confidence Dynamics</h3>
-      <p>Timing parfait : les discussions budgets IA 2025 sont en cours partout. Un article qui promet -30% de coûts sans réentraînement va résonner immédiatement avec les CFO et CDO. L'angle 'overthinking = contre-productif' est aussi contre-intuitif et mémorable — fort potentiel viral.</p>
-      <span class="reco-timing">⏰ Mardi 08h00</span>
-    </div>
   </div>
 </section>
 
-<!-- BRIEFS DÉTAILLÉS -->
-<section>
-  <div class="section-tag">Analyse</div>
-  <h2>Briefs détaillés</h2>
-  <div class="briefs-list">
-    
-    <div class="brief-card" style="border-left:3px solid #ffcc80">
-      <div class="brief-header" onclick="toggleBrief(this)">
-        <div class="brief-header-left">
-          <span class="brief-topic-badge" style="background:#2a1a1a;color:#ffcc80">LLMs & Fondation</span>
-          <h3>Early Stopping for Large Reasoning Models via Confidence Dynamics</h3>
-        </div>
-        <div class="brief-header-right">
-          <span class="brief-score" style="color:#ffcc80">8/10</span>
-          <span class="brief-source">ArXiv</span>
-          <span class="brief-toggle">▼</span>
-        </div>
-      </div>
-      <div class="brief-body" style="display:none">
-        <div class="brief-meta">
-          <a href="http://arxiv.org/abs/2604.04930v1" target="_blank" class="brief-link">Lire l'article original →</a>
-          <span>Mot-clé : <em>reasoning models</em></span>
-          <span>Date : 2026-04-06</span>
-        </div>
-        <div class="brief-content"># BRIEF STRATÉGIQUE<br><br>## <span class="brief-section-title">1. SIGNAL CLÉ</span><br>Les modèles de raisonnement IA "savent" quand ils ont trouvé la bonne réponse — leur confiance se stabilise tôt. Exploiter cette dynamique permet de couper 25-50% des tokens générés sans perdre en précision, voire en gagnant (l'overthinking dégrade les performances).<br><br>## <span class="brief-section-title">2. POURQUOI ÇA VA DEVENIR VIRAL</span><br><br>**Dans 2 semaines** : Les équipes MLOps vont tester CoDE-Stop sur leurs déploiements o1/Claude — c'est plug-and-play, zéro réentraînement. Les premiers benchmarks maison vont circuler sur X et LinkedIn.<br><br>**Dans 1 mois** : Les fournisseurs cloud (Azure, GCP, AWS) vont intégrer des mécanismes similaires dans leurs APIs de reasoning models. Annonces prévisibles côté OpenAI/Anthropic sur l'optimisation des coûts.<br><br>**Dans 3 mois** : Le sujet "FinOps IA" explose dans les COMEX. Cette technique devient un argument commercial standard : "notre modèle raisonne juste assez, pas plus".<br><br>## <span class="brief-section-title">3. IMPLICATIONS CONCRÈTES</span> POUR DSI/CDO/COMEX FRANÇAIS<br><br>- **Banque/Assurance** : Les use cases de scoring crédit ou détection fraude avec reasoning models deviennent économiquement viables. Diviser par deux le coût token change l'équation ROI des POCs en prod.<br><br>- **Industrie/Supply Chain** : Les agents IA de planification (type o1 sur optimisation logistique) passent de "gadget coûteux" à "déployable à l'échelle". Renault, Airbus, Carrefour — premiers candidats.<br><br>- **Gouvernance IT** : Nouveau KPI à monitorer — le "ratio tokens utiles/tokens générés". Les DSI qui ne trackent que le coût brut passent à côté de 30% d'économies cachées.<br><br>## <span class="brief-section-title">4. ANGLE DIFFÉRENCIANT</span><br>L'overthinking de l'IA n'est pas qu'un problème de coût — c'est un problème de **qualité**. Les traces de raisonnement longues corrèlent avec les mauvaises réponses. Autrement dit : quand votre modèle "réfléchit trop", c'est souvent qu'il se trompe. Implications massives pour l'audit et la confiance dans les outputs IA.<br><br>## <span class="brief-section-title">5. CE QUE TOUT LE MONDE VA RATER</span><br>La vraie pépite est dans l'**observabilité du raisonnement**. La dynamique de confiance devient un signal de fiabilité en temps réel. Demain, on pourra dire "cette réponse a été produite avec un pattern de confiance sain" vs "pattern erratique = à vérifier humainement". C'est la base d'une certification qualité des outputs IA — sujet réglementaire EU AI Act en embuscade.<br><br>## <span class="brief-section-title">6. SCORE DE PERTINENCE</span> : 8/10<br>**Justification** : Impact immédiat sur les coûts opérationnels IA (sujet brûlant post-hype GPT), applicable sans friction technique, mais reste niche "reasoning models" — pas encore le mainstream des déploiements français.</div>
-      </div>
+<section id="veille-ia">
+  <h2 class="section-title">Veille IA Entreprise</h2>
+  <div class="sous-theme">
+  <h3 class="sous-theme-titre">Agents & Automatisation</h3>
+  <div class="signaux-liste">
+    <div class="carte-signal">
+  <div class="carte-signal-header" onclick="toggleSignal('signal_2317239800704_n7670230883165238261')">
+    <div class="signal-meta">
+      <span class="badge badge-accélération">ACCÉLÉRATION</span>
+      <span class="tier-badge tier-2">T2</span>
     </div>
-    <div class="brief-card" style="border-left:3px solid #4fc3f7">
-      <div class="brief-header" onclick="toggleBrief(this)">
-        <div class="brief-header-left">
-          <span class="brief-topic-badge" style="background:#1a2a3a;color:#4fc3f7">Agents IA</span>
-          <h3>Agentic Federated Learning: The Future of Distributed Training Orchestration</h3>
-        </div>
-        <div class="brief-header-right">
-          <span class="brief-score" style="color:#4fc3f7">8/10</span>
-          <span class="brief-source">ArXiv</span>
-          <span class="brief-toggle">▼</span>
-        </div>
-      </div>
-      <div class="brief-body" style="display:none">
-        <div class="brief-meta">
-          <a href="http://arxiv.org/abs/2604.04895v1" target="_blank" class="brief-link">Lire l'article original →</a>
-          <span>Mot-clé : <em>multi-agent</em></span>
-          <span>Date : 2026-04-06</span>
-        </div>
-        <div class="brief-content"># BRIEF STRATÉGIQUE – SIGNAL FAIBLE<br><br>## <span class="brief-section-title">1. SIGNAL CLÉ</span><br>L'apprentissage fédéré passe d'un protocole rigide à un écosystème où des agents LLM négocient autonomement la collaboration entre nœuds distribués. Premier framework où les agents gèrent en temps réel les budgets privacy, l'allocation ressources et la sélection de clients sans intervention humaine.<br><br>## <span class="brief-section-title">2. POURQUOI ÇA VA DEVENIR VIRAL</span><br><br>- **Dans 2 semaines** : Reprise par la communauté ML européenne car ça coche toutes les cases RGPD + souveraineté. Premiers threads Twitter/X des chercheurs INRIA et Mila.<br><br>- **Dans 1 mois** : Les vendors FL (Nvidia FLARE, Flower) vont annoncer des PoC "agentic". Premiers articles Forrester/Gartner mentionnant le concept comme évolution naturelle du FL.<br><br>- **Dans 3 mois** : Cas d'usage pharma/banque en Europe. Le terme "Agentic-FL" entre dans les RFP des consortiums data santé et des initiatives GAIA-X.<br><br>## <span class="brief-section-title">3. IMPLICATIONS CONCRÈTES</span> POUR DSI/CDO/COMEX FRANÇAIS<br><br>- **Santé/Pharma** : Les consortiums type Health Data Hub peuvent enfin scaler. Les agents gèrent dynamiquement les contraintes CNIL de chaque établissement sans négociation manuelle interminable entre DPO.<br><br>- **Banque/Assurance** : Modèles anti-fraude multi-établissements sans centralisation des données. Le client-agent ajuste automatiquement la contribution selon la puissance dispo – fini les nœuds qui plombent l'entraînement.<br><br>- **Industrie** : Entraînement collaboratif entre sites usines avec contraintes réseau hétérogènes. L'agent local décide seul quand/comment contribuer selon la bande passante OT disponible.<br><br>## <span class="brief-section-title">4. ANGLE DIFFÉRENCIANT</span><br>Personne ne parle du vrai shift : on passe d'une gouvernance data humaine à une gouvernance algorithmique. Les agents négocient entre eux les termes de la collaboration – budgets privacy, incitations, fairness. C'est la première brique d'une économie de la donnée entièrement automatisée. Le DSI ne pilote plus, il supervise des négociations machines.<br><br>## <span class="brief-section-title">5. CE QUE TOUT LE MONDE VA RATER</span><br>Le papier mentionne "hallucinations" et "security challenges" en passant. Or, un agent serveur qui hallucine sur la sélection des clients peut introduire des biais systémiques à l'échelle d'un consortium entier. Pire : des agents clients malveillants peuvent manipuler leurs homologues LLM plus facilement qu'un protocole cryptographique. L'attaque adversariale devient sociale, pas technique.<br><br>## <span class="brief-section-title">6. SCORE DE PERTINENCE</span> : 8/10<br>**Justification** : Convergence rare entre deux hypes (agents IA + FL), timing parfait avec les initiatives européennes de mutualisation data, mais maturité terrain encore à 18-24 mois pour les grands comptes français.</div>
-      </div>
+    <h4 class="signal-titre">Agents IA autonomes accélèrent vers l&#x27;automatisation massive</h4>
+    <div class="signal-indicateurs">
+      <div class="force-dots small"><span class="dot dot-on"></span><span class="dot dot-on"></span><span class="dot dot-on"></span></div>
+      <span class="signal-score">8/10</span>
+      <span class="toggle-arrow" id="arrow-signal_2317239800704_n7670230883165238261">▼</span>
     </div>
   </div>
+
+  <div id="signal_2317239800704_n7670230883165238261" class="signal-body" style="display:none;">
+    <div class="sources-liste"><strong>Sources :</strong><ul><li><a href="https://www.alignmentforum.org/posts/dKpC6wHFqDrGZwnah/ais-can-now-often-do-massive-easy-to-verify-swe-tasks-and-i" target="_blank" class="source-link">AIs can now often do massive easy-to-verify SWE tasks and I&#x27;ve updated towards s</a> <span class="source-name">(Alignment Forum)</span></li><li><a href="https://www.alignmentforum.org/posts/qdhyrN4uKwBAftmQx/there-should-be-usd100m-grants-to-automate-ai-safety" target="_blank" class="source-link">There should be $100M grants to automate AI safety</a> <span class="source-name">(Alignment Forum)</span></li><li><a href="https://huggingface.co/papers/2604.06132" target="_blank" class="source-link">Claw-Eval: Toward Trustworthy Evaluation of Autonomous Agents</a> <span class="source-name">(HuggingFace Papers)</span></li></ul></div>
+    <div class="analyse-container">
+  <div class="tab-nav"><button class="tab-btn" onclick="switchTab(this, 'panel-A')" data-panel="panel-A">A. Lecture Marché</button><button class="tab-btn" onclick="switchTab(this, 'panel-B')" data-panel="panel-B">B. Impact Entreprise</button><button class="tab-btn" onclick="switchTab(this, 'panel-C')" data-panel="panel-C">C. Impact DSI</button><button class="tab-btn" onclick="switchTab(this, 'panel-D')" data-panel="panel-D">D. Impact Métiers</button><button class="tab-btn" onclick="switchTab(this, 'panel-E')" data-panel="panel-E">E. Opportunités</button><button class="tab-btn" onclick="switchTab(this, 'panel-F')" data-panel="panel-F">F. Risques</button><button class="tab-btn" onclick="switchTab(this, 'panel-G')" data-panel="panel-G">G. Actions</button><button class="tab-btn" onclick="switchTab(this, 'panel-H')" data-panel="panel-H">H. Horizon</button><button class="tab-btn" onclick="switchTab(this, 'panel-I')" data-panel="panel-I">I. Nuances</button></div>
+  <div class="tab-content"><div id="panel-A" class="tab-panel" style="display:none;"><div class="analyse-section">
+  <p><strong>Faits :</strong> Des experts révisent leurs prévisions d&#x27;automatisation complète de la R&amp;D IA à 30% de probabilité d&#x27;ici fin 2028 (contre 15% avant). Les agents IA démontrent désormais des capacités sur des tâches d&#x27;ingénierie logicielle massives et complexes, vérifiables automatiquement. Des appels à financement de 100M$ émergent pour automatiser des pans entiers de travail via budgets compute/API.</p>
+  <p><strong>Importance :</strong> Les entreprises françaises font face à un raccourcissement brutal des timelines d&#x27;adoption. Ce qui était prévu à 5 ans pourrait arriver en 18-24 mois, forçant une réévaluation immédiate des roadmaps IT et RH.</p>
+  <p><strong>Niveau de maturité :</strong> <span class="badge badge-accélération">ACCÉLÉRATION</span> — Passage de la preuve de concept à des déploiements massifs sur tâches complexes, avec révision des timelines par les experts du domaine.</p>
+</div></div><div id="panel-B" class="tab-panel" style="display:none;"><div class="analyse-section">
+  <p><strong>Transformation opérationnelle :</strong> Les processus à forte composante de développement, maintenance applicative et analyse de données deviennent candidats à l&#x27;automatisation par agents. Les chaînes de valeur IT-intensives (banque, assurance, retail) voient leur modèle de delivery profondément questionné.</p>
+  <p><strong>Fonctions impactées :</strong> <span class="tag">DSI / Développement logiciel</span> <span class="tag">Data &amp; Analytics</span> <span class="tag">Opérations / Back-office</span> <span class="tag">Finance (automatisation reporting)</span></p>
+  <p><strong>Nature du changement :</strong> <strong>DISRUPTION</strong> — Rupture du modèle de staffing traditionnel IT : passage potentiel de projets à 10 ETP vers 2 ETP + agents, avec impacts sociaux majeurs à anticiper.</p>
+</div></div><div id="panel-C" class="tab-panel" style="display:none;"><div class="analyse-section">
+  <p><strong>Rôle DSI :</strong> <span class="badge-role badge-info">TRANSFORMÉ</span> — Le DSI devient garant de la maîtrise des agents (sécurité, compliance, qualité) plutôt que fournisseur de ressources de développement — position stratégique si bien négociée.</p>
+  <table class="analyse-table"><tr><td class="td-label">Infrastructure</td><td>Besoin massif de capacité compute (GPU/API) et d&#x27;environnements sandboxés pour exécution sécurisée des agents. Pression sur les budgets CapEx/OpEx cloud.</td></tr><tr><td class="td-label">Data</td><td>Les agents nécessitent un accès structuré aux données d&#x27;entreprise. La qualité du data catalog et des API internes devient critique — sinon les agents échouent ou hallucinent.</td></tr><tr><td class="td-label">Sécurité / Cyber</td><td>Risque majeur : agents autonomes avec accès aux systèmes de production. Nécessité de frameworks de contrôle d&#x27;accès granulaires et de monitoring temps réel des actions agents.</td></tr><tr><td class="td-label">Gouvernance</td><td>Flou juridique sur la responsabilité des décisions prises par agents. Qui valide ? Qui est accountable ? La gouvernance IT doit intégrer un nouveau layer &#x27;supervision agents&#x27;.</td></tr><tr><td class="td-label">Operating model</td><td>Shift vers un rôle d&#x27;orchestration et supervision plutôt que d&#x27;exécution. Les équipes Build évoluent vers du &#x27;Agent Engineering&#x27; et du prompt design.</td></tr></table>
+</div></div><div id="panel-D" class="tab-panel" style="display:none;"><div class="analyse-section">
+  <p><strong>Évolution des rôles :</strong> Les profils métiers tech-savvy deviennent des &#x27;pilotes d&#x27;agents&#x27; : ils définissent les objectifs, valident les outputs, itèrent sur les prompts. Les rôles d&#x27;exécution pure (saisie, tests manuels, reporting) s&#x27;érodent.</p>
+  <p><strong>Autonomie technologique des métiers :</strong> <strong>FORTE</strong></p>
+  <p><strong>Dépendance DSI :</strong> réduction</p>
+  <p><strong>Nouveaux usages :</strong></p><ul><li>Génération automatique de dashboards métiers via agents (ex: CFO demandant une analyse de marge en langage naturel)</li><li>Automatisation de la rédaction de spécifications fonctionnelles par les Product Owners</li><li>Agents de test autonomes déclenchés par les équipes QA métier sans intervention dev</li></ul>
+  <p><strong>Gains productivité :</strong> Sur les tâches SWE vérifiables, gains de 60-80% de temps de développement observés dans les benchmarks. Attention : ces gains ne se transfèrent pas linéairement en contexte entreprise (dette technique, legacy).</p>
+  <p><strong>Transformation compétences :</strong> Montée en puissance du &#x27;Agent Literacy&#x27; : savoir formuler des objectifs, découper des tâches, valider des outputs. Déclin des compétences d&#x27;exécution répétitive, mais maintien critique de l&#x27;expertise métier pour la validation.</p>
+  <p class="alert-text"><strong>Shadow AI / IT :</strong> Risque élevé : les métiers peuvent déployer des agents via API OpenAI/Anthropic sans passer par la DSI. Données sensibles potentiellement exposées, agents non audités proliférant dans les équipes.</p>
+  <p><strong>Risques métiers :</strong></p><ul class="risk-list"><li class="risk-item">Dépendance excessive à des outputs non validés (hallucinations propagées)</li><li class="risk-item">Perte de compétences internes sur les processus automatisés, créant une fragilité organisationnelle</li></ul>
+</div></div><div id="panel-E" class="tab-panel" style="display:none;"><div class="analyse-section"><div class="group-bloc"><strong>Entreprise</strong><ul><li>Réduction des délais de delivery IT de 40-60% sur certains périmètres applicatifs</li><li>Capacité à absorber des pics d&#x27;activité sans recrutement via agents scalables</li></ul></div><div class="group-bloc"><strong>Metiers</strong><ul><li>Autonomie accrue pour prototyper des solutions sans attendre la DSI (time-to-value raccourci)</li><li>Réallocation des équipes vers des tâches à plus forte valeur ajoutée (analyse, relation client)</li></ul></div><div class="group-bloc"><strong>Dsi</strong><ul><li>Positionnement comme &#x27;AI Platform Owner&#x27; : fournir le socle sécurisé d&#x27;agents plutôt que subir le shadow AI</li><li>Création d&#x27;un Centre d&#x27;Excellence Agents IA pour industrialiser et gouverner les usages</li></ul></div></div></div><div id="panel-F" class="tab-panel" style="display:none;"><div class="analyse-section"><div class="group-bloc"><strong>Techniques</strong><ul><li>Manque de maturité des frameworks d&#x27;évaluation d&#x27;agents (cf. Claw-Eval) — difficile de garantir la fiabilité en production</li><li>Intégration complexe avec les systèmes legacy : les agents performants sur greenfield échouent souvent sur le patrimoine existant</li></ul></div><div class="group-bloc"><strong>Organisationnels</strong><ul><li>Conflit DSI/métiers sur le contrôle des agents : qui décide des cas d&#x27;usage autorisés ?</li><li>Absence de processus de validation humaine systématique créant des risques de propagation d&#x27;erreurs</li></ul></div><div class="group-bloc"><strong>Humains</strong><ul><li>Résistance des équipes IT voyant leur rôle menacé — risque de blocage ou de départ de compétences clés</li><li>Anxiété généralisée sur l&#x27;emploi freinant l&#x27;adoption et la collaboration</li></ul></div><div class="group-bloc"><strong>Reglementaires</strong><ul><li>AI Act : les agents autonomes avec impact décisionnel tombent potentiellement en catégorie &#x27;high-risk&#x27;, imposant documentation et audit</li><li>RGPD : traçabilité des décisions automatisées et droit à l&#x27;explication difficiles à garantir avec des agents complexes</li></ul></div></div></div><div id="panel-G" class="tab-panel" style="display:none;"><div class="analyse-section"><div class="group-bloc"><strong>Pour La Dsi</strong><ul><li>Cartographier sous 3 mois les cas d&#x27;usage candidats à l&#x27;automatisation par agents (critères : volume, vérifiabilité, risque)</li><li>Déployer un environnement sandbox sécurisé pour expérimentation agents avec guardrails (pas d&#x27;accès prod, données anonymisées)</li><li>Définir une politique claire d&#x27;utilisation des API IA externes et la communiquer aux métiers</li></ul></div><div class="group-bloc"><strong>Pour Les Metiers</strong><ul><li>Identifier 2-3 processus à forte charge manuelle pour pilotes agents supervisés</li><li>Former les key users au &#x27;prompt engineering&#x27; et à la validation critique des outputs agents</li></ul></div><div class="group-bloc"><strong>Pour La Gouvernance</strong><ul><li>Créer un comité IA transverse DSI/métiers/juridique/RH pour arbitrer les déploiements agents</li><li>Établir une charte de responsabilité claire : qui valide, qui est accountable des décisions agents</li></ul></div></div></div><div id="panel-H" class="tab-panel" style="display:none;"><div class="analyse-section horizon-grid"><div class="horizon-item"><span class="horizon-label">Immédiat (0-3 mois)</span><p>Auditer l&#x27;exposition au shadow AI (qui utilise déjà des agents via API personnelles ?). Lancer un POC contrôlé sur un périmètre non critique pour monter en compétence.</p></div><div class="horizon-item"><span class="horizon-label">6 mois</span><p>Industrialiser 1-2 cas d&#x27;usage agents en production avec monitoring. Ajuster l&#x27;operating model IT pour intégrer la supervision agents comme compétence clé.</p></div><div class="horizon-item"><span class="horizon-label">12-24 mois</span><p>L&#x27;automatisation par agents devient un critère de compétitivité. Les entreprises sans stratégie claire accumulent du retard sur leurs concurrents et peinent à attirer les talents tech.</p></div></div></div><div id="panel-I" class="tab-panel" style="display:none;"><div class="analyse-section contradiction-bloc">
+  <p><strong>Pourquoi ce signal peut être surestimé :</strong> Les timelines &#x27;experts&#x27; restent spéculatives et révisées fréquemment. Les benchmarks portent sur des tâches &#x27;clean&#x27; — le legacy, la complexité organisationnelle et la dette technique ralentissent drastiquement les gains réels.</p>
+  <p><strong>Cas où il ne s'applique pas :</strong> PME sans capacité d&#x27;investissement compute/API. Secteurs ultra-régulés (défense, nucléaire, santé critique) où l&#x27;autonomie des agents est incompatible avec les exigences de traçabilité et validation humaine.</p>
+  <p><strong>Argument contre :</strong> La vérifiabilité des outputs agents reste un problème ouvert : sur les tâches complexes et ambiguës (la majorité en entreprise), la validation humaine reste indispensable et coûteuse, annulant une partie des gains de productivité.</p>
+</div></div></div>
+</div>
+  </div>
+</div>
+  </div>
+</div><div class="sous-theme">
+  <h3 class="sous-theme-titre">Adoption Entreprise</h3>
+  <div class="signaux-liste">
+    <div class="carte-signal">
+  <div class="carte-signal-header" onclick="toggleSignal('signal_2317239800640_n8918327968531632795')">
+    <div class="signal-meta">
+      <span class="badge badge-émergent">ÉMERGENT</span>
+      <span class="tier-badge tier-2">T2</span>
+    </div>
+    <h4 class="signal-titre">LLMs auto-correcteurs : vers des raisonnements fiables autonomes</h4>
+    <div class="signal-indicateurs">
+      <div class="force-dots small"><span class="dot dot-on"></span><span class="dot dot-on"></span><span class="dot dot-on"></span></div>
+      <span class="signal-score">6/10</span>
+      <span class="toggle-arrow" id="arrow-signal_2317239800640_n8918327968531632795">▼</span>
+    </div>
+  </div>
+
+  <div id="signal_2317239800640_n8918327968531632795" class="signal-body" style="display:none;">
+    <div class="sources-liste"><strong>Sources :</strong><ul><li><a href="https://www.alignmentforum.org/posts/dYHFtEnKc4BdJEYY4/my-most-common-research-advice-do-quick-sanity-checks" target="_blank" class="source-link">My most common research advice: do quick sanity checks</a> <span class="source-name">(Alignment Forum)</span></li><li><a href="https://www.alignmentforum.org/posts/tDJWZLQNN7poqCwKa/test-your-best-methods-on-our-hard-cot-interp-tasks" target="_blank" class="source-link">Test your best methods on our hard CoT interp tasks</a> <span class="source-name">(Alignment Forum)</span></li><li><a href="https://huggingface.co/papers/2604.01591" target="_blank" class="source-link">ThinkTwice: Jointly Optimizing Large Language Models for Reasoning and Self-Refi</a> <span class="source-name">(HuggingFace Papers)</span></li></ul></div>
+    <div class="analyse-container">
+  <div class="tab-nav"><button class="tab-btn" onclick="switchTab(this, 'panel-A')" data-panel="panel-A">A. Lecture Marché</button><button class="tab-btn" onclick="switchTab(this, 'panel-B')" data-panel="panel-B">B. Impact Entreprise</button><button class="tab-btn" onclick="switchTab(this, 'panel-C')" data-panel="panel-C">C. Impact DSI</button><button class="tab-btn" onclick="switchTab(this, 'panel-D')" data-panel="panel-D">D. Impact Métiers</button><button class="tab-btn" onclick="switchTab(this, 'panel-E')" data-panel="panel-E">E. Opportunités</button><button class="tab-btn" onclick="switchTab(this, 'panel-F')" data-panel="panel-F">F. Risques</button><button class="tab-btn" onclick="switchTab(this, 'panel-G')" data-panel="panel-G">G. Actions</button><button class="tab-btn" onclick="switchTab(this, 'panel-H')" data-panel="panel-H">H. Horizon</button><button class="tab-btn" onclick="switchTab(this, 'panel-I')" data-panel="panel-I">I. Nuances</button></div>
+  <div class="tab-content"><div id="panel-A" class="tab-panel" style="display:none;"><div class="analyse-section">
+  <p><strong>Faits :</strong> Émergence de travaux académiques sur l&#x27;optimisation conjointe raisonnement/auto-correction des LLMs (ThinkTwice). Parallèlement, la recherche en interprétabilité des chaînes de raisonnement (CoT) progresse avec des benchmarks de tâches difficiles pour détecter les failles de raisonnement. Ces avancées visent à rendre les LLMs plus fiables sans supervision humaine systématique.</p>
+  <p><strong>Importance :</strong> Pour les grandes entreprises françaises, c&#x27;est le signal que l&#x27;IA générative passe d&#x27;un outil de génération de contenu à un outil de décision assistée. La question de la confiance dans les outputs devient centrale pour les usages métiers critiques.</p>
+  <p><strong>Niveau de maturité :</strong> <span class="badge badge-émergent">ÉMERGENT</span> — Travaux encore cantonnés à la recherche académique (Alignment Forum, papiers HuggingFace), pas de déploiements industriels documentés.</p>
+</div></div><div id="panel-B" class="tab-panel" style="display:none;"><div class="analyse-section">
+  <p><strong>Transformation opérationnelle :</strong> Potentiel de délégation accrue de tâches analytiques complexes aux LLMs (audit, contrôle qualité, analyse juridique préliminaire). Réduction des boucles de validation humaine si la fiabilité des auto-corrections se confirme.</p>
+  <p><strong>Fonctions impactées :</strong> <span class="tag">Fonctions support (juridique, finance, conformité)</span> <span class="tag">Data Science / Analytics</span> <span class="tag">DSI - équipes IA &amp; MLOps</span></p>
+  <p><strong>Nature du changement :</strong> <strong>COMBINAISON</strong> — Productivité immédiate sur les tâches de vérification, mais disruption potentielle des rôles de validation intermédiaire si l&#x27;auto-correction devient robuste.</p>
+</div></div><div id="panel-C" class="tab-panel" style="display:none;"><div class="analyse-section">
+  <p><strong>Rôle DSI :</strong> <span class="badge-role badge-info">TRANSFORMÉ</span> — La DSI passe de fournisseur d&#x27;outils IA à garant de la fiabilité des raisonnements automatisés — un rôle plus stratégique mais aussi plus exposé.</p>
+  <table class="analyse-table"><tr><td class="td-label">Infrastructure</td><td>Besoin accru en capacité de compute pour des modèles qui itèrent plusieurs fois sur leur propre output (coût GPU x2 à x3 par requête complexe). Pression sur les architectures hybrides cloud/on-premise.</td></tr><tr><td class="td-label">Data</td><td>Exigence renforcée de traçabilité des raisonnements intermédiaires. Les data pipelines doivent capturer les étapes de réflexion pour audit et compliance.</td></tr><tr><td class="td-label">Sécurité / Cyber</td><td>Risque de manipulation des chaînes de raisonnement (prompt injection sur les boucles d&#x27;auto-correction). Surface d&#x27;attaque élargie sur les processus décisionnels automatisés.</td></tr><tr><td class="td-label">Gouvernance</td><td>Nécessité de définir des seuils de confiance acceptables par type d&#x27;usage. Qui valide qu&#x27;un LLM peut s&#x27;auto-corriger sans humain dans la boucle ?</td></tr><tr><td class="td-label">Operating model</td><td>Création probable de rôles hybrides &#x27;AI Quality Assurance&#x27; à la frontière DSI/métiers. Les équipes MLOps doivent intégrer des compétences d&#x27;interprétabilité.</td></tr></table>
+</div></div><div id="panel-D" class="tab-panel" style="display:none;"><div class="analyse-section">
+  <p><strong>Évolution des rôles :</strong> Les analystes et experts métiers passent d&#x27;exécutants de vérifications à superviseurs de processus IA. Leur valeur se déplace vers le cadrage des problèmes et la validation des cas limites.</p>
+  <p><strong>Autonomie technologique des métiers :</strong> <strong>MODÉRÉE</strong></p>
+  <p><strong>Dépendance DSI :</strong> stable</p>
+  <p><strong>Nouveaux usages :</strong></p><ul><li>Revue automatisée de contrats avec auto-détection d&#x27;incohérences (directions juridiques)</li><li>Contrôle qualité de rapports financiers avec itérations correctives sans intervention humaine</li><li>Pré-audit de conformité réglementaire avec chaîne de raisonnement traçable</li></ul>
+  <p><strong>Gains productivité :</strong> Potentiel de réduction de 30-50% du temps de revue sur les tâches de vérification documentaire, si les modèles atteignent un seuil de fiabilité &gt;95%. Chiffres encore théoriques.</p>
+  <p><strong>Transformation compétences :</strong> Montée en compétence nécessaire sur l&#x27;évaluation critique des outputs IA (prompt engineering avancé, lecture de chaînes de raisonnement). Risque d&#x27;obsolescence des profils cantonnés à la vérification mécanique.</p>
+  <p class="alert-text"><strong>Shadow AI / IT :</strong> Fort risque d&#x27;adoption sauvage d&#x27;outils de &#x27;self-refining AI&#x27; par les métiers impatients (ChatGPT plugins, outils SaaS non validés), sans maîtrise de la fiabilité réelle.</p>
+  <p><strong>Risques métiers :</strong></p><ul class="risk-list"><li class="risk-item">Sur-confiance dans les auto-corrections menant à des erreurs non détectées sur des cas edge</li><li class="risk-item">Perte de compétence critique interne si délégation excessive aux LLMs</li></ul>
+</div></div><div id="panel-E" class="tab-panel" style="display:none;"><div class="analyse-section"><div class="group-bloc"><strong>Entreprise</strong><ul><li>Accélération des cycles de décision sur les processus documentaires lourds (M&amp;A, conformité)</li><li>Différenciation compétitive via des services clients augmentés par IA fiable</li></ul></div><div class="group-bloc"><strong>Metiers</strong><ul><li>Recentrage des experts sur les arbitrages à forte valeur ajoutée</li><li>Autonomie accrue dans l&#x27;itération sur les analyses sans attendre la DSI</li></ul></div><div class="group-bloc"><strong>Dsi</strong><ul><li>Positionnement comme &#x27;trust authority&#x27; sur l&#x27;IA — rôle stratégique de certification des usages</li><li>Opportunité de construire une plateforme d&#x27;observabilité des raisonnements IA (différenciateur vs SaaS standards)</li></ul></div></div></div><div id="panel-F" class="tab-panel" style="display:none;"><div class="analyse-section"><div class="group-bloc"><strong>Techniques</strong><ul><li>Les mécanismes d&#x27;auto-correction peuvent créer des boucles d&#x27;hallucination renforcée (le modèle &#x27;confirme&#x27; ses propres erreurs)</li><li>Coût computationnel prohibitif pour des usages à grande échelle en temps réel</li></ul></div><div class="group-bloc"><strong>Organisationnels</strong><ul><li>Flou sur la responsabilité en cas d&#x27;erreur d&#x27;un LLM auto-corrigé (DSI ? Métier ? Éditeur ?)</li><li>Tension DSI/métiers sur le seuil de confiance acceptable : les métiers voudront aller vite, la DSI voudra sécuriser</li></ul></div><div class="group-bloc"><strong>Humains</strong><ul><li>Résistance des experts métiers qui voient leur rôle de validation remis en question — risque de désengagement</li></ul></div><div class="group-bloc"><strong>Reglementaires</strong><ul><li>AI Act (2026) : les systèmes à haut risque exigent une explicabilité que l&#x27;auto-correction complexifie</li><li>RGPD : traçabilité des décisions automatisées impactant des personnes — les chaînes de raisonnement doivent être auditables</li></ul></div></div></div><div id="panel-G" class="tab-panel" style="display:none;"><div class="analyse-section"><div class="group-bloc"><strong>Pour La Dsi</strong><ul><li>Lancer un POC interne sur un cas non-critique (revue documentaire RH ou achats) pour mesurer la fiabilité réelle de l&#x27;auto-correction</li><li>Définir une grille de niveaux de confiance IA par typologie d&#x27;usage (inspiration : niveaux d&#x27;autonomie véhicules)</li><li>Intégrer des capacités de logging des chaînes de raisonnement dans la plateforme IA existante</li></ul></div><div class="group-bloc"><strong>Pour Les Metiers</strong><ul><li>Identifier 2-3 processus de vérification chronophages candidats à l&#x27;expérimentation</li><li>Former les experts clés à la lecture critique des outputs IA itératifs</li></ul></div><div class="group-bloc"><strong>Pour La Gouvernance</strong><ul><li>Créer une instance conjointe DSI/Métiers/Juridique pour arbitrer les seuils d&#x27;autonomie IA acceptables</li><li>Anticiper la documentation AI Act sur les processus utilisant des LLMs auto-correcteurs</li></ul></div></div></div><div id="panel-H" class="tab-panel" style="display:none;"><div class="analyse-section horizon-grid"><div class="horizon-item"><span class="horizon-label">Immédiat (0-3 mois)</span><p>Veille active sur les évolutions des modèles (GPT-5, Claude 4, Mistral). Identifier les cas d&#x27;usage internes où la vérification humaine est un goulot d&#x27;étranglement.</p></div><div class="horizon-item"><span class="horizon-label">6 mois</span><p>Premiers POCs structurés avec métriques de fiabilité. Émergence probable d&#x27;offres SaaS intégrant l&#x27;auto-correction (attendu chez les hyperscalers).</p></div><div class="horizon-item"><span class="horizon-label">12-24 mois</span><p>Standardisation des frameworks d&#x27;évaluation de confiance IA. Les entreprises ayant anticipé auront un avantage de maturité de 12-18 mois sur les retardataires.</p></div></div></div><div id="panel-I" class="tab-panel" style="display:none;"><div class="analyse-section contradiction-bloc">
+  <p><strong>Pourquoi ce signal peut être surestimé :</strong> Les travaux actuels sont académiques et portent sur des tâches contrôlées. Le transfert vers des contextes métiers réels (données bruitées, cas ambigus) n&#x27;est pas démontré. L&#x27;auto-correction efficace reste un objectif de recherche, pas une réalité industrielle.</p>
+  <p><strong>Cas où il ne s'applique pas :</strong> Peu pertinent pour les PME (coût compute, complexité de gouvernance) et les secteurs ultra-régulés (santé, nucléaire) où la validation humaine restera obligatoire quelle que soit la fiabilité technique.</p>
+  <p><strong>Argument contre :</strong> L&#x27;auto-correction des LLMs peut créer une illusion de fiabilité plus dangereuse que l&#x27;absence de correction — un modèle qui &#x27;réfléchit deux fois&#x27; mais se trompe quand même inspire une confiance injustifiée.</p>
+</div></div></div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
 </section>
 
-<!-- POSTS LINKEDIN -->
-
-<section>
-  <div class="section-tag">LinkedIn</div>
-  <h2>Posts conseillés</h2>
-  <div class="posts-list">
-    <div class="post-card">
-      <div class="post-card-title">
-        <span class="brief-topic-badge" style="background:#2a1a1a;color:#ffcc80">LLMs & Fondation</span>
-        <h3>Early Stopping for Large Reasoning Models via Confidence Dynamics</h3>
-      </div>
-      <div class="post-versions">
-        <div class="post-version">
-          <div class="post-version-label">VERSION A — Expert terrain (DSI / RSSI / CDO)</div>
-          <div class="post-text">VERSION A — Expert terrain<br><br>Vos reasoning models pensent trop. Et ça vous coûte une fortune.<br><br>ArXiv vient de publier une recherche qui devrait circuler dans tous les COMEX tech français. Résultat : les modèles type o1 ou Claude "savent" quand ils ont trouvé la bonne réponse. Leur confiance se stabilise tôt. Sauf qu'ils continuent de générer des tokens. Pendant longtemps. Pour rien.<br><br>Le problème c'est que côté DSI, on raisonne encore en "plus le modèle réfléchit, meilleur il est". Faux. L'overthinking dégrade la performance. Et explose la facture.<br><br>En réalité, la technique CoDE-Stop permet de couper 25 à 50% des tokens générés. Sans réentraînement. Sans perte de précision. Plug-and-play.<br><br>Et c'est là que ça se complique pour les équipes françaises.<br><br>Banque, assurance : vos POCs de scoring crédit avec reasoning models ? Le ROI change du tout au tout. Industrie : les agents IA de planification passent de gadget à déployable. Renault, Airbus, Carrefour — premiers concernés.<br><br>Dans 3 mois, "ratio tokens utiles / tokens générés" sera un KPI standard. Les DSI qui ne le monitorent pas aujourd'hui vont découvrir des factures cloud inexplicables demain.<br><br>La vraie question : qui dans votre orga a la visibilité sur ce que vos modèles "pensent" réellement ?<br><br>#FinOpsIA #ReasoningModels #DSI<br><br>⏰ Meilleur moment de publication : Mardi 8h00-9h00</div>
-          <button class="copy-btn" onclick="copierTexte(this, `VERSION A — Expert terrain
-
-Vos reasoning models pensent trop. Et ça vous coûte une fortune.
-
-ArXiv vient de publier une recherche qui devrait circuler dans tous les COMEX tech français. Résultat : les modèles type o1 ou Claude "savent" quand ils ont trouvé la bonne réponse. Leur confiance se stabilise tôt. Sauf qu'ils continuent de générer des tokens. Pendant longtemps. Pour rien.
-
-Le problème c'est que côté DSI, on raisonne encore en "plus le modèle réfléchit, meilleur il est". Faux. L'overthinking dégrade la performance. Et explose la facture.
-
-En réalité, la technique CoDE-Stop permet de couper 25 à 50% des tokens générés. Sans réentraînement. Sans perte de précision. Plug-and-play.
-
-Et c'est là que ça se complique pour les équipes françaises.
-
-Banque, assurance : vos POCs de scoring crédit avec reasoning models ? Le ROI change du tout au tout. Industrie : les agents IA de planification passent de gadget à déployable. Renault, Airbus, Carrefour — premiers concernés.
-
-Dans 3 mois, "ratio tokens utiles / tokens générés" sera un KPI standard. Les DSI qui ne le monitorent pas aujourd'hui vont découvrir des factures cloud inexplicables demain.
-
-La vraie question : qui dans votre orga a la visibilité sur ce que vos modèles "pensent" réellement ?
-
-#FinOpsIA #ReasoningModels #DSI
-
-⏰ Meilleur moment de publication : Mardi 8h00-9h00`)">Copier</button>
-        </div>
-        <div class="post-version">
-          <div class="post-version-label">VERSION B — Signal d'avance</div>
-          <div class="post-text">VERSION B — Signal d'avance<br><br>L'IA qui sait quand s'arrêter de penser. Voilà le vrai signal de 2025.<br><br>On a passé deux ans à construire des modèles qui raisonnent plus longtemps. Chain-of-thought, reasoning tokens, réflexion étendue. La course à la profondeur.<br><br>Sauf que la recherche vient d'inverser le paradigme.<br><br>Les trajectoires de raisonnement correctes atteignent une confiance stable très tôt. Les incorrectes ? Elles tournent en boucle, génèrent des traces improductives, hésitent indéfiniment. Le modèle qui doute longtemps a probablement tort.<br><br>En réalité, ce papier ArXiv annonce un virage majeur : l'intelligence artificielle efficace ne sera pas celle qui pense le plus. Ce sera celle qui sait quand arrêter.<br><br>Dans 6 mois, les APIs d'OpenAI et Anthropic intégreront ce type de mécanisme en natif. Dans 12 mois, "l'économie de la réflexion IA" sera un argument commercial standard.<br><br>Et c'est là que ça devient stratégique.<br><br>On passe d'une logique de puissance brute à une logique d'efficience cognitive. Le même shift que le passage du "toujours plus de data" au "data quality". Les entreprises qui l'anticipent aujourd'hui auront 18 mois d'avance sur leur courbe de coûts IA.<br><br>Le prochain avantage compétitif ne sera pas d'avoir l'IA la plus puissante. Ce sera d'avoir l'IA la plus juste.<br><br>#IAStrategy #ReasoningModels #SignauxFaibles<br><br>⏰ Meilleur moment de publication : Jeudi 7h30-8h30</div>
-          <button class="copy-btn" onclick="copierTexte(this, `VERSION B — Signal d'avance
-
-L'IA qui sait quand s'arrêter de penser. Voilà le vrai signal de 2025.
-
-On a passé deux ans à construire des modèles qui raisonnent plus longtemps. Chain-of-thought, reasoning tokens, réflexion étendue. La course à la profondeur.
-
-Sauf que la recherche vient d'inverser le paradigme.
-
-Les trajectoires de raisonnement correctes atteignent une confiance stable très tôt. Les incorrectes ? Elles tournent en boucle, génèrent des traces improductives, hésitent indéfiniment. Le modèle qui doute longtemps a probablement tort.
-
-En réalité, ce papier ArXiv annonce un virage majeur : l'intelligence artificielle efficace ne sera pas celle qui pense le plus. Ce sera celle qui sait quand arrêter.
-
-Dans 6 mois, les APIs d'OpenAI et Anthropic intégreront ce type de mécanisme en natif. Dans 12 mois, "l'économie de la réflexion IA" sera un argument commercial standard.
-
-Et c'est là que ça devient stratégique.
-
-On passe d'une logique de puissance brute à une logique d'efficience cognitive. Le même shift que le passage du "toujours plus de data" au "data quality". Les entreprises qui l'anticipent aujourd'hui auront 18 mois d'avance sur leur courbe de coûts IA.
-
-Le prochain avantage compétitif ne sera pas d'avoir l'IA la plus puissante. Ce sera d'avoir l'IA la plus juste.
-
-#IAStrategy #ReasoningModels #SignauxFaibles
-
-⏰ Meilleur moment de publication : Jeudi 7h30-8h30`)">Copier</button>
-        </div>
-      </div>
+<section id="veille-cyber">
+  <h2 class="section-title">Veille Cyber</h2>
+  <div class="sous-theme">
+  <h3 class="sous-theme-titre">Menaces Structurantes</h3>
+  <div class="signaux-liste">
+    <div class="carte-signal">
+  <div class="carte-signal-header" onclick="toggleSignal('signal_2317239798400_4467085795883813930')">
+    <div class="signal-meta">
+      <span class="badge badge-émergent">ÉMERGENT</span>
+      <span class="tier-badge tier-2">T2</span>
     </div>
-    <div class="post-card">
-      <div class="post-card-title">
-        <span class="brief-topic-badge" style="background:#1a2a3a;color:#4fc3f7">Agents IA</span>
-        <h3>Agentic Federated Learning: The Future of Distributed Training Orchestration</h3>
-      </div>
-      <div class="post-versions">
-        <div class="post-version">
-          <div class="post-version-label">VERSION A — Expert terrain (DSI / RSSI / CDO)</div>
-          <div class="post-text"># VERSION A — Expert terrain<br><br>**L'apprentissage fédéré promettait tout. Confidentialité, collaboration, souveraineté. Cinq ans plus tard, les projets multi-établissements en France s'enlisent dans les négociations entre DPO.**<br><br>Le problème c'est que le FL reste un protocole rigide. Chaque nœud du consortium a ses contraintes CNIL, sa puissance de calcul, ses fenêtres de disponibilité. Résultat : des mois de cadrage pour aligner tout le monde. Et un nœud sous-dimensionné qui plombe l'entraînement global.<br><br>Sauf que la croyance dominante chez les DSI, c'est que le FL est "plug and play". Tu poses une couche Flower ou FLARE, tu agrèges, c'est réglé. En réalité, l'hétérogénéité des clients tue le modèle avant même qu'il converge.<br><br>Ce qui change : un papier ArXiv pose les bases de l'Agentic-FL. Des agents LLM qui orchestrent en temps réel. Côté serveur, ils corrigent les biais de sélection. Côté client, ils ajustent dynamiquement le budget privacy et la complexité du modèle selon le hardware dispo. Sans intervention humaine.<br><br>Et c'est là que ça se complique pour les consortiums santé et finance en France. Si les agents négocient les contraintes réglementaires à la volée, qui audite les décisions ? Le DPO devient-il un superviseur d'agents ?<br><br>Le prochain blocage ne sera pas technique. Il sera juridique.<br><br>#FederatedLearning #IAStratégie #DataGovernance<br><br>⏰ Meilleur moment de publication : Mardi 7h30-8h30</div>
-          <button class="copy-btn" onclick="copierTexte(this, `# VERSION A — Expert terrain
+    <h4 class="signal-titre">Incertitudes critiques sur l&#x27;état réel des risques IA</h4>
+    <div class="signal-indicateurs">
+      <div class="force-dots small"><span class="dot dot-on"></span><span class="dot dot-off"></span><span class="dot dot-off"></span></div>
+      <span class="signal-score">4/10</span>
+      <span class="toggle-arrow" id="arrow-signal_2317239798400_4467085795883813930">▼</span>
+    </div>
+  </div>
 
-**L'apprentissage fédéré promettait tout. Confidentialité, collaboration, souveraineté. Cinq ans plus tard, les projets multi-établissements en France s'enlisent dans les négociations entre DPO.**
+  <div id="signal_2317239798400_4467085795883813930" class="signal-body" style="display:none;">
+    <div class="sources-liste"><strong>Sources :</strong><ul><li><a href="https://www.alignmentforum.org/posts/WjaGAA4xCAXeFpyWm/my-picture-of-the-present-in-ai" target="_blank" class="source-link">My picture of the present in AI</a> <span class="source-name">(Alignment Forum)</span></li></ul></div>
+    <div class="analyse-container">
+  <div class="tab-nav"><button class="tab-btn" onclick="switchTab(this, 'panel-A')" data-panel="panel-A">A. Lecture Marché</button><button class="tab-btn" onclick="switchTab(this, 'panel-B')" data-panel="panel-B">B. Impact Entreprise</button><button class="tab-btn" onclick="switchTab(this, 'panel-C')" data-panel="panel-C">C. Impact DSI</button><button class="tab-btn" onclick="switchTab(this, 'panel-D')" data-panel="panel-D">D. Impact Métiers</button><button class="tab-btn" onclick="switchTab(this, 'panel-E')" data-panel="panel-E">E. Opportunités</button><button class="tab-btn" onclick="switchTab(this, 'panel-F')" data-panel="panel-F">F. Risques</button><button class="tab-btn" onclick="switchTab(this, 'panel-G')" data-panel="panel-G">G. Actions</button><button class="tab-btn" onclick="switchTab(this, 'panel-H')" data-panel="panel-H">H. Horizon</button><button class="tab-btn" onclick="switchTab(this, 'panel-I')" data-panel="panel-I">I. Nuances</button></div>
+  <div class="tab-content"><div id="panel-A" class="tab-panel" style="display:none;"><div class="analyse-section">
+  <p><strong>Faits :</strong> Un analyste reconnu de l&#x27;Alignment Forum publie une tentative de cartographie de l&#x27;état actuel de l&#x27;IA en avril 2026, reconnaissant explicitement l&#x27;incertitude massive même sur le présent. Cette démarche illustre que même les experts peinent à qualifier avec certitude les capacités et risques réels des systèmes IA déployés. L&#x27;absence de consensus sur l&#x27;état présent complique toute projection fiable.</p>
+  <p><strong>Importance :</strong> Pour les entreprises françaises, cette opacité structurelle rend les arbitrages cybersécurité IA quasi-impossibles à fonder sur des données solides. Les COMEX et DSI naviguent à vue sur des investissements critiques.</p>
+  <p><strong>Niveau de maturité :</strong> <span class="badge badge-émergent">ÉMERGENT</span> — Signal unique, source spécialisée — traduit un besoin de clarification plutôt qu&#x27;une tendance établie.</p>
+</div></div><div id="panel-B" class="tab-panel" style="display:none;"><div class="analyse-section">
+  <p><strong>Transformation opérationnelle :</strong> Les entreprises doivent arbitrer entre déploiement IA rapide et postures cyber défensives sans référentiel de risque fiable. Cela pousse à des approches conservatrices ou au contraire à des prises de risque non maîtrisées.</p>
+  <p><strong>Fonctions impactées :</strong> <span class="tag">RSSI/Cybersécurité</span> <span class="tag">Direction des Risques</span> <span class="tag">DSI</span></p>
+  <p><strong>Nature du changement :</strong> <strong>CONTRAINTE</strong> — Contrainte décisionnelle majeure : impossibilité de calibrer les investissements cyber IA sur des données consensuelles.</p>
+</div></div><div id="panel-C" class="tab-panel" style="display:none;"><div class="analyse-section">
+  <p><strong>Rôle DSI :</strong> <span class="badge-role badge-warning">CHALLENGÉ</span> — La DSI est attendue comme garante cyber mais manque de référentiels pour légitimer ses recommandations face aux métiers pressés.</p>
+  <table class="analyse-table"><tr><td class="td-label">Infrastructure</td><td>Pression pour segmenter les environnements IA (sandboxing, air-gapping partiel) faute de pouvoir qualifier les risques réels.</td></tr><tr><td class="td-label">Data</td><td>Renforcement des contrôles d&#x27;accès aux données sensibles utilisées par les modèles — logique de moindre exposition par défaut.</td></tr><tr><td class="td-label">Sécurité / Cyber</td><td>Les équipes cyber doivent construire des scénarios de menaces IA sans baseline sectorielle. Surcharge d&#x27;analyse et risque de sur/sous-protection.</td></tr><tr><td class="td-label">Gouvernance</td><td>Nécessité de comités risques IA cross-fonctionnels pour arbitrer en contexte d&#x27;incertitude — la DSI ne peut trancher seule.</td></tr><tr><td class="td-label">Operating model</td><td>Émergence de rôles hybrides &#x27;AI Security Analyst&#x27; — profils rares, coûteux, en tension sur le marché.</td></tr></table>
+</div></div><div id="panel-D" class="tab-panel" style="display:none;"><div class="analyse-section">
+  <p><strong>Évolution des rôles :</strong> Les métiers demandent des outils IA mais refusent souvent les contraintes cyber jugées &#x27;théoriques&#x27;. Les risk owners métiers doivent monter en compétence sur des sujets qu&#x27;ils ne maîtrisent pas.</p>
+  <p><strong>Autonomie technologique des métiers :</strong> <strong>MODÉRÉE</strong></p>
+  <p><strong>Dépendance DSI :</strong> dépendance accrue</p>
+  <p><strong>Nouveaux usages :</strong></p><ul><li>Déploiement d&#x27;assistants IA avec sandbox imposé (ex: copilot juridique cloisonné)</li><li>Audit interne utilisant des LLM pour analyse documentaire — sans validation cyber formelle</li><li>Marketing testant des générateurs d&#x27;images sans évaluation des risques de fuite de prompts</li></ul>
+  <p><strong>Gains productivité :</strong> Gains potentiels de 15-30% sur les tâches documentaires, mais bridés par les restrictions cyber préventives.</p>
+  <p><strong>Transformation compétences :</strong> Besoin de &#x27;literacy IA sécurisée&#x27; chez les managers métiers. Disparition progressive des profils qui ignorent totalement les enjeux cyber.</p>
+  <p class="alert-text"><strong>Shadow AI / IT :</strong> Fort risque de shadow AI : les métiers contournent les process DSI perçus comme bloquants, utilisant des API externes non auditées.</p>
+  <p><strong>Risques métiers :</strong></p><ul class="risk-list"><li class="risk-item">Exposition de données confidentielles via prompts mal maîtrisés</li><li class="risk-item">Dépendance à des outils IA dont le comportement réel est inconnu</li></ul>
+</div></div><div id="panel-E" class="tab-panel" style="display:none;"><div class="analyse-section"><div class="group-bloc"><strong>Entreprise</strong><ul><li>Positionnement différenciant sur la &#x27;confiance IA&#x27; vis-à-vis des clients et régulateurs</li><li>Anticipation réglementaire AI Act comme avantage compétitif</li></ul></div><div class="group-bloc"><strong>Metiers</strong><ul><li>Structuration de pratiques IA responsables créant de la légitimité interne</li><li>Co-construction de use cases IA avec la DSI plutôt qu&#x27;en opposition</li></ul></div><div class="group-bloc"><strong>Dsi</strong><ul><li>Devenir le &#x27;traducteur de risques IA&#x27; auprès du COMEX — rôle stratégique renforcé</li><li>Créer un référentiel interne de risques IA en l&#x27;absence de standard externe</li></ul></div></div></div><div id="panel-F" class="tab-panel" style="display:none;"><div class="analyse-section"><div class="group-bloc"><strong>Techniques</strong><ul><li>Modèles IA avec comportements émergents non détectés par les tests classiques</li><li>Vecteurs d&#x27;attaque IA-spécifiques (prompt injection, data poisoning) mal couverts par les SIEM actuels</li></ul></div><div class="group-bloc"><strong>Organisationnels</strong><ul><li>Paralysie décisionnelle face à l&#x27;incertitude — ni déploiement ni blocage clair</li><li>Conflits DSI/métiers sur le curseur acceptable de risque</li></ul></div><div class="group-bloc"><strong>Humains</strong><ul><li>Fatigue décisionnelle des équipes cyber face à des menaces non quantifiables</li><li>Résistance des métiers à des contraintes perçues comme arbitraires</li></ul></div><div class="group-bloc"><strong>Reglementaires</strong><ul><li>AI Act impose des évaluations de risques alors que les méthodologies manquent</li><li>RGPD : responsabilité floue sur les données traitées par des modèles tiers</li></ul></div></div></div><div id="panel-G" class="tab-panel" style="display:none;"><div class="analyse-section"><div class="group-bloc"><strong>Pour La Dsi</strong><ul><li>Construire un &#x27;référentiel interne risques IA&#x27; pragmatique — même imparfait, mieux que l&#x27;absence</li><li>Mettre en place des &#x27;AI security sprints&#x27; avec les métiers pour qualifier les use cases prioritaires</li><li>Monitorer activement l&#x27;Alignment Forum et sources Tier 1 pour anticiper les évolutions de perception</li></ul></div><div class="group-bloc"><strong>Pour Les Metiers</strong><ul><li>Nommer un référent IA par direction métier, interlocuteur unique de la DSI</li><li>Documenter systématiquement les use cases IA avec leurs flux de données</li></ul></div><div class="group-bloc"><strong>Pour La Gouvernance</strong><ul><li>Créer un comité mensuel &#x27;Risques IA&#x27; associant DSI, RSSI, Juridique, Métiers</li><li>Définir des seuils de risque acceptables par typologie de données — arbitrage COMEX explicite</li></ul></div></div></div><div id="panel-H" class="tab-panel" style="display:none;"><div class="analyse-section horizon-grid"><div class="horizon-item"><span class="horizon-label">Immédiat (0-3 mois)</span><p>Cartographier les déploiements IA existants (shadow inclus) et évaluer l&#x27;exposition données. Décision COMEX sur la posture risque IA d&#x27;ici fin Q2 2026.</p></div><div class="horizon-item"><span class="horizon-label">6 mois</span><p>Premiers retours d&#x27;expérience sur les sandbox IA. Émergence probable de standards sectoriels (finance, santé en premier).</p></div><div class="horizon-item"><span class="horizon-label">12-24 mois</span><p>AI Act pleinement applicable — les entreprises sans gouvernance IA risquent sanctions et réputation. Consolidation des pratiques autour de 2-3 frameworks dominants.</p></div></div></div><div id="panel-I" class="tab-panel" style="display:none;"><div class="analyse-section contradiction-bloc">
+  <p><strong>Pourquoi ce signal peut être surestimé :</strong> Ce signal émane d&#x27;une source spécialisée AI safety, pas du terrain opérationnel. Les DSI françaises ont peut-être des référentiels internes plus avancés que ce que suggère cette analyse.</p>
+  <p><strong>Cas où il ne s'applique pas :</strong> PME et ETI sans exposition IA significative ne sont pas concernées à court terme. Secteurs très régulés (défense, nucléaire) ont déjà des frameworks stricts qui absorbent ce flou.</p>
+  <p><strong>Argument contre :</strong> L&#x27;incertitude sur l&#x27;IA est structurelle depuis 2023 — ce n&#x27;est pas nouveau. Les entreprises ont appris à avancer malgré le flou, et le marché n&#x27;attend pas les consensus académiques.</p>
+</div></div></div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+</section>
 
-Le problème c'est que le FL reste un protocole rigide. Chaque nœud du consortium a ses contraintes CNIL, sa puissance de calcul, ses fenêtres de disponibilité. Résultat : des mois de cadrage pour aligner tout le monde. Et un nœud sous-dimensionné qui plombe l'entraînement global.
+<section id="idees">
+  <h2 class="section-title">Idées Exploitables</h2>
 
-Sauf que la croyance dominante chez les DSI, c'est que le FL est "plug and play". Tu poses une couche Flower ou FLARE, tu agrèges, c'est réglé. En réalité, l'hétérogénéité des clients tue le modèle avant même qu'il converge.
+  <div class="idees-bloc"><h3>Posts LinkedIn</h3><div class="posts-grid"><div class="post-card">
+  <div class="post-header">
+    <span class="post-signal">Agents IA autonomes accélèrent vers l&#x27;automatisation massive</span>
+    <span class="signal-score">8/10</span>
+  </div>
+  <pre class="post-contenu" id="post_1"># VERSION A — Expert terrain
 
-Ce qui change : un papier ArXiv pose les bases de l'Agentic-FL. Des agents LLM qui orchestrent en temps réel. Côté serveur, ils corrigent les biais de sélection. Côté client, ils ajustent dynamiquement le budget privacy et la complexité du modèle selon le hardware dispo. Sans intervention humaine.
+**Les agents IA tournent déjà dans vos équipes. Sans vous.**
 
-Et c'est là que ça se complique pour les consortiums santé et finance en France. Si les agents négocient les contraintes réglementaires à la volée, qui audite les décisions ? Le DPO devient-il un superviseur d'agents ?
+Pendant que la DSI finalise sa &quot;stratégie IA 2026&quot;, trois développeurs utilisent leurs clés API perso pour automatiser leurs tests. Un product owner délègue son reporting à un agent Claude. Le shadow AI n&#x27;est plus un risque théorique. C&#x27;est votre quotidien.
 
-Le prochain blocage ne sera pas technique. Il sera juridique.
+Le décalage français : on débat encore de chartes éthiques pendant que les métiers tech-savvy deviennent pilotes d&#x27;agents en autonomie totale.
 
-#FederatedLearning #IAStratégie #DataGovernance
+**Croyance à démolir** : &quot;La DSI doit fournir les outils IA.&quot;
 
-⏰ Meilleur moment de publication : Mardi 7h30-8h30`)">Copier</button>
-        </div>
-        <div class="post-version">
-          <div class="post-version-label">VERSION B — Signal d'avance</div>
-          <div class="post-text"># VERSION B — Signal d'avance<br><br>**Les agents IA ne vont pas juste exécuter des tâches. Ils vont négocier entre eux les termes de leur collaboration.**<br><br>Un papier ArXiv vient de poser un jalon discret mais décisif : l'Agentic Federated Learning. Des agents LLM qui orchestrent l'entraînement distribué de manière autonome. Allocation ressources, gestion du privacy budget, sélection des participants — tout se décide sans humain dans la boucle.<br><br>En réalité, ce qu'on voit émerger dépasse le simple cas du FL. C'est le signal d'un basculement architectural. On passe d'agents qui répondent à des agents qui contractualisent.<br><br>Sauf que la plupart des roadmaps IA en entreprise pensent encore les agents comme des assistants améliorés. Un copilot ici, un RAG là. L'angle mort : les agents comme couche de négociation inter-systèmes.<br><br>Ce que ça annonce dans les 12-18 mois : des écosystèmes où les agents de différentes organisations s'alignent sur des protocoles, échangent des ressources, optimisent des compromis en temps réel. Les auteurs parlent déjà de "futurs marchés incitatifs".<br><br>La question qui se pose maintenant : comment gouverne-t-on des systèmes où les décisions d'allocation et de collaboration ne passent plus par des workflows humains ?<br><br>L'agentic economy arrive. Et on n'a pas les frameworks de gouvernance.<br><br>#AgenticAI #FederatedLearning #IAStrategy<br><br>⏰ Meilleur moment de publication : Jeudi 12h-13h</div>
-          <button class="copy-btn" onclick="copierTexte(this, `# VERSION B — Signal d'avance
+Non. Ce paradigme est mort. Le vrai rôle : garantir la maîtrise — sécurité, compliance, qualité des outputs. Fournisseur de ressources ? Fini. Garant de la gouvernance agents ? Stratégique.
 
-**Les agents IA ne vont pas juste exécuter des tâches. Ils vont négocier entre eux les termes de leur collaboration.**
+L&#x27;arbitrage que 90% évitent : accepter que les métiers pilotent leurs agents (objectifs, prompts, validation) tout en imposant un socle technique non négociable. Ni contrôle total, ni laisser-faire.
 
-Un papier ArXiv vient de poser un jalon discret mais décisif : l'Agentic Federated Learning. Des agents LLM qui orchestrent l'entraînement distribué de manière autonome. Allocation ressources, gestion du privacy budget, sélection des participants — tout se décide sans humain dans la boucle.
+Les experts révisent leurs timelines d&#x27;automatisation R&amp;D à 30% de probabilité d&#x27;ici fin 2028. Mais la vraie question n&#x27;est pas &quot;quand&quot;. C&#x27;est : qui cartographie aujourd&#x27;hui l&#x27;exposition shadow AI de votre organisation ?
 
-En réalité, ce qu'on voit émerger dépasse le simple cas du FL. C'est le signal d'un basculement architectural. On passe d'agents qui répondent à des agents qui contractualisent.
+Trois mois. C&#x27;est l&#x27;horizon pour auditer avant de subir.
 
-Sauf que la plupart des roadmaps IA en entreprise pensent encore les agents comme des assistants améliorés. Un copilot ici, un RAG là. L'angle mort : les agents comme couche de négociation inter-systèmes.
+#AgentsIA #GouvernanceIT #TransformationDSI
 
-Ce que ça annonce dans les 12-18 mois : des écosystèmes où les agents de différentes organisations s'alignent sur des protocoles, échangent des ressources, optimisent des compromis en temps réel. Les auteurs parlent déjà de "futurs marchés incitatifs".
+Meilleur moment : mardi 7h30
 
-La question qui se pose maintenant : comment gouverne-t-on des systèmes où les décisions d'allocation et de collaboration ne passent plus par des workflows humains ?
+---
 
-L'agentic economy arrive. Et on n'a pas les frameworks de gouvernance.
+# VERSION B — Signal d&#x27;avance
 
-#AgenticAI #FederatedLearning #IAStrategy
+**30% de probabilité d&#x27;automatisation complète de la R&amp;D IA d&#x27;ici fin 2028.**
 
-⏰ Meilleur moment de publication : Jeudi 12h-13h`)">Copier</button>
-        </div>
-      </div>
-    </div></div></section>
+C&#x27;était 15% il y a six mois. Les mêmes experts qui sous-estimaient GPT-4 révisent à la hausse. Massivement.
+
+Ce qui a changé : les agents IA réussissent désormais des tâches d&#x27;ingénierie logicielle complexes, vérifiables automatiquement, à grande échelle. Des appels à 100M$ de financement émergent pour automatiser des pans entiers de travail via budgets compute/API.
+
+**Ce que ça signale pour les 6-18 mois** :
+
+Les rôles d&#x27;exécution pure — saisie, tests manuels, reporting standardisé — s&#x27;érodent. Pas en 2030. Maintenant. Les profils qui montent : ceux qui définissent les objectifs, valident les outputs, itèrent sur les prompts.
+
+Nuance critique : ces benchmarks portent sur des environnements &quot;clean&quot;. Le legacy, la dette technique, la complexité organisationnelle française ralentiront drastiquement les gains réels. Les timelines restent spéculatives.
+
+**L&#x27;implication non évidente** : la compétence différenciante des 18 prochains mois n&#x27;est pas &quot;savoir utiliser l&#x27;IA&quot;. C&#x27;est savoir spécifier ce qu&#x27;un agent doit produire — et détecter quand il échoue silencieusement.
+
+La vérifiabilité devient le nouveau goulot d&#x27;étranglement.
+
+#AgentsIA #FutureOfWork #SignauxFaibles
+
+Meilleur moment : jeudi 8h00</pre>
+  <button class="btn-copy" onclick="copierTexte('post_1')">Copier</button>
+</div></div></div>
+  <div class="idees-bloc"><h3>Idées de Mission / Offre</h3><div class="missions-grid"><div class="mission-card">
+  <span class="mission-theme">Agents IA &amp; automatisation</span>
+  <p>Positionnement comme &#x27;AI Platform Owner&#x27; : fournir le socle sécurisé d&#x27;agents plutôt que subir le shadow AI</p>
+</div><div class="mission-card">
+  <span class="mission-theme">LLMs &amp; modèles de fondation</span>
+  <p>Positionnement comme &#x27;trust authority&#x27; sur l&#x27;IA — rôle stratégique de certification des usages</p>
+</div></div></div>
+  <div class="idees-bloc"><h3>Questions pour CIO / CTO / CISO</h3><div class="questions-grid"><div class="question-card">[Agents IA autonomes accélèrent vers l&#x27;au] Cartographier sous 3 mois les cas d&#x27;usage candidats à l&#x27;automatisation par agents (critères : volume, vérifiabilité, risque)</div><div class="question-card">[LLMs auto-correcteurs : vers des raisonn] Lancer un POC interne sur un cas non-critique (revue documentaire RH ou achats) pour mesurer la fiabilité réelle de l&#x27;auto-correction</div><div class="question-card">[Incertitudes critiques sur l&#x27;état réel d] Construire un &#x27;référentiel interne risques IA&#x27; pragmatique — même imparfait, mieux que l&#x27;absence</div></div></div>
+</section>
+
+<section id="sessions">
+  <h2 class="section-title">Sessions précédentes</h2>
+  <div class="sessions-nav"><a class="nav-session active" href="../2026-04-08/dashboard.html">2026-04-08</a><a class="nav-session" href="../2026-04-07/dashboard.html">2026-04-07</a><a class="nav-session" href="../2026-04-01/dashboard.html">2026-04-01</a></div>
+</section>
 
 </main>
 
-<footer>
-  <p>Généré automatiquement par l'Agent de Veille IA · 07 April 2026</p>
-</footer>
-
 <script>
-  
-    function toggleBrief(header) {
-      const body = header.nextElementSibling;
-      const toggle = header.querySelector('.brief-toggle');
-      const isOpen = body.style.display !== 'none';
-      body.style.display = isOpen ? 'none' : 'block';
-      toggle.classList.toggle('open', !isOpen);
-    }
+// ── Toggle signal body ──────────────────────────────────────
+function toggleSignal(uid) {
+  var body = document.getElementById(uid);
+  var arrow = document.getElementById('arrow-' + uid);
+  if (!body) return;
+  var isOpen = body.style.display !== 'none';
+  body.style.display = isOpen ? 'none' : 'block';
+  if (arrow) arrow.style.transform = isOpen ? '' : 'rotate(180deg)';
 
-    function copierTexte(btn, texte) {
-      navigator.clipboard.writeText(texte).then(() => {
-        btn.textContent = 'Copié !';
-        btn.classList.add('copied');
-        setTimeout(() => {
-          btn.textContent = 'Copier';
-          btn.classList.remove('copied');
-        }, 2000);
-      });
+  // Initialise le premier onglet si c'est la première ouverture
+  if (!isOpen) {
+    var firstBtn = body.querySelector('.tab-btn');
+    if (firstBtn && !body.querySelector('.tab-btn.active')) {
+      firstBtn.click();
     }
+  }
+}
 
-    // Anime les barres de score au chargement
-    window.addEventListener('load', () => {
-      document.querySelectorAll('.score-bar-fill').forEach(bar => {
-        const w = bar.style.width;
-        bar.style.width = '0';
-        setTimeout(() => { bar.style.width = w; }, 200);
-      });
+// ── Onglets d'analyse ───────────────────────────────────────
+function switchTab(btn, panelId) {
+  var container = btn.closest('.analyse-container');
+  if (!container) return;
+
+  // Reset tous les boutons et panels du conteneur
+  container.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+  container.querySelectorAll('.tab-panel').forEach(function(p) { p.style.display = 'none'; });
+
+  // Active le bouton et panel cliqués
+  btn.classList.add('active');
+  var panel = document.getElementById(panelId);
+  if (panel) panel.style.display = 'block';
+}
+
+// ── Copier texte ─────────────────────────────────────────────
+function copierTexte(uid) {
+  var elem = document.getElementById(uid);
+  if (!elem) return;
+  var texte = elem.innerText || elem.textContent;
+  navigator.clipboard.writeText(texte).then(function() {
+    var btn = elem.nextElementSibling;
+    if (btn) { btn.textContent = 'Copié !'; setTimeout(function() { btn.textContent = 'Copier'; }, 2000); }
+  }).catch(function() {
+    // Fallback pour navigateurs anciens
+    var ta = document.createElement('textarea');
+    ta.value = texte;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+  });
+}
+
+// ── Navigation active au scroll ─────────────────────────────
+document.addEventListener('DOMContentLoaded', function() {
+  var sections = document.querySelectorAll('section[id]');
+  var navLinks = document.querySelectorAll('.top-nav .nav-link');
+
+  window.addEventListener('scroll', function() {
+    var pos = window.scrollY + 100;
+    sections.forEach(function(s) {
+      if (pos >= s.offsetTop && pos < s.offsetTop + s.offsetHeight) {
+        navLinks.forEach(function(l) { l.classList.remove('active'); });
+        var link = document.querySelector('.top-nav a[href="#' + s.id + '"]');
+        if (link) link.classList.add('active');
+      }
     });
-    
+  });
+});
 </script>
 </body>
 </html>
