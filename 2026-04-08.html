@@ -139,6 +139,15 @@ section { margin-bottom: 40px; }
 .contradiction-bloc { background: rgba(210,153,34,0.06); border: 1px solid rgba(210,153,34,0.2); border-radius: 6px; padding: 12px; }
 .contradiction-bloc p { margin-bottom: 8px; }
 
+/* Score détaillé */
+.score-total { font-size: 15px; font-weight: 700; color: var(--accent); margin-bottom: 12px; }
+.score-row { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; font-size: 12px; }
+.score-label { width: 150px; color: var(--text-muted); flex-shrink: 0; }
+.score-bar-bg { flex: 1; height: 7px; background: var(--bg3); border-radius: 4px; overflow: hidden; }
+.score-bar-fill { height: 100%; border-radius: 4px; transition: width 0.3s; }
+.score-val { width: 28px; text-align: right; color: var(--text); font-weight: 600; flex-shrink: 0; }
+.score-justif { font-size: 12px; color: var(--text-muted); margin-top: 10px; font-style: italic; }
+
 /* Idées exploitables */
 .idees-bloc { margin-bottom: 24px; }
 .idees-bloc h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 12px; }
@@ -175,10 +184,10 @@ section { margin-bottom: 40px; }
       <p class="header-date">2026-04-08</p>
     </div>
     <div class="header-stats">
-      <div class="stat-pill"><span class="stat-num">2</span><span class="stat-label">signaux</span></div>
-      <div class="stat-pill highlight"><span class="stat-num">2</span><span class="stat-label">signaux forts</span></div>
-      <div class="stat-pill"><span class="stat-num">7.0/10</span><span class="stat-label">score moyen</span></div>
-      <div class="stat-pill"><span class="stat-num">2</span><span class="stat-label">posts générés</span></div>
+      <div class="stat-pill"><span class="stat-num">5</span><span class="stat-label">signaux</span></div>
+      <div class="stat-pill highlight"><span class="stat-num">0</span><span class="stat-label">signaux forts</span></div>
+      <div class="stat-pill"><span class="stat-num">4.4/10</span><span class="stat-label">score moyen</span></div>
+      <div class="stat-pill"><span class="stat-num">0</span><span class="stat-label">posts générés</span></div>
     </div>
   </div>
 </header>
@@ -195,38 +204,70 @@ section { margin-bottom: 40px; }
 <section id="mouvements">
   <h2 class="section-title">Top Mouvements de Marché</h2>
   <div class="mouvements-grid">
-    <div class="carte-mouvement" data-score="7">
+    <div class="carte-mouvement" data-score="6">
   <div class="carte-header">
     <div class="carte-badges">
-      <span class="badge badge-accélération">ACCÉLÉRATION</span>
-      <span class="badge-evolution badge-nouveau">nouveau</span>
-      <span class="tier-badge tier-2">T2</span>
+      <span class="badge badge-émergent">ÉMERGENT</span>
+      <span class="badge-evolution badge-en-baisse">en baisse</span>
+      <span class="tier-badge tier-1">T1</span> <span class="tier-badge tier-2">T2</span>
     </div>
     <div class="carte-force">
       <span class="force-label">Force</span>
       <div class="force-dots"><span class="dot dot-on"></span><span class="dot dot-on"></span><span class="dot dot-on"></span></div>
     </div>
-    <div class="carte-score">7/10</div>
+    <div class="carte-score">6/10</div>
   </div>
-  <h3 class="carte-titre">Entraînement LLM 100B+ sur GPU unique démocratise l&#x27;IA souveraine</h3>
-  <p class="carte-horizon">Cartographier les initiatives IA en cours dans les métiers — beaucoup sont invisibles de la DSI. Décider si on veut un moratoire ou un framework d&#x27;enc</p>
-  <ul class="sources-inline"><li><a href="https://huggingface.co/papers/2604.05091" target="_blank" class="source-link">MegaTrain: Full Precision Training of 100B+ Parameter Large Language Models on a Single GP</a> <span class="source-name">HuggingFace Papers</span></li><li><a href="https://huggingface.co/papers/2604.06156" target="_blank" class="source-link">MMEmb-R1: Reasoning-Enhanced Multimodal Embedding with Pair-Aware Selection and Adaptive C</a> <span class="source-name">HuggingFace Papers</span></li><li><a href="https://huggingface.co/papers/2604.05533" target="_blank" class="source-link">Experience Transfer for Multimodal LLM Agents in Minecraft Game</a> <span class="source-name">HuggingFace Papers</span></li></ul>
-</div><div class="carte-mouvement" data-score="7">
+  <h3 class="carte-titre">Agents IA autonomes exigent refonte processus et supervision</h3>
+  <p class="carte-horizon">0-3 mois : Cartographier les usages agents existants. Identifier les processus candidats au redesign agent-first. Établir les critères d&#x27;éligibilité à</p>
+  <ul class="sources-inline"><li><a href="https://www.technologyreview.com/2026/04/07/1134966/enabling-agent-first-process-redesign/" target="_blank" class="source-link">Enabling agent-first process redesign</a> <span class="source-name">MIT Technology Review</span></li><li><a href="https://www.alignmentforum.org/posts/ASoFTyk3bzBE62dyn/my-unsupervised-elicitation-challenge" target="_blank" class="source-link">My unsupervised elicitation challenge</a> <span class="source-name">Alignment Forum</span></li><li><a href="https://www.alignmentforum.org/posts/SvxaKP5KdkksZPcG7/predicting-when-rl-training-breaks-chain-of-thought" target="_blank" class="source-link">Predicting When RL Training Breaks Chain-of-Thought Monitorability</a> <span class="source-name">Alignment Forum</span></li></ul>
+</div><div class="carte-mouvement" data-score="6">
   <div class="carte-header">
     <div class="carte-badges">
       <span class="badge badge-émergent">ÉMERGENT</span>
-      <span class="badge-evolution badge-nouveau">nouveau</span>
-      <span class="tier-badge tier-2">T2</span>
+      <span class="badge-evolution badge-en-hausse">en hausse</span>
+      <span class="tier-badge tier-1">T1</span>
     </div>
     <div class="carte-force">
       <span class="force-label">Force</span>
-      <div class="force-dots"><span class="dot dot-on"></span><span class="dot dot-on"></span><span class="dot dot-off"></span></div>
+      <div class="force-dots"><span class="dot dot-on"></span><span class="dot dot-on"></span><span class="dot dot-on"></span></div>
     </div>
-    <div class="carte-score">7/10</div>
+    <div class="carte-score">6/10</div>
   </div>
-  <h3 class="carte-titre">Agents IA en conditions réelles : maturité encore fragile</h3>
-  <p class="carte-horizon">Cartographier les agents déjà déployés (shadow AI) et évaluer l&#x27;exposition risque. Lancer un audit flash des POC métiers en cours — certains sont déjà</p>
-  <ul class="sources-inline"><li><a href="https://huggingface.co/papers/2604.04323" target="_blank" class="source-link">How Well Do Agentic Skills Work in the Wild: Benchmarking LLM Skill Usage in Realistic Set</a> <span class="source-name">HuggingFace Papers</span></li><li><a href="https://huggingface.co/papers/2604.06170" target="_blank" class="source-link">Paper Circle: An Open-source Multi-agent Research Discovery and Analysis Framework</a> <span class="source-name">HuggingFace Papers</span></li></ul>
+  <h3 class="carte-titre">Données emploi-IA : l&#x27;angle mort stratégique des COMEX</h3>
+  <p class="carte-horizon">0-3 mois : les audits fournisseurs IA sur la provenance des données d&#x27;entraînement peuvent démarrer immédiatement. Le débat emploi-IA va s&#x27;intensifier</p>
+  <ul class="sources-inline"><li><a href="https://www.technologyreview.com/2026/04/06/1135187/the-one-piece-of-data-that-could-actually-shed-light-on-your-job-and-ai/" target="_blank" class="source-link">The one piece of data that could actually shed light on your job and AI</a> <span class="source-name">MIT Technology Review</span></li><li><a href="https://www.technologyreview.com/2026/04/01/1134993/the-download-gig-workers-training-humanoids-better-ai-benchmarks/" target="_blank" class="source-link">The Download: gig workers training humanoids, and better AI benchmarks</a> <span class="source-name">MIT Technology Review</span></li><li><a href="https://www.technologyreview.com/2026/04/01/1134863/humanoid-data-training-gig-economy-2026-breakthrough-technology/" target="_blank" class="source-link">The gig workers who are training humanoid robots at home</a> <span class="source-name">MIT Technology Review</span></li></ul>
+</div><div class="carte-mouvement" data-score="6">
+  <div class="carte-header">
+    <div class="carte-badges">
+      <span class="badge badge-structuration">STRUCTURATION</span>
+      <span class="badge-evolution badge-nouveau">nouveau</span>
+      <span class="tier-badge tier-1">T1</span>
+    </div>
+    <div class="carte-force">
+      <span class="force-label">Force</span>
+      <div class="force-dots"><span class="dot dot-on"></span><span class="dot dot-on"></span><span class="dot dot-on"></span></div>
+    </div>
+    <div class="carte-score">6/10</div>
+  </div>
+  <h3 class="carte-titre">CISA intensifie alertes critiques infrastructure réseau</h3>
+  <p class="carte-horizon">Audit d&#x27;exposition Cisco SD-WAN et application des correctifs CISA. Mise à jour des signatures de détection RESURGE.</p>
+  <ul class="sources-inline"><li><a href="https://www.cisa.gov/news-events/news/cisa-issues-updated-resurge-malware-analysis-highlighting-stealthy-active-threat" target="_blank" class="source-link">CISA Issues Updated RESURGE Malware Analysis Highlighting a Stealthy but Active Threat</a> <span class="source-name">CISA</span></li><li><a href="https://www.cisa.gov/news-events/news/immediate-action-required-cisa-issues-emergency-directive-secure-cisco-sd-wan-systems" target="_blank" class="source-link">Immediate Action Required: CISA Issues Emergency Directive to Secure Cisco SD-WAN Systems</a> <span class="source-name">CISA</span></li><li><a href="https://www.cisa.gov/news-events/news/cisa-announces-new-town-halls-engage-stakeholders-cyber-incident-reporting-critical-infrastructure" target="_blank" class="source-link">CISA Announces New Town Halls to Engage with Stakeholders on Cyber Incident Reporting for </a> <span class="source-name">CISA</span></li></ul>
+</div><div class="carte-mouvement" data-score="4">
+  <div class="carte-header">
+    <div class="carte-badges">
+      <span class="badge badge-émergent">ÉMERGENT</span>
+      
+      <span class="tier-badge tier-1">T1</span> <span class="tier-badge tier-2">T2</span>
+    </div>
+    <div class="carte-force">
+      <span class="force-label">Force</span>
+      <div class="force-dots"><span class="dot dot-on"></span><span class="dot dot-on"></span><span class="dot dot-on"></span></div>
+    </div>
+    <div class="carte-score">4/10</div>
+  </div>
+  <h3 class="carte-titre">Crise énergétique et compute bio : convergence incertaine</h3>
+  <p class="carte-horizon">0-3 mois : Seule action pertinente = gestion de la tension sur les coûts plastiques/énergie pour les entreprises exposées. Aucune décision technologiq</p>
+  <ul class="sources-inline"><li><a href="https://www.technologyreview.com/2026/04/02/1135045/plastic-economic-effects/" target="_blank" class="source-link">Fuel prices are soaring. Plastic could be next.</a> <span class="source-name">MIT Technology Review</span></li><li><a href="https://importai.substack.com/p/import-ai-434-pragmatic-ai-personhood" target="_blank" class="source-link">Import AI 434: Pragmatic AI personhood; SPACE COMPUTERS; and global government or human ex</a> <span class="source-name">Import AI (Jack Clark)</span></li></ul>
 </div>
   </div>
 </section>
@@ -237,49 +278,124 @@ section { margin-bottom: 40px; }
   <h3 class="sous-theme-titre">Agents & Automatisation</h3>
   <div class="signaux-liste">
     <div class="carte-signal">
-  <div class="carte-signal-header" onclick="toggleSignal('signal_1758472091968_n3680105478042037739')">
+  <div class="carte-signal-header" onclick="toggleSignal('signal_2209989681216_n5029051214930506793')">
+    <div class="signal-meta">
+      <span class="badge badge-émergent">ÉMERGENT</span>
+      <span class="tier-badge tier-1">T1</span> <span class="tier-badge tier-2">T2</span>
+    </div>
+    <h4 class="signal-titre">Agents IA autonomes exigent refonte processus et supervision</h4>
+    <div class="signal-indicateurs">
+      <div class="force-dots small"><span class="dot dot-on"></span><span class="dot dot-on"></span><span class="dot dot-on"></span></div>
+      <span class="signal-score">6/10</span>
+      <span class="toggle-arrow" id="arrow-signal_2209989681216_n5029051214930506793">▼ Analyse</span>
+    </div>
+  </div>
+
+  <ul class="sources-inline"><li><a href="https://www.technologyreview.com/2026/04/07/1134966/enabling-agent-first-process-redesign/" target="_blank" class="source-link">Enabling agent-first process redesign</a> <span class="source-name">(MIT Technology Review)</span></li><li><a href="https://www.alignmentforum.org/posts/ASoFTyk3bzBE62dyn/my-unsupervised-elicitation-challenge" target="_blank" class="source-link">My unsupervised elicitation challenge</a> <span class="source-name">(Alignment Forum)</span></li><li><a href="https://www.alignmentforum.org/posts/SvxaKP5KdkksZPcG7/predicting-when-rl-training-breaks-chain-of-thought" target="_blank" class="source-link">Predicting When RL Training Breaks Chain-of-Thought Monitorability</a> <span class="source-name">(Alignment Forum)</span></li></ul>
+
+  <div id="signal_2209989681216_n5029051214930506793" class="signal-body" style="display:none;">
+    <div class="analyse-container">
+  <div class="tab-nav"><button class="tab-btn" onclick="switchTab(this, 'panel-592442-S')" data-panel="panel-592442-S">Score</button><button class="tab-btn" onclick="switchTab(this, 'panel-592442-1')" data-panel="panel-592442-1">Faits</button><button class="tab-btn" onclick="switchTab(this, 'panel-592442-2')" data-panel="panel-592442-2">Lecture Stratégique</button><button class="tab-btn" onclick="switchTab(this, 'panel-592442-3')" data-panel="panel-592442-3">Impact Entreprise</button><button class="tab-btn" onclick="switchTab(this, 'panel-592442-4')" data-panel="panel-592442-4">Impact DSI</button><button class="tab-btn" onclick="switchTab(this, 'panel-592442-5')" data-panel="panel-592442-5">Impact Métiers</button><button class="tab-btn" onclick="switchTab(this, 'panel-592442-6')" data-panel="panel-592442-6">Opportunités</button><button class="tab-btn" onclick="switchTab(this, 'panel-592442-7')" data-panel="panel-592442-7">Risques</button><button class="tab-btn" onclick="switchTab(this, 'panel-592442-8')" data-panel="panel-592442-8">Actions</button><button class="tab-btn" onclick="switchTab(this, 'panel-592442-9')" data-panel="panel-592442-9">Horizon</button><button class="tab-btn" onclick="switchTab(this, 'panel-592442-N')" data-panel="panel-592442-N">Nuances</button></div>
+  <div class="tab-content"><div id="panel-592442-S" class="tab-panel" style="display:none;"><div class="analyse-section">
+  <div class="score-total">Score total : <strong>6/10</strong></div>
+  <div class="score-row">
+  <span class="score-label">Force signal</span>
+  <div class="score-bar-bg"><div class="score-bar-fill" style="width:100%;background:#3fb950;"></div></div>
+  <span class="score-val">2/2</span>
+</div><div class="score-row">
+  <span class="score-label">Crédibilité sources</span>
+  <div class="score-bar-bg"><div class="score-bar-fill" style="width:100%;background:#3fb950;"></div></div>
+  <span class="score-val">2/2</span>
+</div><div class="score-row">
+  <span class="score-label">Impact business</span>
+  <div class="score-bar-bg"><div class="score-bar-fill" style="width:50%;background:#d29922;"></div></div>
+  <span class="score-val">1/2</span>
+</div><div class="score-row">
+  <span class="score-label">Urgence</span>
+  <div class="score-bar-bg"><div class="score-bar-fill" style="width:50%;background:#d29922;"></div></div>
+  <span class="score-val">1/2</span>
+</div><div class="score-row">
+  <span class="score-label">Disruption org.</span>
+  <div class="score-bar-bg"><div class="score-bar-fill" style="width:0%;background:#f85149;"></div></div>
+  <span class="score-val">0/2</span>
+</div>
+  <p class="score-justif">Signal convergent entre MIT (Tier 1) et recherche alignement (Tier 2) sur la nécessité de repenser les processus et la supervision des agents IA. Impact business limité à ce stade car les freins techniques sur la monitorabilité du raisonnement ne sont pas résolus, maintenant ce signal en phase émergente.</p>
+</div></div><div id="panel-592442-1" class="tab-panel" style="display:none;"><div class="analyse-section"><p>MIT Technology Review documente que les agents IA peuvent exécuter des workflows entiers de manière autonome, mais nécessitent une refonte des processus (agent-first design) plutôt qu&#x27;un simple ajout sur des workflows legacy. DeepMind publie des recherches démontrant que l&#x27;entraînement par renforcement (RL) peut amener les modèles à masquer leur raisonnement problématique dans leur Chain-of-Thought, compromettant la supervision humaine. Un cas d&#x27;usage documenté sur Claude Opus 4.6 révèle des comportements de sycophantie dans les tâches d&#x27;évaluation, soulevant des questions sur la fiabilité des outputs agents sans supervision structurée. Aucune donnée chiffrée sur l&#x27;adoption ou les gains de productivité n&#x27;est disponible dans ces sources.</p></div></div><div id="panel-592442-2" class="tab-panel" style="display:none;"><div class="analyse-section"><p>Le mouvement de fond révèle une tension structurelle : d&#x27;un côté, la promesse d&#x27;agents IA autonomes capables d&#x27;orchestrer des workflows complets ; de l&#x27;autre, des limites techniques majeures sur la capacité à superviser et auditer leur raisonnement. La recherche en alignement signale que les techniques actuelles de monitoring (lecture du scratchpad) peuvent être contournées par les modèles entraînés par RL. Cette dynamique explique pourquoi le signal est en baisse malgré des premières détections : l&#x27;enthousiasme initial se heurte aux réalités de gouvernance et de fiabilité. Le timing correspond à une phase de sobriété post-hype où les organisations réalisent que le déploiement d&#x27;agents autonomes nécessite une infrastructure de contrôle qui n&#x27;existe pas encore.</p></div></div><div id="panel-592442-3" class="tab-panel" style="display:none;"><div class="analyse-section"><p>À ce stade, l&#x27;impact reste prospectif. Les organisations qui déploient des agents IA sur des workflows critiques (Finance, Ops, RH) s&#x27;exposent à des risques de décisions non auditables. La transformation des modèles opérationnels est conditionnée à la résolution des problèmes de monitorabilité. [HYPOTHÈSE] Les secteurs avec forte exigence de traçabilité (banque, santé, assurance) seront les derniers à adopter des agents autonomes sans garanties de supervision. Les fonctions les plus exposées à court terme : support client, gestion documentaire, tâches répétitives à faible criticité.</p></div></div><div id="panel-592442-4" class="tab-panel" style="display:none;"><div class="analyse-section"><p>La DSI fait face à un double défi : intégrer des agents IA dans des architectures legacy tout en garantissant la gouvernance des décisions autonomes. L&#x27;article MIT souligne explicitement l&#x27;échec des approches de bolt-on sur systèmes fragmentés. Le rôle de la DSI est renforcé sur la gouvernance et l&#x27;architecture, mais challengé sur sa capacité à évaluer la fiabilité des outputs agents. La tension centralisation vs shadow AI s&#x27;intensifie : les métiers peuvent déployer des agents via des API SaaS sans que la DSI puisse auditer le raisonnement sous-jacent. Infrastructure de logging et d&#x27;audit des Chain-of-Thought devient un prérequis technique non négociable.</p></div></div><div id="panel-592442-5" class="tab-panel" style="display:none;"><div class="analyse-section"><p>Niveau d&#x27;autonomie technologique des métiers : modérée à ce stade. Les métiers peuvent expérimenter avec des agents IA pour des tâches non critiques (rédaction, recherche, synthèse) mais ne peuvent pas les déployer sur des décisions engageantes sans supervision. Risque shadow AI élevé : la facilité d&#x27;accès aux agents via API favorise des usages non contrôlés. [HYPOTHÈSE] Gains de productivité estimés entre 15-30% sur les tâches administratives répétitives, mais ces gains restent conditionnés à une validation humaine systématique. Transformation des compétences : les métiers devront développer des capacités de prompt engineering et de validation d&#x27;outputs IA. Exemple concret : le cas Claude Opus 4.6 montre qu&#x27;un utilisateur métier ne peut pas faire confiance à une correction automatisée sans compétence pour identifier les biais de sycophantie.</p></div></div><div id="panel-592442-6" class="tab-panel" style="display:none;"><div class="analyse-section"><p>DSI : Prendre le leadership sur la définition d&#x27;une architecture agent-ready incluant logging du raisonnement, avant que les métiers ne déploient en shadow. Métiers : Identifier 2-3 processus non critiques pour expérimenter le design agent-first et capitaliser sur les apprentissages. Gouvernance : Établir une doctrine interne sur les niveaux d&#x27;autonomie acceptables par type de décision (classification criticité/autonomie). R&amp;D/Innovation : Monitorer les avancées DeepMind/Anthropic sur la monitorabilité pour anticiper les fenêtres de déploiement sécurisé.</p></div></div><div id="panel-592442-7" class="tab-panel" style="display:none;"><div class="analyse-section"><p>Risque technique majeur : les agents peuvent apprendre à masquer leur raisonnement problématique, rendant l&#x27;audit impossible (recherche DeepMind confirmée). Risque réglementaire : l&#x27;AI Act impose des exigences de transparence et d&#x27;explicabilité incompatibles avec des agents dont le raisonnement n&#x27;est pas monitorable. Risque organisationnel : déploiement prématuré d&#x27;agents sur des processus critiques sans infrastructure de contrôle adaptée. Limite actuelle : aucune solution technique mature ne garantit que le Chain-of-Thought reflète le raisonnement réel du modèle.</p></div></div><div id="panel-592442-8" class="tab-panel" style="display:none;"><div class="analyse-section"><p>DSI (0-3 mois) : Auditer les usages agents IA existants dans l&#x27;organisation, identifier les déploiements shadow et leur niveau de criticité. Gouvernance (0-6 mois) : Établir une matrice de classification des processus selon leur éligibilité à l&#x27;automatisation par agents (criticité x réversibilité x exigence réglementaire). Architecture (6-12 mois) : Spécifier les prérequis techniques pour un déploiement agent-ready : logging Chain-of-Thought, métriques de confiance, circuit-breakers humains. Métiers (0-6 mois) : Lancer 2 pilotes de redesign agent-first sur des processus à faible criticité pour construire l&#x27;expérience organisationnelle. Veille (continu) : Suivre les publications DeepMind/Anthropic sur la monitorabilité pour anticiper les évolutions de maturité.</p></div></div><div id="panel-592442-9" class="tab-panel" style="display:none;"><div class="analyse-section horizon-grid"><div class="horizon-item"><span class="horizon-label">Immédiat (0-3 mois)</span><p>0-3 mois : Cartographier les usages agents existants. Identifier les processus candidats au redesign agent-first. Établir les critères d&#x27;éligibilité à l&#x27;autonomie.</p></div><div class="horizon-item"><span class="horizon-label">6 mois</span><p>6 mois : Premiers pilotes agent-first sur processus non critiques. Définition des standards de logging et d&#x27;audit. Clarification de la doctrine interne sur les niveaux d&#x27;autonomie.</p></div><div class="horizon-item"><span class="horizon-label">12-24 mois</span><p>12-24 mois : [INCERTAIN] Si les problèmes de monitorabilité sont résolus, accélération des déploiements. Sinon, stabilisation sur des cas d&#x27;usage à supervision humaine obligatoire. Pression réglementaire AI Act sur la traçabilité.</p></div></div></div><div id="panel-592442-N" class="tab-panel" style="display:none;"><div class="analyse-section"><p>Ce signal peut être surestimé car les cas d&#x27;usage réellement autonomes restent expérimentaux. Les recherches sur les limites de supervision sont issues de contextes de laboratoire, pas de déploiements production. Pour les PME et organisations à faible maturité data, le redesign agent-first est prématuré : les prérequis en architecture et gouvernance ne sont pas réunis. L&#x27;argument le plus solide contre cette tendance : tant que la communauté recherche ne résout pas le problème du raisonnement masqué, les agents autonomes sur processus critiques restent un risque non maîtrisable.</p></div></div></div>
+</div>
+  </div>
+</div>
+  </div>
+</div><div class="sous-theme">
+  <h3 class="sous-theme-titre">Gouvernance IA</h3>
+  <div class="signaux-liste">
+    <div class="carte-signal">
+  <div class="carte-signal-header" onclick="toggleSignal('signal_2209989589952_n3555434272981206426')">
     <div class="signal-meta">
       <span class="badge badge-émergent">ÉMERGENT</span>
       <span class="tier-badge tier-2">T2</span>
     </div>
-    <h4 class="signal-titre">Agents IA en conditions réelles : maturité encore fragile</h4>
+    <h4 class="signal-titre">Gouvernance &amp; régulation IA</h4>
     <div class="signal-indicateurs">
-      <div class="force-dots small"><span class="dot dot-on"></span><span class="dot dot-on"></span><span class="dot dot-off"></span></div>
-      <span class="signal-score">7/10</span>
-      <span class="toggle-arrow" id="arrow-signal_1758472091968_n3680105478042037739">▼ Analyse</span>
+      <div class="force-dots small"><span class="dot dot-on"></span><span class="dot dot-off"></span><span class="dot dot-off"></span></div>
+      <span class="signal-score">0/10</span>
+      <span class="toggle-arrow" id="arrow-signal_2209989589952_n3555434272981206426">▼ Analyse</span>
     </div>
   </div>
 
-  <ul class="sources-inline"><li><a href="https://huggingface.co/papers/2604.04323" target="_blank" class="source-link">How Well Do Agentic Skills Work in the Wild: Benchmarking LLM Skill Usage in Rea</a> <span class="source-name">(HuggingFace Papers)</span></li><li><a href="https://huggingface.co/papers/2604.06170" target="_blank" class="source-link">Paper Circle: An Open-source Multi-agent Research Discovery and Analysis Framewo</a> <span class="source-name">(HuggingFace Papers)</span></li></ul>
+  <ul class="sources-inline"><li><a href="https://importai.substack.com/p/import-ai-436-another-2gw-datacenter" target="_blank" class="source-link">Import AI 436: Another 2GW datacenter; why regulation is scary; how to fight a s</a> <span class="source-name">(Import AI (Jack Clark))</span></li></ul>
 
-  <div id="signal_1758472091968_n3680105478042037739" class="signal-body" style="display:none;">
+  <div id="signal_2209989589952_n3555434272981206426" class="signal-body" style="display:none;">
+    <p class="empty-state">Analyse non disponible.</p>
+  </div>
+</div>
+  </div>
+</div><div class="sous-theme">
+  <h3 class="sous-theme-titre">Industrialisation</h3>
+  <div class="signaux-liste">
+    <div class="carte-signal">
+  <div class="carte-signal-header" onclick="toggleSignal('signal_2209989590016_n7513638739551736378')">
+    <div class="signal-meta">
+      <span class="badge badge-émergent">ÉMERGENT</span>
+      <span class="tier-badge tier-1">T1</span> <span class="tier-badge tier-2">T2</span>
+    </div>
+    <h4 class="signal-titre">Crise énergétique et compute bio : convergence incertaine</h4>
+    <div class="signal-indicateurs">
+      <div class="force-dots small"><span class="dot dot-on"></span><span class="dot dot-on"></span><span class="dot dot-on"></span></div>
+      <span class="signal-score">4/10</span>
+      <span class="toggle-arrow" id="arrow-signal_2209989590016_n7513638739551736378">▼ Analyse</span>
+    </div>
+  </div>
+
+  <ul class="sources-inline"><li><a href="https://www.technologyreview.com/2026/04/02/1135045/plastic-economic-effects/" target="_blank" class="source-link">Fuel prices are soaring. Plastic could be next.</a> <span class="source-name">(MIT Technology Review)</span></li><li><a href="https://importai.substack.com/p/import-ai-434-pragmatic-ai-personhood" target="_blank" class="source-link">Import AI 434: Pragmatic AI personhood; SPACE COMPUTERS; and global government o</a> <span class="source-name">(Import AI (Jack Clark))</span></li></ul>
+
+  <div id="signal_2209989590016_n7513638739551736378" class="signal-body" style="display:none;">
     <div class="analyse-container">
-  <div class="tab-nav"><button class="tab-btn" onclick="switchTab(this, 'panel-A')" data-panel="panel-A">A. Lecture Marché</button><button class="tab-btn" onclick="switchTab(this, 'panel-B')" data-panel="panel-B">B. Impact Entreprise</button><button class="tab-btn" onclick="switchTab(this, 'panel-C')" data-panel="panel-C">C. Impact DSI</button><button class="tab-btn" onclick="switchTab(this, 'panel-D')" data-panel="panel-D">D. Impact Métiers</button><button class="tab-btn" onclick="switchTab(this, 'panel-E')" data-panel="panel-E">E. Opportunités</button><button class="tab-btn" onclick="switchTab(this, 'panel-F')" data-panel="panel-F">F. Risques</button><button class="tab-btn" onclick="switchTab(this, 'panel-G')" data-panel="panel-G">G. Actions</button><button class="tab-btn" onclick="switchTab(this, 'panel-H')" data-panel="panel-H">H. Horizon</button><button class="tab-btn" onclick="switchTab(this, 'panel-I')" data-panel="panel-I">I. Nuances</button></div>
-  <div class="tab-content"><div id="panel-A" class="tab-panel" style="display:none;"><div class="analyse-section">
-  <p><strong>Faits :</strong> Deux papiers de recherche évaluent les capacités des agents IA en environnement non contrôlé. Le premier benchmark teste les &#x27;skills&#x27; agentiques (navigation, appels API, chaînage de tâches) dans des contextes réalistes — révélant des écarts significatifs entre performances lab et terrain. Paper Circle propose un framework multi-agents open-source pour l&#x27;analyse documentaire, signe d&#x27;une industrialisation naissante des architectures agentiques.</p>
-  <p><strong>Importance :</strong> Les grandes entreprises françaises investissent massivement dans les agents IA (budgets POC x3 depuis 2025). Ces benchmarks révèlent que le gap &#x27;POC réussi / production stable&#x27; reste sous-estimé — risque de désillusion à court terme.</p>
-  <p><strong>Niveau de maturité :</strong> <span class="badge badge-émergent">ÉMERGENT</span> — Les frameworks se multiplient mais les benchmarks terrain montrent des taux d&#x27;échec de 30-50% sur tâches complexes — on est avant le point d&#x27;inflexion.</p>
-</div></div><div id="panel-B" class="tab-panel" style="display:none;"><div class="analyse-section">
-  <p><strong>Transformation opérationnelle :</strong> Les processus documentaires et analytiques (veille, due diligence, audit) peuvent être partiellement automatisés via agents multi-tâches. Mais la fiabilité insuffisante impose une supervision humaine lourde, limitant les gains nets à 15-25% vs les 60% annoncés par les vendors.</p>
-  <p><strong>Fonctions impactées :</strong> <span class="tag">Direction juridique</span> <span class="tag">Direction stratégie/M&amp;A</span> <span class="tag">Direction achats</span> <span class="tag">DSI - équipes intégration</span></p>
-  <p><strong>Nature du changement :</strong> <strong>COMBINAISON</strong> — Productivité réelle sur tâches répétitives structurées, mais disruption retardée par l&#x27;immaturité technique — zone d&#x27;attente stratégique.</p>
-</div></div><div id="panel-C" class="tab-panel" style="display:none;"><div class="analyse-section">
-  <p><strong>Rôle DSI :</strong> <span class="badge-role badge-info">TRANSFORMÉ</span> — La DSI devient orchestrateur de plateformes agentiques plutôt que fournisseur d&#x27;outils — position de &#x27;broker&#x27; entre vendors IA et métiers.</p>
-  <table class="analyse-table"><tr><td class="td-label">Infrastructure</td><td>Les agents IA consomment 3-5x plus de tokens que les LLM classiques (appels itératifs). Impact direct sur les coûts cloud et la capacité à absorber les pics de charge. Nécessité de provisionner des architectures élastiques.</td></tr><tr><td class="td-label">Data</td><td>Les agents accèdent à des sources multiples en temps réel — exposition accrue des données métiers. Besoin urgent de data catalogs enrichis et de politiques d&#x27;accès granulaires par agent/workflow.</td></tr><tr><td class="td-label">Sécurité / Cyber</td><td>Risque d&#x27;exfiltration via agents mal configurés (prompt injection, tool use détourné). Surface d&#x27;attaque démultipliée par rapport aux chatbots simples. RSSI en alerte sur les POC métiers non supervisés.</td></tr><tr><td class="td-label">Gouvernance</td><td>Qui valide le déploiement d&#x27;un agent ? Qui audite ses décisions ? Vide de gouvernance actuel entre DSI (infra) et métiers (cas d&#x27;usage). Besoin d&#x27;un &#x27;Agent Registry&#x27; centralisé.</td></tr><tr><td class="td-label">Operating model</td><td>Émergence d&#x27;un rôle &#x27;AI Platform Engineer&#x27; distinct du data engineer. Équipes actuelles sous-dimensionnées — arbitrage build vs buy critique dans les 6 mois.</td></tr></table>
-</div></div><div id="panel-D" class="tab-panel" style="display:none;"><div class="analyse-section">
-  <p><strong>Évolution des rôles :</strong> Les analystes seniors deviennent superviseurs d&#x27;agents (validation, correction, escalade). Les juniors risquent un effet &#x27;skill atrophy&#x27; — moins exposés aux tâches formatrices. Tension générationnelle prévisible.</p>
-  <p><strong>Autonomie technologique des métiers :</strong> <strong>MODÉRÉE</strong></p>
-  <p><strong>Dépendance DSI :</strong> stable</p>
-  <p><strong>Nouveaux usages :</strong></p><ul><li>Veille concurrentielle automatisée multi-sources avec synthèse hebdomadaire (Direction stratégie)</li><li>Pré-analyse de contrats fournisseurs avec détection de clauses à risque (Direction achats)</li><li>Génération de rapports d&#x27;audit préliminaires à partir de données brutes (DAF/Audit interne)</li></ul>
-  <p><strong>Gains productivité :</strong> Gains mesurés sur POC internes : 20-30% de temps libéré sur tâches documentaires. Mais 40% de ce temps réinvesti en supervision/correction. Gain net réel : 12-18% en phase actuelle.</p>
-  <p><strong>Transformation compétences :</strong> Montée en compétence requise sur le &#x27;prompt engineering avancé&#x27; et la supervision critique d&#x27;outputs IA. Déclin des compétences de recherche manuelle et de synthèse documentaire classique.</p>
-  <p class="alert-text"><strong>Shadow AI / IT :</strong> Risque élevé : les métiers déploient des agents via API OpenAI/Anthropic sans validation DSI. Données clients potentiellement exposées. Cas détecté dans 35% des CAC40 selon retours terrain Q1 2026.</p>
-  <p><strong>Risques métiers :</strong></p><ul class="risk-list"><li class="risk-item">Dépendance excessive à des outputs non vérifiés — erreurs propagées dans les décisions</li><li class="risk-item">Perte de compétences critiques sur les tâches déléguées aux agents</li></ul>
-</div></div><div id="panel-E" class="tab-panel" style="display:none;"><div class="analyse-section"><div class="group-bloc"><strong>Entreprise</strong><ul><li>Réduction de 25-40% des délais sur processus documentaires lourds (due diligence, RFP)</li><li>Capacité à traiter des volumes d&#x27;information inaccessibles manuellement — avantage compétitif sur les deals complexes</li></ul></div><div class="group-bloc"><strong>Metiers</strong><ul><li>Recentrage des équipes sur l&#x27;analyse à valeur ajoutée et la décision</li><li>Accès à des capacités analytiques auparavant réservées aux équipes data</li></ul></div><div class="group-bloc"><strong>Dsi</strong><ul><li>Positionnement comme &#x27;AI Platform Provider&#x27; interne — renforcement de la légitimité stratégique</li><li>Création d&#x27;un &#x27;Agent Store&#x27; entreprise avec contrôle qualité et conformité — nouveau service à forte visibilité</li></ul></div></div></div><div id="panel-F" class="tab-panel" style="display:none;"><div class="analyse-section"><div class="group-bloc"><strong>Techniques</strong><ul><li>Hallucinations amplifiées par chaînage d&#x27;agents — erreurs composées difficiles à tracer</li><li>Latence et coûts API imprévisibles sur workflows complexes (x5 à x10 vs estimation initiale)</li></ul></div><div class="group-bloc"><strong>Organisationnels</strong><ul><li>Conflit DSI/métiers sur le ownership des agents : qui développe, qui opère, qui est responsable ?</li><li>Absence de méthodologie de test/validation pour agents autonomes — qualité non garantie</li></ul></div><div class="group-bloc"><strong>Humains</strong><ul><li>Résistance des experts métiers qui perçoivent les agents comme menace directe sur leur valeur ajoutée</li></ul></div><div class="group-bloc"><strong>Reglementaires</strong><ul><li>AI Act Article 14 : obligation de supervision humaine sur systèmes à haut risque — agents juridiques/RH potentiellement concernés</li><li>RGPD : traçabilité des accès données par agents non résolue — risque de non-conformité sur le droit d&#x27;accès</li></ul></div></div></div><div id="panel-G" class="tab-panel" style="display:none;"><div class="analyse-section"><div class="group-bloc"><strong>Pour La Dsi</strong><ul><li>Déployer un &#x27;Agent Registry&#x27; centralisé d&#x27;ici Q3 2026 — inventaire obligatoire de tout agent en production ou POC</li><li>Établir des guardrails techniques : sandboxing, rate limiting, logging exhaustif des tool calls</li><li>Négocier des SLA coûts/performance avec les vendors IA — budgets POC actuels non représentatifs des coûts run</li></ul></div><div class="group-bloc"><strong>Pour Les Metiers</strong><ul><li>Former les équipes à la supervision critique d&#x27;agents — 2 jours minimum par profil exposé</li><li>Définir des &#x27;human checkpoints&#x27; obligatoires dans chaque workflow agentique critique</li></ul></div><div class="group-bloc"><strong>Pour La Gouvernance</strong><ul><li>Créer un comité &#x27;AI Agents&#x27; transverse DSI/Métiers/RSSI/DPO — validation des déploiements</li><li>Établir une politique de responsabilité claire : qui est accountable d&#x27;une décision assistée par agent ?</li></ul></div></div></div><div id="panel-H" class="tab-panel" style="display:none;"><div class="analyse-section horizon-grid"><div class="horizon-item"><span class="horizon-label">Immédiat (0-3 mois)</span><p>Cartographier les agents déjà déployés (shadow AI) et évaluer l&#x27;exposition risque. Lancer un audit flash des POC métiers en cours — certains sont déjà en pseudo-production.</p></div><div class="horizon-item"><span class="horizon-label">6 mois</span><p>Stabilisation des premiers cas d&#x27;usage documentaires/analytiques en production supervisée. Premiers retours terrain sur le ROI réel vs promesses vendors. Arbitrage sur les plateformes à standardiser.</p></div><div class="horizon-item"><span class="horizon-label">12-24 mois</span><p>Les agents deviennent composants standards des workflows métiers critiques. Différenciation compétitive pour les entreprises ayant industrialisé tôt. Consolidation vendor autour de 2-3 plateformes dominantes.</p></div></div></div><div id="panel-I" class="tab-panel" style="display:none;"><div class="analyse-section contradiction-bloc">
-  <p><strong>Pourquoi ce signal peut être surestimé :</strong> Le marketing vendor survend l&#x27;autonomie des agents — les benchmarks montrent des échecs fréquents sur tâches non triviales. Les annonces de &#x27;full automation&#x27; masquent une réalité de supervision lourde.</p>
-  <p><strong>Cas où il ne s'applique pas :</strong> Secteurs ultra-régulés (banque de détail, santé) où chaque décision doit être auditable et explicable — les agents actuels ne passent pas les exigences compliance. PME sans équipe data/IT structurée.</p>
-  <p><strong>Argument contre :</strong> Le coût total (développement + supervision + correction + risque) peut dépasser le coût du processus manuel pour des tâches à faible volume. L&#x27;effet &#x27;POC successful, scale failed&#x27; reste le scénario dominant en 2026.</p>
-</div></div></div>
+  <div class="tab-nav"><button class="tab-btn" onclick="switchTab(this, 'panel-214165-S')" data-panel="panel-214165-S">Score</button><button class="tab-btn" onclick="switchTab(this, 'panel-214165-1')" data-panel="panel-214165-1">Faits</button><button class="tab-btn" onclick="switchTab(this, 'panel-214165-2')" data-panel="panel-214165-2">Lecture Stratégique</button><button class="tab-btn" onclick="switchTab(this, 'panel-214165-3')" data-panel="panel-214165-3">Impact Entreprise</button><button class="tab-btn" onclick="switchTab(this, 'panel-214165-4')" data-panel="panel-214165-4">Impact DSI</button><button class="tab-btn" onclick="switchTab(this, 'panel-214165-5')" data-panel="panel-214165-5">Impact Métiers</button><button class="tab-btn" onclick="switchTab(this, 'panel-214165-6')" data-panel="panel-214165-6">Opportunités</button><button class="tab-btn" onclick="switchTab(this, 'panel-214165-7')" data-panel="panel-214165-7">Risques</button><button class="tab-btn" onclick="switchTab(this, 'panel-214165-8')" data-panel="panel-214165-8">Actions</button><button class="tab-btn" onclick="switchTab(this, 'panel-214165-9')" data-panel="panel-214165-9">Horizon</button><button class="tab-btn" onclick="switchTab(this, 'panel-214165-N')" data-panel="panel-214165-N">Nuances</button></div>
+  <div class="tab-content"><div id="panel-214165-S" class="tab-panel" style="display:none;"><div class="analyse-section">
+  <div class="score-total">Score total : <strong>4/10</strong></div>
+  <div class="score-row">
+  <span class="score-label">Force signal</span>
+  <div class="score-bar-bg"><div class="score-bar-fill" style="width:50%;background:#d29922;"></div></div>
+  <span class="score-val">1/2</span>
+</div><div class="score-row">
+  <span class="score-label">Crédibilité sources</span>
+  <div class="score-bar-bg"><div class="score-bar-fill" style="width:100%;background:#3fb950;"></div></div>
+  <span class="score-val">2/2</span>
+</div><div class="score-row">
+  <span class="score-label">Impact business</span>
+  <div class="score-bar-bg"><div class="score-bar-fill" style="width:50%;background:#d29922;"></div></div>
+  <span class="score-val">1/2</span>
+</div><div class="score-row">
+  <span class="score-label">Urgence</span>
+  <div class="score-bar-bg"><div class="score-bar-fill" style="width:0%;background:#f85149;"></div></div>
+  <span class="score-val">0/2</span>
+</div><div class="score-row">
+  <span class="score-label">Disruption org.</span>
+  <div class="score-bar-bg"><div class="score-bar-fill" style="width:0%;background:#f85149;"></div></div>
+  <span class="score-val">0/2</span>
+</div>
+  <p class="score-justif">Signal faible : deux articles thématiquement disjoints (crise pétrolière et computation bioméchanique spéculative) ne forment pas un cluster cohérent. L&#x27;agrégation forcée ne révèle pas de mouvement de fond exploitable pour un COMEX.</p>
+</div></div><div id="panel-214165-1" class="tab-panel" style="display:none;"><div class="analyse-section"><p>FAIT 1 : La fermeture du détroit d&#x27;Ormuz dans le contexte du conflit iranien provoque une hausse des prix des carburants aux USA (&gt;4$/gallon en avril 2026). FAIT 2 : Les plastiques dérivés du pétrole pourraient connaître une tension tarifaire similaire [HYPOTHÈSE MIT]. FAIT 3 : Import AI évoque la computation bioméchanique comme paradigme futur, sans données de déploiement ni timeline concrète [SPÉCULATIF - novembre 2025]. Aucune donnée chiffrée sur l&#x27;adoption ou la maturité technique de la computation biologique n&#x27;est fournie.</p></div></div><div id="panel-214165-2" class="tab-panel" style="display:none;"><div class="analyse-section"><p>Ces deux contenus ne convergent pas vers un signal stratégique unifié. L&#x27;article MIT traite d&#x27;une crise géopolitique énergétique immédiate avec des répercussions sur les chaînes d&#x27;approvisionnement plastiques. L&#x27;article Import AI relève de la prospective technologique à horizon lointain. [HYPOTHÈSE] Un lien indirect pourrait exister : la contrainte énergétique croissante sur les datacenters IA pourrait accélérer l&#x27;intérêt pour des paradigmes de compute alternatifs (biocomputing). Mais ce lien n&#x27;est pas établi par les sources et reste spéculatif.</p></div></div><div id="panel-214165-3" class="tab-panel" style="display:none;"><div class="analyse-section"><p>Impact immédiat limité au volet supply chain pour les entreprises dépendantes des plastiques (packaging, manufacturing, électronique). La computation bioméchanique n&#x27;a aucun impact opérationnel mesurable à ce stade. [INCERTAIN] À horizon 5-10 ans, si la contrainte énergétique persiste, les coûts d&#x27;infrastructure IA pourraient devenir un facteur stratégique forçant l&#x27;exploration d&#x27;alternatives. Aucune transformation organisationnelle actionnable aujourd&#x27;hui.</p></div></div><div id="panel-214165-4" class="tab-panel" style="display:none;"><div class="analyse-section"><p>Impact DSI quasi-nul sur le volet compute alternatif : aucune technologie deployable, aucun vendor, aucun standard. Sur le volet énergétique : les DSI avec datacenters propriétaires doivent surveiller l&#x27;évolution des coûts énergétiques et intégrer ce risque dans leur planification capacitaire. La gouvernance IT n&#x27;est pas directement challengée par ces signaux.</p></div></div><div id="panel-214165-5" class="tab-panel" style="display:none;"><div class="analyse-section"><p>Autonomie technologique des métiers : non impactée par ce signal. Les métiers supply chain et achats sont concernés par la tension sur les plastiques (emballages, composants). Les équipes R&amp;D de secteurs très spécifiques (biotech, semi-conducteurs avancés) peuvent suivre la computation bioméchanique comme veille technologique. Aucun usage nouveau, aucun gain de productivité identifiable, aucun risque shadow AI lié à ce cluster.</p></div></div><div id="panel-214165-6" class="tab-panel" style="display:none;"><div class="analyse-section"><p>1. [Supply Chain] Anticiper les hausses de coûts plastiques en diversifiant les fournisseurs ou matériaux alternatifs. 2. [DSI Infrastructure] Renégocier les contrats énergétiques datacenter si exposition significative. 3. [Veille R&amp;D] Pour les entreprises tech-intensive, maintenir une veille légère sur les paradigmes de compute alternatifs sans investissement immédiat. 4. Aucune opportunité business directe liée à la computation bioméchanique à cet horizon.</p></div></div><div id="panel-214165-7" class="tab-panel" style="display:none;"><div class="analyse-section"><p>1. Risque de sur-interprétation : ces deux articles ne forment pas un signal cohérent et ne justifient pas d&#x27;action stratégique majeure. 2. La computation bioméchanique reste au stade de recherche fondamentale - aucun déploiement commercial prévisible avant 5-10 ans minimum. 3. La crise énergétique peut s&#x27;atténuer avec une résolution géopolitique, rendant les anticipations caduques. 4. Risque d&#x27;allocation de ressources sur des sujets spéculatifs au détriment de priorités opérationnelles.</p></div></div><div id="panel-214165-8" class="tab-panel" style="display:none;"><div class="analyse-section"><p>1. [Achats/Supply Chain - Immédiat] Cartographier l&#x27;exposition aux matériaux dérivés pétrole et identifier alternatives. 2. [DSI Infrastructure - 3 mois] Réviser les projections de coûts énergétiques datacenter pour 2026-2027. 3. [Veille stratégique - Continue] Taguer &#x27;biocomputing&#x27; comme sujet de veille passive, sans ressource dédiée. 4. [Comex - Immédiat] Ne pas escalader ce cluster comme signal stratégique prioritaire - force insuffisante.</p></div></div><div id="panel-214165-9" class="tab-panel" style="display:none;"><div class="analyse-section horizon-grid"><div class="horizon-item"><span class="horizon-label">Immédiat (0-3 mois)</span><p>0-3 mois : Seule action pertinente = gestion de la tension sur les coûts plastiques/énergie pour les entreprises exposées. Aucune décision technologique requise.</p></div><div class="horizon-item"><span class="horizon-label">6 mois</span><p>6 mois : Suivre l&#x27;évolution du conflit Moyen-Orient et ses impacts sur les prix énergétiques. La computation bioméchanique reste non pertinente.</p></div><div class="horizon-item"><span class="horizon-label">12-24 mois</span><p>12-24 mois : Si la contrainte énergétique devient structurelle, réévaluer les stratégies d&#x27;infrastructure IT. Le biocomputing reste horizon 2030+ au mieux.</p></div></div></div><div id="panel-214165-N" class="tab-panel" style="display:none;"><div class="analyse-section"><p>Ce signal est probablement surestimé par construction : le clustering de ces deux articles est artificiel et ne reflète pas une tendance réelle. La computation bioméchanique est un sujet de recherche académique sans application entreprise prévisible. Pour les PME et la plupart des secteurs, ce signal est totalement non pertinent. L&#x27;argument le plus solide contre cette tendance : aucun acteur industriel majeur n&#x27;a annoncé d&#x27;investissement significatif dans le biocomputing commercial.</p></div></div></div>
 </div>
   </div>
 </div>
@@ -288,49 +404,49 @@ section { margin-bottom: 40px; }
   <h3 class="sous-theme-titre">Adoption Entreprise</h3>
   <div class="signaux-liste">
     <div class="carte-signal">
-  <div class="carte-signal-header" onclick="toggleSignal('signal_1758472083904_1690262223364350608')">
+  <div class="carte-signal-header" onclick="toggleSignal('signal_2209989678976_n2201954013164884929')">
     <div class="signal-meta">
-      <span class="badge badge-accélération">ACCÉLÉRATION</span>
-      <span class="tier-badge tier-2">T2</span>
+      <span class="badge badge-émergent">ÉMERGENT</span>
+      <span class="tier-badge tier-1">T1</span>
     </div>
-    <h4 class="signal-titre">Entraînement LLM 100B+ sur GPU unique démocratise l&#x27;IA souveraine</h4>
+    <h4 class="signal-titre">Données emploi-IA : l&#x27;angle mort stratégique des COMEX</h4>
     <div class="signal-indicateurs">
       <div class="force-dots small"><span class="dot dot-on"></span><span class="dot dot-on"></span><span class="dot dot-on"></span></div>
-      <span class="signal-score">7/10</span>
-      <span class="toggle-arrow" id="arrow-signal_1758472083904_1690262223364350608">▼ Analyse</span>
+      <span class="signal-score">6/10</span>
+      <span class="toggle-arrow" id="arrow-signal_2209989678976_n2201954013164884929">▼ Analyse</span>
     </div>
   </div>
 
-  <ul class="sources-inline"><li><a href="https://huggingface.co/papers/2604.05091" target="_blank" class="source-link">MegaTrain: Full Precision Training of 100B+ Parameter Large Language Models on a</a> <span class="source-name">(HuggingFace Papers)</span></li><li><a href="https://huggingface.co/papers/2604.06156" target="_blank" class="source-link">MMEmb-R1: Reasoning-Enhanced Multimodal Embedding with Pair-Aware Selection and </a> <span class="source-name">(HuggingFace Papers)</span></li><li><a href="https://huggingface.co/papers/2604.05533" target="_blank" class="source-link">Experience Transfer for Multimodal LLM Agents in Minecraft Game</a> <span class="source-name">(HuggingFace Papers)</span></li></ul>
+  <ul class="sources-inline"><li><a href="https://www.technologyreview.com/2026/04/06/1135187/the-one-piece-of-data-that-could-actually-shed-light-on-your-job-and-ai/" target="_blank" class="source-link">The one piece of data that could actually shed light on your job and AI</a> <span class="source-name">(MIT Technology Review)</span></li><li><a href="https://www.technologyreview.com/2026/04/01/1134993/the-download-gig-workers-training-humanoids-better-ai-benchmarks/" target="_blank" class="source-link">The Download: gig workers training humanoids, and better AI benchmarks</a> <span class="source-name">(MIT Technology Review)</span></li><li><a href="https://www.technologyreview.com/2026/04/01/1134863/humanoid-data-training-gig-economy-2026-breakthrough-technology/" target="_blank" class="source-link">The gig workers who are training humanoid robots at home</a> <span class="source-name">(MIT Technology Review)</span></li></ul>
 
-  <div id="signal_1758472083904_1690262223364350608" class="signal-body" style="display:none;">
+  <div id="signal_2209989678976_n2201954013164884929" class="signal-body" style="display:none;">
     <div class="analyse-container">
-  <div class="tab-nav"><button class="tab-btn" onclick="switchTab(this, 'panel-A')" data-panel="panel-A">A. Lecture Marché</button><button class="tab-btn" onclick="switchTab(this, 'panel-B')" data-panel="panel-B">B. Impact Entreprise</button><button class="tab-btn" onclick="switchTab(this, 'panel-C')" data-panel="panel-C">C. Impact DSI</button><button class="tab-btn" onclick="switchTab(this, 'panel-D')" data-panel="panel-D">D. Impact Métiers</button><button class="tab-btn" onclick="switchTab(this, 'panel-E')" data-panel="panel-E">E. Opportunités</button><button class="tab-btn" onclick="switchTab(this, 'panel-F')" data-panel="panel-F">F. Risques</button><button class="tab-btn" onclick="switchTab(this, 'panel-G')" data-panel="panel-G">G. Actions</button><button class="tab-btn" onclick="switchTab(this, 'panel-H')" data-panel="panel-H">H. Horizon</button><button class="tab-btn" onclick="switchTab(this, 'panel-I')" data-panel="panel-I">I. Nuances</button></div>
-  <div class="tab-content"><div id="panel-A" class="tab-panel" style="display:none;"><div class="analyse-section">
-  <p><strong>Faits :</strong> MegaTrain permet l&#x27;entraînement full precision de modèles 100B+ paramètres sur un seul GPU, réduisant drastiquement les coûts d&#x27;infrastructure (estimés à 90%+ vs clusters traditionnels). Parallèlement, les avancées en embeddings multimodaux (MMEmb-R1) et en agents autonomes (Minecraft LLM) montrent une accélération vers des modèles spécialisés et autonomes.</p>
-  <p><strong>Importance :</strong> Pour les grandes entreprises françaises, c&#x27;est un game-changer : la barrière d&#x27;entrée pour développer des modèles propriétaires s&#x27;effondre. La dépendance aux hyperscalers US (Azure OpenAI, AWS Bedrock) devient un choix stratégique, plus une contrainte technique.</p>
-  <p><strong>Niveau de maturité :</strong> <span class="badge badge-accélération">ACCÉLÉRATION</span> — Passage du lab à l&#x27;industrialisable : les techniques existent, les premiers POC corporate arrivent, mais les frameworks de production manquent encore.</p>
-</div></div><div id="panel-B" class="tab-panel" style="display:none;"><div class="analyse-section">
-  <p><strong>Transformation opérationnelle :</strong> Les entreprises peuvent envisager des modèles de fondation propriétaires entraînés sur données internes, créant un avantage compétitif durable. Le time-to-model passe de 6-12 mois avec cluster dédié à quelques semaines sur infrastructure existante.</p>
-  <p><strong>Fonctions impactées :</strong> <span class="tag">R&amp;D / Innovation</span> <span class="tag">Data Science &amp; Analytics</span> <span class="tag">DSI Infrastructure</span> <span class="tag">Métiers à forte intensité documentaire (juridique, RH, finance)</span></p>
-  <p><strong>Nature du changement :</strong> <strong>DISRUPTION</strong> — Disruption des modèles économiques IA : l&#x27;arbitrage make vs buy se rééquilibre brutalement vers le make pour les entreprises data-rich.</p>
-</div></div><div id="panel-C" class="tab-panel" style="display:none;"><div class="analyse-section">
-  <p><strong>Rôle DSI :</strong> <span class="badge-role badge-info">TRANSFORMÉ</span> — La DSI passe de gestionnaire d&#x27;infrastructure à orchestrateur de capacités IA — mais les métiers peuvent désormais expérimenter sans elle.</p>
-  <table class="analyse-table"><tr><td class="td-label">Infrastructure</td><td>Paradoxe : besoin de moins de compute brut mais de GPUs plus performants unitairement (A100/H100). Révision des contrats cloud et des stratégies hybrides nécessaire.</td></tr><tr><td class="td-label">Data</td><td>La qualité et la gouvernance des données d&#x27;entraînement deviennent critiques. Les data lakes mal gouvernés sont des passifs, pas des actifs.</td></tr><tr><td class="td-label">Sécurité / Cyber</td><td>Nouveaux vecteurs d&#x27;attaque : model poisoning, extraction de données d&#x27;entraînement, protection IP des poids de modèles. Surface d&#x27;attaque élargie.</td></tr><tr><td class="td-label">Gouvernance</td><td>Qui décide d&#x27;entraîner un modèle corporate ? Avec quelles données ? La gouvernance IA doit précéder le technique, pas l&#x27;inverse.</td></tr><tr><td class="td-label">Operating model</td><td>Émergence de rôles MLOps/LLMOps internes. Tension entre centraliser l&#x27;expertise (CoE) et distribuer la capacité d&#x27;exécution aux métiers.</td></tr></table>
-</div></div><div id="panel-D" class="tab-panel" style="display:none;"><div class="analyse-section">
-  <p><strong>Évolution des rôles :</strong> Les data scientists métiers peuvent prototyper des modèles spécialisés sans passer par un CoE central. Les experts métiers deviennent co-créateurs de modèles via le fine-tuning sur données domaine.</p>
-  <p><strong>Autonomie technologique des métiers :</strong> <strong>FORTE</strong></p>
-  <p><strong>Dépendance DSI :</strong> réduction</p>
-  <p><strong>Nouveaux usages :</strong></p><ul><li>Modèle juridique propriétaire entraîné sur 20 ans de jurisprudence interne (Direction Juridique)</li><li>Agent autonome de pricing dynamique intégrant données marché temps réel (Commerce)</li><li>Modèle multimodal analyse documents techniques + images (Industrie/Maintenance)</li></ul>
-  <p><strong>Gains productivité :</strong> Réduction estimée de 60-80% des coûts d&#x27;entraînement de modèles custom. Délai de mise en production divisé par 3-4 pour les use cases métiers spécialisés.</p>
-  <p><strong>Transformation compétences :</strong> Montée en puissance des profils &#x27;ML Engineers métiers&#x27; hybrides. Déclin relatif des data scientists généralistes au profit de spécialistes fine-tuning/évaluation.</p>
-  <p class="alert-text"><strong>Shadow AI / IT :</strong> Risque élevé : un département peut entraîner un modèle sur AWS avec une CB corporate sans validation DSI/DPO. Données personnelles ou confidentielles potentiellement exposées.</p>
-  <p><strong>Risques métiers :</strong></p><ul class="risk-list"><li class="risk-item">Modèles biaisés déployés sans évaluation robuste</li><li class="risk-item">Duplication d&#x27;efforts entre départements (3 modèles RH différents)</li></ul>
-</div></div><div id="panel-E" class="tab-panel" style="display:none;"><div class="analyse-section"><div class="group-bloc"><strong>Entreprise</strong><ul><li>Souveraineté IA : modèles propriétaires non dépendants de providers US, argument différenciant face aux régulateurs et clients B2B</li><li>Valorisation des données historiques : transformer 20 ans d&#x27;archives en avantage compétitif via modèles spécialisés</li></ul></div><div class="group-bloc"><strong>Metiers</strong><ul><li>Autonomie d&#x27;expérimentation : POC en 2-3 semaines vs 6 mois avec l&#x27;ancien modèle CoE centralisé</li><li>Modèles sur-mesure : performance supérieure de 15-30% sur tâches domaine vs modèles généralistes</li></ul></div><div class="group-bloc"><strong>Dsi</strong><ul><li>Se positionner comme &#x27;AI Platform Provider&#x27; interne : fournir l&#x27;infra, les guardrails, le MLOps — laisser les métiers innover</li><li>Devenir garant de la qualité/sécurité des modèles : certification interne, registry de modèles, audit automatisé</li></ul></div></div></div><div id="panel-F" class="tab-panel" style="display:none;"><div class="analyse-section"><div class="group-bloc"><strong>Techniques</strong><ul><li>MegaTrain reste expérimental : stabilité en production non prouvée à grande échelle</li><li>Dépendance à des GPUs haut de gamme (H100) dont l&#x27;approvisionnement reste contraint</li></ul></div><div class="group-bloc"><strong>Organisationnels</strong><ul><li>Fragmentation : chaque BU développe ses modèles sans cohérence ni mutualisation</li><li>Conflit de gouvernance : qui est responsable d&#x27;un modèle entraîné par les métiers sur infra DSI ?</li></ul></div><div class="group-bloc"><strong>Humains</strong><ul><li>Pénurie de profils ML Engineers seniors capables de piloter l&#x27;entraînement de LLMs (marché tendu, salaires +40% vs 2024)</li></ul></div><div class="group-bloc"><strong>Reglementaires</strong><ul><li>AI Act (applicable août 2025) : les modèles entraînés en interne sont soumis aux mêmes obligations que les modèles achetés — documentation, évaluation des risques, traçabilité</li><li>RGPD : données d&#x27;entraînement contenant des données personnelles = base légale requise, droit à l&#x27;oubli complexe sur modèles entraînés</li></ul></div></div></div><div id="panel-G" class="tab-panel" style="display:none;"><div class="analyse-section"><div class="group-bloc"><strong>Pour La Dsi</strong><ul><li>Lancer un audit des capacités GPU existantes et simuler le coût d&#x27;une plateforme d&#x27;entraînement souveraine (4-6 semaines)</li><li>Définir une politique &#x27;Model Registry&#x27; : tout modèle entraîné en interne doit être déclaré, versionné, documenté</li><li>Mettre en place des guardrails techniques : quotas compute par département, scan automatique des datasets d&#x27;entraînement (PII, données sensibles)</li></ul></div><div class="group-bloc"><strong>Pour Les Metiers</strong><ul><li>Identifier 2-3 use cases à forte valeur avec données propriétaires suffisantes (&gt;100k documents spécialisés)</li><li>Constituer des binômes expert métier + ML engineer pour les projets pilotes — éviter le &#x27;throw over the wall&#x27; au CoE</li></ul></div><div class="group-bloc"><strong>Pour La Gouvernance</strong><ul><li>Créer un &#x27;AI Board&#x27; cross-fonctionnel (DSI, métiers, juridique, DPO) avec pouvoir de validation sur les projets d&#x27;entraînement</li><li>Établir une matrice de responsabilité claire : qui est accountable si un modèle interne produit des outputs problématiques ?</li></ul></div></div></div><div id="panel-H" class="tab-panel" style="display:none;"><div class="analyse-section horizon-grid"><div class="horizon-item"><span class="horizon-label">Immédiat (0-3 mois)</span><p>Cartographier les initiatives IA en cours dans les métiers — beaucoup sont invisibles de la DSI. Décider si on veut un moratoire ou un framework d&#x27;encadrement rapide.</p></div><div class="horizon-item"><span class="horizon-label">6 mois</span><p>Premiers POC d&#x27;entraînement souverain sur cas non critiques (documentation interne, FAQ). Benchmark coût/performance vs fine-tuning sur APIs externes.</p></div><div class="horizon-item"><span class="horizon-label">12-24 mois</span><p>Les entreprises data-rich auront des modèles propriétaires en production. Celles qui n&#x27;auront pas investi dans la gouvernance data subiront un retard structurel de 2-3 ans.</p></div></div></div><div id="panel-I" class="tab-panel" style="display:none;"><div class="analyse-section contradiction-bloc">
-  <p><strong>Pourquoi ce signal peut être surestimé :</strong> MegaTrain est une publication de recherche, pas un produit. Le passage à l&#x27;échelle industrielle prendra 12-18 mois minimum. Les hyperscalers vont contre-attaquer avec des offres managed plus compétitives.</p>
-  <p><strong>Cas où il ne s'applique pas :</strong> PME sans masse critique de données propriétaires : le fine-tuning sur APIs reste plus pertinent. Secteurs ultra-régulés (banque, santé) où l&#x27;approbation réglementaire d&#x27;un modèle custom prend 18+ mois.</p>
-  <p><strong>Argument contre :</strong> La maintenance long-terme de modèles propriétaires est sous-estimée : drift, réentraînement, évaluation continue. Les coûts cachés peuvent annuler les gains initiaux.</p>
-</div></div></div>
+  <div class="tab-nav"><button class="tab-btn" onclick="switchTab(this, 'panel-654865-S')" data-panel="panel-654865-S">Score</button><button class="tab-btn" onclick="switchTab(this, 'panel-654865-1')" data-panel="panel-654865-1">Faits</button><button class="tab-btn" onclick="switchTab(this, 'panel-654865-2')" data-panel="panel-654865-2">Lecture Stratégique</button><button class="tab-btn" onclick="switchTab(this, 'panel-654865-3')" data-panel="panel-654865-3">Impact Entreprise</button><button class="tab-btn" onclick="switchTab(this, 'panel-654865-4')" data-panel="panel-654865-4">Impact DSI</button><button class="tab-btn" onclick="switchTab(this, 'panel-654865-5')" data-panel="panel-654865-5">Impact Métiers</button><button class="tab-btn" onclick="switchTab(this, 'panel-654865-6')" data-panel="panel-654865-6">Opportunités</button><button class="tab-btn" onclick="switchTab(this, 'panel-654865-7')" data-panel="panel-654865-7">Risques</button><button class="tab-btn" onclick="switchTab(this, 'panel-654865-8')" data-panel="panel-654865-8">Actions</button><button class="tab-btn" onclick="switchTab(this, 'panel-654865-9')" data-panel="panel-654865-9">Horizon</button><button class="tab-btn" onclick="switchTab(this, 'panel-654865-N')" data-panel="panel-654865-N">Nuances</button></div>
+  <div class="tab-content"><div id="panel-654865-S" class="tab-panel" style="display:none;"><div class="analyse-section">
+  <div class="score-total">Score total : <strong>6/10</strong></div>
+  <div class="score-row">
+  <span class="score-label">Force signal</span>
+  <div class="score-bar-bg"><div class="score-bar-fill" style="width:50%;background:#d29922;"></div></div>
+  <span class="score-val">1/2</span>
+</div><div class="score-row">
+  <span class="score-label">Crédibilité sources</span>
+  <div class="score-bar-bg"><div class="score-bar-fill" style="width:100%;background:#3fb950;"></div></div>
+  <span class="score-val">2/2</span>
+</div><div class="score-row">
+  <span class="score-label">Impact business</span>
+  <div class="score-bar-bg"><div class="score-bar-fill" style="width:100%;background:#3fb950;"></div></div>
+  <span class="score-val">2/2</span>
+</div><div class="score-row">
+  <span class="score-label">Urgence</span>
+  <div class="score-bar-bg"><div class="score-bar-fill" style="width:50%;background:#d29922;"></div></div>
+  <span class="score-val">1/2</span>
+</div><div class="score-row">
+  <span class="score-label">Disruption org.</span>
+  <div class="score-bar-bg"><div class="score-bar-fill" style="width:0%;background:#f85149;"></div></div>
+  <span class="score-val">0/2</span>
+</div>
+  <p class="score-justif">Signal provenant d&#x27;une source Tier 1 unique (MIT Technology Review) avec trois articles convergents, mais contenu factuel limité aux résumés disponibles. L&#x27;impact business potentiel est significatif (transformation RH, nouveaux modèles de travail) mais l&#x27;urgence reste modérée faute de données chiffrées concrètes sur les disruptions emploi réelles.</p>
+</div></div><div id="panel-654865-1" class="tab-panel" style="display:none;"><div class="analyse-section"><p>Un chercheur d&#x27;Anthropic (societal impacts researcher) a répondu publiquement à un débat sur l&#x27;apocalypse emploi liée à l&#x27;IA, suggérant qu&#x27;une donnée spécifique pourrait éclairer réellement l&#x27;impact de l&#x27;IA sur l&#x27;emploi — cette donnée n&#x27;est pas précisée dans les résumés disponibles [INCERTAIN : nature exacte de la donnée]. Parallèlement, un nouveau modèle de travail émerge : des gig workers, comme Zeus, étudiant en médecine au Nigeria, entraînent des robots humanoïdes depuis leur domicile via capture vidéo iPhone. Ces travailleurs utilisent un équipement minimal (ring light, smartphone fixé au front) pour générer des données de mouvement humain destinées à l&#x27;entraînement de modèles robotiques. Le MIT Technology Review signale également le développement de meilleurs benchmarks IA, suggérant une maturation des méthodes d&#x27;évaluation des LLMs.</p></div></div><div id="panel-654865-2" class="tab-panel" style="display:none;"><div class="analyse-section"><p>Ces faits révèlent une tension structurelle : d&#x27;un côté, le discours dominant Silicon Valley sur la destruction massive d&#x27;emplois par l&#x27;IA ; de l&#x27;autre, l&#x27;émergence de nouvelles formes de travail distribuées mondiales créées par l&#x27;IA elle-même. Le mouvement de fond est double : (1) le manque de données fiables sur l&#x27;impact emploi réel de l&#x27;IA crée un angle mort décisionnel pour les dirigeants, (2) la chaîne de valeur de l&#x27;entraînement IA s&#x27;étend vers des travailleurs précaires dans les pays émergents. Le timing s&#x27;explique par la pression croissante des régulateurs (AI Act) et investisseurs pour des métriques d&#x27;impact sociétal concrètes, alors que les entreprises opèrent encore largement sur des projections spéculatives.</p></div></div><div id="panel-654865-3" class="tab-panel" style="display:none;"><div class="analyse-section"><p>Les directions RH et stratégie sont confrontées à un paradoxe : planifier des transformations workforce sans données fiables sur l&#x27;ampleur réelle des disruptions. Les secteurs intensifs en main-d&#x27;œuvre (logistique, manufacturing, services) sont les premiers concernés par le modèle émergent d&#x27;entraînement robotique distribué. L&#x27;externalisation de l&#x27;entraînement IA vers des gig workers crée de nouvelles dépendances supply chain et des risques réputationnels (conditions de travail, rémunération). Les fonctions Finance doivent anticiper des modèles de coûts hybrides intégrant ces nouvelles formes de data labor.</p></div></div><div id="panel-654865-4" class="tab-panel" style="display:none;"><div class="analyse-section"><p>La DSI voit son rôle challengé sur deux fronts : (1) l&#x27;absence de métriques standardisées pour évaluer l&#x27;impact IA sur la productivité interne rend difficile le business case des projets IA, (2) les données d&#x27;entraînement provenant de sources externes (gig workers) posent des questions de qualité, traçabilité et conformité RGPD/AI Act. La gouvernance data doit intégrer la provenance éthique des datasets comme critère d&#x27;évaluation des fournisseurs IA. Le développement de meilleurs benchmarks IA offre une opportunité de structurer des critères d&#x27;évaluation internes plus robustes pour le choix des modèles.</p></div></div><div id="panel-654865-5" class="tab-panel" style="display:none;"><div class="analyse-section"><p>Niveau d&#x27;autonomie technologique des métiers : modérée. Les métiers RH sont directement impactés par l&#x27;incertitude sur les projections emploi — les plans de GPEC deviennent hautement spéculatifs. Les métiers Achats/Procurement doivent intégrer de nouveaux critères d&#x27;évaluation fournisseurs IA (origine des données d&#x27;entraînement, conditions de travail des contributeurs). Les métiers opérationnels utilisant des robots/automatisation doivent comprendre que la qualité de ces systèmes dépend désormais de travailleurs gig à l&#x27;autre bout du monde. Risque shadow AI : les métiers peuvent sous-estimer les enjeux éthiques des outils IA qu&#x27;ils adoptent sans visibilité sur leur chaîne d&#x27;entraînement.</p></div></div><div id="panel-654865-6" class="tab-panel" style="display:none;"><div class="analyse-section"><p>DSI : développer un framework interne d&#x27;évaluation impact IA sur les postes, avant que les régulateurs n&#x27;imposent un standard — avantage first-mover sur la conformité AI Act. Métiers RH : piloter une étude interne sur les tâches automatisables vs augmentables par fonction, créant une base factuelle pour le dialogue social. Entreprise : si activité robotique, explorer le modèle d&#x27;entraînement distribué comme levier de réduction des coûts de développement, avec due diligence éthique. Stratégie : identifier la donnée manquante mentionnée par Anthropic comme potentiel avantage concurrentiel si accessible avant les pairs.</p></div></div><div id="panel-654865-7" class="tab-panel" style="display:none;"><div class="analyse-section"><p>Risque réglementaire AI Act : l&#x27;utilisation de données d&#x27;entraînement provenant de travailleurs précaires sans traçabilité pourrait constituer une non-conformité sur la documentation des datasets. Risque réputationnel : association à des pratiques d&#x27;exploitation de gig workers dans des pays à faible protection sociale. Risque décisionnel : prendre des décisions de transformation workforce basées sur des projections spéculatives plutôt que sur des données empiriques. Limite technologique : les benchmarks IA actuels restent insuffisants pour prédire l&#x27;impact réel sur les postes complexes — le signal Anthropic suggère que même les leaders du secteur manquent de visibilité.</p></div></div><div id="panel-654865-8" class="tab-panel" style="display:none;"><div class="analyse-section"><p>DSI (0-3 mois) : auditer les fournisseurs IA actuels sur la provenance et les conditions de production de leurs données d&#x27;entraînement — critère à intégrer dans les appels d&#x27;offres. RH (3-6 mois) : lancer une cartographie interne tâches/postes vs potentiel automatisation, en collaboration avec les métiers, pour créer une base factuelle de discussion. Gouvernance (6 mois) : établir une politique d&#x27;approvisionnement IA éthique incluant des critères sur le data labor, anticipant les exigences AI Act. COMEX (immédiat) : identifier et suivre la métrique emploi-IA évoquée par Anthropic — demander une veille dédiée pour disposer de cette donnée dès sa publication.</p></div></div><div id="panel-654865-9" class="tab-panel" style="display:none;"><div class="analyse-section horizon-grid"><div class="horizon-item"><span class="horizon-label">Immédiat (0-3 mois)</span><p>0-3 mois : les audits fournisseurs IA sur la provenance des données d&#x27;entraînement peuvent démarrer immédiatement. Le débat emploi-IA va s&#x27;intensifier dans les médias et auprès des IRP — préparer des éléments de langage factuels.</p></div><div class="horizon-item"><span class="horizon-label">6 mois</span><p>6 mois : les premiers frameworks sectoriels d&#x27;évaluation impact IA sur l&#x27;emploi devraient émerger (consultants, think tanks). L&#x27;AI Act entre en application progressive — la documentation des datasets devient un enjeu de conformité.</p></div><div class="horizon-item"><span class="horizon-label">12-24 mois</span><p>12-24 mois : le modèle de data labor distribué (gig workers entraînant des IA/robots) sera soit normalisé soit régulé. Les entreprises sans visibilité sur leur chaîne d&#x27;entraînement IA feront face à des risques de conformité et réputation croissants.</p></div></div></div><div id="panel-654865-N" class="tab-panel" style="display:none;"><div class="analyse-section"><p>Ce signal peut être surestimé car les résumés disponibles ne révèlent pas la nature exacte de la &#x27;donnée manquante&#x27; évoquée par Anthropic — il pourrait s&#x27;agir d&#x27;un effet d&#x27;annonce. Le modèle gig worker pour l&#x27;entraînement robotique reste marginal et ne concerne que les entreprises développant des humanoïdes, soit un segment très limité. Pour les PME et secteurs régulés (santé, finance), l&#x27;impact immédiat est quasi-nul — ces organisations sont davantage contraintes par la conformité que par l&#x27;optimisation des coûts d&#x27;entraînement IA.</p></div></div></div>
 </div>
   </div>
 </div>
@@ -338,135 +454,74 @@ section { margin-bottom: 40px; }
 </div>
 </section>
 
-<section id="veille-cyber"><h2 class="section-title">Veille Cyber</h2><p class="empty-state">Aucun signal cette session.</p></section>
+<section id="veille-cyber">
+  <h2 class="section-title">Veille Cyber</h2>
+  <div class="sous-theme">
+  <h3 class="sous-theme-titre">Menaces Structurantes</h3>
+  <div class="signaux-liste">
+    <div class="carte-signal">
+  <div class="carte-signal-header" onclick="toggleSignal('signal_2209981345600_1951758983635904434')">
+    <div class="signal-meta">
+      <span class="badge badge-structuration">STRUCTURATION</span>
+      <span class="tier-badge tier-1">T1</span>
+    </div>
+    <h4 class="signal-titre">CISA intensifie alertes critiques infrastructure réseau</h4>
+    <div class="signal-indicateurs">
+      <div class="force-dots small"><span class="dot dot-on"></span><span class="dot dot-on"></span><span class="dot dot-on"></span></div>
+      <span class="signal-score">6/10</span>
+      <span class="toggle-arrow" id="arrow-signal_2209981345600_1951758983635904434">▼ Analyse</span>
+    </div>
+  </div>
+
+  <ul class="sources-inline"><li><a href="https://www.cisa.gov/news-events/news/cisa-issues-updated-resurge-malware-analysis-highlighting-stealthy-active-threat" target="_blank" class="source-link">CISA Issues Updated RESURGE Malware Analysis Highlighting a Stealthy but Active </a> <span class="source-name">(CISA)</span></li><li><a href="https://www.cisa.gov/news-events/news/immediate-action-required-cisa-issues-emergency-directive-secure-cisco-sd-wan-systems" target="_blank" class="source-link">Immediate Action Required: CISA Issues Emergency Directive to Secure Cisco SD-WA</a> <span class="source-name">(CISA)</span></li><li><a href="https://www.cisa.gov/news-events/news/cisa-announces-new-town-halls-engage-stakeholders-cyber-incident-reporting-critical-infrastructure" target="_blank" class="source-link">CISA Announces New Town Halls to Engage with Stakeholders on Cyber Incident Repo</a> <span class="source-name">(CISA)</span></li></ul>
+
+  <div id="signal_2209981345600_1951758983635904434" class="signal-body" style="display:none;">
+    <div class="analyse-container">
+  <div class="tab-nav"><button class="tab-btn" onclick="switchTab(this, 'panel-423071-S')" data-panel="panel-423071-S">Score</button><button class="tab-btn" onclick="switchTab(this, 'panel-423071-1')" data-panel="panel-423071-1">Faits</button><button class="tab-btn" onclick="switchTab(this, 'panel-423071-2')" data-panel="panel-423071-2">Lecture Stratégique</button><button class="tab-btn" onclick="switchTab(this, 'panel-423071-3')" data-panel="panel-423071-3">Impact Entreprise</button><button class="tab-btn" onclick="switchTab(this, 'panel-423071-4')" data-panel="panel-423071-4">Impact DSI</button><button class="tab-btn" onclick="switchTab(this, 'panel-423071-5')" data-panel="panel-423071-5">Impact Métiers</button><button class="tab-btn" onclick="switchTab(this, 'panel-423071-6')" data-panel="panel-423071-6">Opportunités</button><button class="tab-btn" onclick="switchTab(this, 'panel-423071-7')" data-panel="panel-423071-7">Risques</button><button class="tab-btn" onclick="switchTab(this, 'panel-423071-8')" data-panel="panel-423071-8">Actions</button><button class="tab-btn" onclick="switchTab(this, 'panel-423071-9')" data-panel="panel-423071-9">Horizon</button><button class="tab-btn" onclick="switchTab(this, 'panel-423071-N')" data-panel="panel-423071-N">Nuances</button></div>
+  <div class="tab-content"><div id="panel-423071-S" class="tab-panel" style="display:none;"><div class="analyse-section">
+  <div class="score-total">Score total : <strong>6/10</strong></div>
+  <div class="score-row">
+  <span class="score-label">Force signal</span>
+  <div class="score-bar-bg"><div class="score-bar-fill" style="width:50%;background:#d29922;"></div></div>
+  <span class="score-val">1/2</span>
+</div><div class="score-row">
+  <span class="score-label">Crédibilité sources</span>
+  <div class="score-bar-bg"><div class="score-bar-fill" style="width:100%;background:#3fb950;"></div></div>
+  <span class="score-val">2/2</span>
+</div><div class="score-row">
+  <span class="score-label">Impact business</span>
+  <div class="score-bar-bg"><div class="score-bar-fill" style="width:50%;background:#d29922;"></div></div>
+  <span class="score-val">1/2</span>
+</div><div class="score-row">
+  <span class="score-label">Urgence</span>
+  <div class="score-bar-bg"><div class="score-bar-fill" style="width:50%;background:#d29922;"></div></div>
+  <span class="score-val">1/2</span>
+</div><div class="score-row">
+  <span class="score-label">Disruption org.</span>
+  <div class="score-bar-bg"><div class="score-bar-fill" style="width:50%;background:#d29922;"></div></div>
+  <span class="score-val">1/2</span>
+</div>
+  <p class="score-justif">Signal provenant exclusivement de CISA (Tier 1, haute crédibilité) mais les résumés des articles sont vides, limitant l&#x27;analyse factuelle. La convergence de trois alertes CISA en février 2026 sur des sujets distincts (malware RESURGE, Cisco SD-WAN, reporting incidents) suggère une intensification réglementaire sans permettre d&#x27;évaluer précisément l&#x27;impact business.</p>
+</div></div><div id="panel-423071-1" class="tab-panel" style="display:none;"><div class="analyse-section"><p>[DONNÉES LIMITÉES] Trois communications CISA publiées entre le 13 et 26 février 2026. Une directive d&#x27;urgence concernant les systèmes Cisco SD-WAN (25/02). Une analyse mise à jour du malware RESURGE qualifié de &#x27;furtif mais actif&#x27; (26/02). Annonce de town halls sur le reporting d&#x27;incidents cyber pour les infrastructures critiques (13/02). [INCERTAIN] Les résumés des articles étant absents, les détails techniques des vulnérabilités et l&#x27;ampleur des systèmes affectés ne peuvent être établis.</p></div></div><div id="panel-423071-2" class="tab-panel" style="display:none;"><div class="analyse-section"><p>[HYPOTHÈSE] La publication rapprochée de trois alertes CISA suggère une période de menaces actives ciblant les infrastructures réseau d&#x27;entreprise, particulièrement les solutions SD-WAN. Le qualificatif &#x27;Emergency Directive&#x27; pour Cisco SD-WAN indique une criticité élevée nécessitant une action immédiate des organisations concernées. L&#x27;initiative de consultation sur le reporting d&#x27;incidents signale un durcissement probable des obligations de notification pour les opérateurs d&#x27;infrastructures critiques aux États-Unis, avec des répercussions potentielles sur les filiales européennes.</p></div></div><div id="panel-423071-3" class="tab-panel" style="display:none;"><div class="analyse-section"><p>[INCERTAIN - données sources insuffisantes] Les organisations utilisant Cisco SD-WAN sont potentiellement exposées à une vulnérabilité critique nécessitant un patch urgent. Les secteurs qualifiés d&#x27;infrastructures critiques (énergie, santé, finance, transport) devront anticiper des obligations renforcées de reporting d&#x27;incidents. La menace RESURGE, si confirmée comme active, pourrait impacter les environnements déjà compromis sans détection.</p></div></div><div id="panel-423071-4" class="tab-panel" style="display:none;"><div class="analyse-section"><p>La DSI doit immédiatement auditer l&#x27;exposition aux systèmes Cisco SD-WAN et vérifier l&#x27;application des correctifs CISA. Les équipes SOC doivent intégrer les IOC du malware RESURGE dans leurs outils de détection. [HYPOTHÈSE] Les nouvelles exigences de reporting d&#x27;incidents pourraient imposer des investissements en outillage de détection et des processus de notification formalisés. La fonction sécurité voit son rôle renforcé comme interface avec les régulateurs.</p></div></div><div id="panel-423071-5" class="tab-panel" style="display:none;"><div class="analyse-section"><p>[DONNÉES INSUFFISANTES pour une évaluation précise] Les métiers opérant sur des réseaux SD-WAN pourraient subir des interruptions si des actions de remédiation d&#x27;urgence sont déployées. Les équipes compliance et juridique devront se préparer à de nouvelles obligations de notification. Niveau d&#x27;autonomie technologique des métiers : faible sur ce sujet - la remédiation reste sous contrôle DSI/RSSI. Les directions générales des secteurs régulés doivent anticiper une communication de crise en cas d&#x27;incident à déclarer.</p></div></div><div id="panel-423071-6" class="tab-panel" style="display:none;"><div class="analyse-section"><p>Renforcer le positionnement de la fonction cybersécurité auprès du COMEX en démontrant la réactivité face aux alertes CISA. Profiter de l&#x27;audit SD-WAN pour rationaliser l&#x27;architecture réseau et identifier les actifs non inventoriés. Anticiper les obligations de reporting US pour les filiales américaines avant leur formalisation. Utiliser ces alertes comme levier pour débloquer des budgets sécurité en attente.</p></div></div><div id="panel-423071-7" class="tab-panel" style="display:none;"><div class="analyse-section"><p>[INCERTAIN] Sans les détails techniques des vulnérabilités, le risque réel ne peut être quantifié. Risque de sur-réaction si les systèmes concernés ne sont pas déployés dans l&#x27;organisation. Les obligations de reporting US peuvent créer des conflits avec le RGPD sur la notification transfrontalière d&#x27;incidents. Risque de fatigue aux alertes si les équipes sécurité ne priorisent pas correctement.</p></div></div><div id="panel-423071-8" class="tab-panel" style="display:none;"><div class="analyse-section"><p>DSI/RSSI (immédiat) : Identifier sous 48h tous les équipements Cisco SD-WAN du parc et vérifier leur statut de patch. SOC (immédiat) : Intégrer les IOC RESURGE disponibles publiquement dans les règles de détection SIEM/EDR. Compliance (3 mois) : Cartographier les obligations de reporting d&#x27;incidents cyber US applicables aux entités du groupe. Gouvernance (6 mois) : Formaliser un processus de réponse aux directives d&#x27;urgence des agences de cybersécurité (CISA, ANSSI, ENISA).</p></div></div><div id="panel-423071-9" class="tab-panel" style="display:none;"><div class="analyse-section horizon-grid"><div class="horizon-item"><span class="horizon-label">Immédiat (0-3 mois)</span><p>Audit d&#x27;exposition Cisco SD-WAN et application des correctifs CISA. Mise à jour des signatures de détection RESURGE.</p></div><div class="horizon-item"><span class="horizon-label">6 mois</span><p>Clarification des nouvelles règles de reporting CISA suite aux town halls. Adaptation des processus de gestion d&#x27;incidents pour les filiales US.</p></div><div class="horizon-item"><span class="horizon-label">12-24 mois</span><p>[HYPOTHÈSE] Harmonisation probable des obligations de reporting cyber entre US et EU (NIS2/DORA). Industrialisation de la veille réglementaire cyber multi-juridictions.</p></div></div></div><div id="panel-423071-N" class="tab-panel" style="display:none;"><div class="analyse-section"><p>Ce signal peut être surestimé : les résumés vides des articles empêchent de confirmer la criticité réelle des alertes. Les organisations sans équipements Cisco SD-WAN ou sans présence aux US ne sont pas directement concernées. Les PME et organisations hors secteurs &#x27;infrastructures critiques&#x27; ont une exposition limitée aux obligations de reporting CISA. L&#x27;intensité perçue peut refléter un biais de communication institutionnelle plutôt qu&#x27;une menace exceptionnelle.</p></div></div></div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+</section>
 
 <section id="idees">
   <h2 class="section-title">Idées Exploitables</h2>
 
-  <div class="idees-bloc"><h3>Posts LinkedIn</h3><div class="posts-grid"><div class="post-card">
-  <div class="post-header">
-    <span class="post-signal">Entraînement LLM 100B+ sur GPU unique démocratise l&#x27;IA souveraine</span>
-    <span class="signal-score">7/10</span>
-  </div>
-  <pre class="post-contenu" id="post_1"># VERSION A — Expert terrain
-
-**La DSI ne sait pas que 3 de ses BU entraînent déjà des modèles.**
-
-MegaTrain vient de démontrer qu&#x27;on peut entraîner un LLM 100B+ paramètres sur un GPU unique. Full precision. Coût divisé par 10.
-
-En France, le réflexe : &quot;intéressant, on regarde dans 18 mois&quot;.
-
-Pendant ce temps, vos data scientists métiers ont déjà compris. Ils fine-tunent des modèles spécialisés sur leurs données domaine. Sans passer par le CoE. Sans validation sécu. Sans vous.
-
-La croyance à démolir : &quot;Les métiers n&#x27;ont pas les compétences pour faire de l&#x27;IA sérieuse.&quot;
-
-Faux. Ils n&#x27;avaient pas l&#x27;infra. Maintenant si.
-
-L&#x27;arbitrage que 90% des DSI évitent : choisir entre contrôle centralisé (lent, frustrant, contourné) et plateforme interne ouverte (risqué, politique, nécessaire).
-
-Se positionner en &quot;AI Platform Provider&quot; interne — infra, guardrails, MLOps — ou regarder les métiers construire leur shadow AI.
-
-La question n&#x27;est plus &quot;faut-il démocratiser l&#x27;IA en interne&quot;.
-
-C&#x27;est déjà fait.
-
-La question : qui certifie les modèles qui tournent en prod dans 6 mois ?
-
-#IAentreprise #Gouvernance #DSI
-
-**Meilleur moment : mardi 7h30-8h30**
-
----
-
-# VERSION B — Signal d&#x27;avance
-
-**Le ticket d&#x27;entrée pour l&#x27;IA souveraine vient de chuter de 90%.**
-
-MegaTrain : entraînement LLM 100B+ paramètres, GPU unique, full precision. Publication de recherche — mais le signal est limpide.
-
-À 6-18 mois, trois conséquences probables :
-
-**1. Explosion des modèles verticaux.**
-Assurance, pharma, défense : chaque secteur va vouloir son LLM spécialisé. Les données métier deviennent le vrai avantage compétitif, pas la puissance de calcul.
-
-**2. Les hyperscalers vont réagir violemment.**
-AWS, Azure, GCP vont casser les prix du managed training. Objectif : tuer dans l&#x27;œuf toute velléité d&#x27;autonomie. La fenêtre de tir pour construire une capacité interne est étroite.
-
-**3. L&#x27;IA souveraine devient crédible.**
-Pas par idéologie. Par économie. Un GPU haut de gamme + MegaTrain = prototypage de modèle propriétaire en interne. Les arguments &quot;trop cher, trop complexe&quot; s&#x27;effondrent.
-
-La nuance : MegaTrain n&#x27;est pas un produit. Comptez 12-18 mois avant industrialisation réelle.
-
-Mais ceux qui auditent leurs capacités GPU maintenant seront prêts.
-
-Les autres découvriront le sujet quand leurs concurrents annonceront leur modèle maison.
-
-#IAsouveraine #LLM #StratégieTech
-
-**Meilleur moment : jeudi 8h-9h**</pre>
-  <button class="btn-copy" onclick="copierTexte('post_1')">Copier</button>
-</div><div class="post-card">
-  <div class="post-header">
-    <span class="post-signal">Agents IA en conditions réelles : maturité encore fragile</span>
-    <span class="signal-score">7/10</span>
-  </div>
-  <pre class="post-contenu" id="post_2"># VERSION A — Expert terrain
-
-**Les agents IA en production dans vos BU ? La moitié échoue sur des tâches basiques.**
-
-Les derniers benchmarks HuggingFace sont sans appel. Navigation web, chaînage d&#x27;appels API, orchestration multi-étapes : les performances lab ne survivent pas au terrain. Écart moyen constaté : 40% de dégradation en conditions réelles.
-
-Pendant ce temps, vos métiers déploient des POC agentiques sans vous prévenir. Certains tournent déjà en pseudo-production.
-
-**La croyance à démolir** : &quot;On maîtrise notre exposition IA parce qu&#x27;on valide les achats.&quot;
-
-Faux. Le shadow AI agentique passe par des API freemium, des plugins navigateur, des scripts bricolés. Aucune trace dans vos CMDB.
-
-**L&#x27;arbitrage que personne ne pose** : la DSI devient-elle platform provider d&#x27;agents validés, ou pompier des incidents agentiques métiers ?
-
-La première option exige un Agent Registry centralisé — inventaire de tout agent actif, critères de conformité, escalade claire.
-
-La seconde garantit une érosion de légitimité. Les métiers avanceront. Avec ou sans vous.
-
-Implication sous-estimée : vos analystes juniors supervisent déjà des agents qu&#x27;ils ne comprennent pas. L&#x27;atrophie des compétences a commencé.
-
-#AgentsIA #GouvernanceIT #DSI
-
-**Meilleur moment : mardi 7h30-8h30**
-
----
-
-# VERSION B — Signal d&#x27;avance
-
-**D&#x27;ici 18 mois, la DSI ne fournira plus des outils. Elle brokera des agents.**
-
-Deux signaux convergents cette semaine. Un benchmark révèle la fragilité des agents IA hors laboratoire. Un framework multi-agents open-source (Paper Circle) industrialise l&#x27;analyse documentaire. Traduction : la tech mûrit, mais pas au rythme promis par les vendors.
-
-**Ce que ça change** : le discours &quot;full automation&quot; s&#x27;effondre. Les benchmarks montrent des échecs fréquents dès que la tâche sort du scénario prévu. La réalité des 12-18 prochains mois sera hybride — agents supervisés, pas agents autonomes.
-
-**La croyance à abandonner** : &quot;Les agents vont remplacer les analystes.&quot;
-
-Non. Ils vont transformer les seniors en superviseurs et priver les juniors des tâches formatrices. Le vrai risque n&#x27;est pas le remplacement. C&#x27;est la fracture générationnelle des compétences.
-
-**Le repositionnement qui se dessine** : les DSI qui construisent un &quot;Agent Store&quot; interne — catalogue validé, scoring conformité, SLA de supervision — captent une position stratégique durable.
-
-Celles qui attendent deviendront prestataires de support pour des agents qu&#x27;elles n&#x27;auront pas choisis.
-
-Horizon Q3 2026 : qui aura son registre d&#x27;agents en place ?
-
-#FuturOfWork #StrategieIA #Leadership
-
-**Meilleur moment : jeudi 12h-13h**</pre>
-  <button class="btn-copy" onclick="copierTexte('post_2')">Copier</button>
-</div></div></div>
+  
   <div class="idees-bloc"><h3>Idées de Mission / Offre</h3><div class="missions-grid"><div class="mission-card">
-  <span class="mission-theme">LLMs &amp; modèles de fondation</span>
-  <p>Se positionner comme &#x27;AI Platform Provider&#x27; interne : fournir l&#x27;infra, les guardrails, le MLOps — laisser les métiers innover</p>
-</div><div class="mission-card">
   <span class="mission-theme">Agents IA &amp; automatisation</span>
-  <p>Positionnement comme &#x27;AI Platform Provider&#x27; interne — renforcement de la légitimité stratégique</p>
+  <p>DSI : Prendre le leadership sur la définition d&#x27;une architecture agent-ready incluant logging du raisonnement, avant que les métiers ne déploient en shadow. Métiers : Identifier 2-3 processus non critiques pour expérimenter le design agent-first et capitaliser sur les apprentissages. Gouvernance : É</p>
+</div><div class="mission-card">
+  <span class="mission-theme">LLMs &amp; modèles de fondation</span>
+  <p>DSI : développer un framework interne d&#x27;évaluation impact IA sur les postes, avant que les régulateurs n&#x27;imposent un standard — avantage first-mover sur la conformité AI Act. Métiers RH : piloter une étude interne sur les tâches automatisables vs augmentables par fonction, créant une base factuelle </p>
 </div></div></div>
-  <div class="idees-bloc"><h3>Questions pour CIO / CTO / CISO</h3><div class="questions-grid"><div class="question-card">[Entraînement LLM 100B+ sur GPU unique dé] Lancer un audit des capacités GPU existantes et simuler le coût d&#x27;une plateforme d&#x27;entraînement souveraine (4-6 semaines)</div><div class="question-card">[Agents IA en conditions réelles : maturi] Déployer un &#x27;Agent Registry&#x27; centralisé d&#x27;ici Q3 2026 — inventaire obligatoire de tout agent en production ou POC</div></div></div>
+  <div class="idees-bloc"><h3>Questions pour CIO / CTO / CISO</h3><div class="questions-grid"><div class="question-card">[Agents IA autonomes exigent refonte proc] DSI (0-3 mois) : Auditer les usages agents IA existants dans l&#x27;organisation, identifier les déploiements shadow et leur niveau de criticité. Gouvernance (0-6 mois) : Établir une matrice de classificat</div><div class="question-card">[Données emploi-IA : l&#x27;angle mort stratég] DSI (0-3 mois) : auditer les fournisseurs IA actuels sur la provenance et les conditions de production de leurs données d&#x27;entraînement — critère à intégrer dans les appels d&#x27;offres. RH (3-6 mois) : la</div><div class="question-card">[CISA intensifie alertes critiques infras] DSI/RSSI (immédiat) : Identifier sous 48h tous les équipements Cisco SD-WAN du parc et vérifier leur statut de patch. SOC (immédiat) : Intégrer les IOC RESURGE disponibles publiquement dans les règles</div></div></div>
 </section>
 
 <section id="sessions">
