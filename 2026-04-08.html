@@ -110,6 +110,9 @@ section { margin-bottom: 40px; }
 .sources-liste li { padding: 3px 0; }
 .source-link { color: var(--accent); font-size: 12px; }
 .source-name { font-size: 11px; color: var(--text-muted); }
+.sources-inline { list-style: none; padding: 6px 16px 8px; border-top: 1px solid var(--border); }
+.sources-inline li { padding: 3px 0; display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+.sources-inline .source-name { background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; padding: 0 5px; font-size: 10px; }
 
 /* Analyse container (tabs) */
 .analyse-container { }
@@ -207,6 +210,7 @@ section { margin-bottom: 40px; }
   </div>
   <h3 class="carte-titre">Agents IA autonomes accélèrent vers l&#x27;automatisation massive</h3>
   <p class="carte-horizon">Auditer l&#x27;exposition au shadow AI (qui utilise déjà des agents via API personnelles ?). Lancer un POC contrôlé sur un périmètre non critique pour mont</p>
+  <ul class="sources-inline"><li><a href="https://www.alignmentforum.org/posts/dKpC6wHFqDrGZwnah/ais-can-now-often-do-massive-easy-to-verify-swe-tasks-and-i" target="_blank" class="source-link">AIs can now often do massive easy-to-verify SWE tasks and I&#x27;ve updated towards shorter tim</a> <span class="source-name">Alignment Forum</span></li><li><a href="https://www.alignmentforum.org/posts/qdhyrN4uKwBAftmQx/there-should-be-usd100m-grants-to-automate-ai-safety" target="_blank" class="source-link">There should be $100M grants to automate AI safety</a> <span class="source-name">Alignment Forum</span></li><li><a href="https://huggingface.co/papers/2604.06132" target="_blank" class="source-link">Claw-Eval: Toward Trustworthy Evaluation of Autonomous Agents</a> <span class="source-name">HuggingFace Papers</span></li></ul>
 </div><div class="carte-mouvement" data-score="6">
   <div class="carte-header">
     <div class="carte-badges">
@@ -222,6 +226,7 @@ section { margin-bottom: 40px; }
   </div>
   <h3 class="carte-titre">LLMs auto-correcteurs : vers des raisonnements fiables autonomes</h3>
   <p class="carte-horizon">Veille active sur les évolutions des modèles (GPT-5, Claude 4, Mistral). Identifier les cas d&#x27;usage internes où la vérification humaine est un goulot </p>
+  <ul class="sources-inline"><li><a href="https://www.alignmentforum.org/posts/dYHFtEnKc4BdJEYY4/my-most-common-research-advice-do-quick-sanity-checks" target="_blank" class="source-link">My most common research advice: do quick sanity checks</a> <span class="source-name">Alignment Forum</span></li><li><a href="https://www.alignmentforum.org/posts/tDJWZLQNN7poqCwKa/test-your-best-methods-on-our-hard-cot-interp-tasks" target="_blank" class="source-link">Test your best methods on our hard CoT interp tasks</a> <span class="source-name">Alignment Forum</span></li><li><a href="https://huggingface.co/papers/2604.01591" target="_blank" class="source-link">ThinkTwice: Jointly Optimizing Large Language Models for Reasoning and Self-Refinement</a> <span class="source-name">HuggingFace Papers</span></li></ul>
 </div><div class="carte-mouvement" data-score="4">
   <div class="carte-header">
     <div class="carte-badges">
@@ -237,6 +242,7 @@ section { margin-bottom: 40px; }
   </div>
   <h3 class="carte-titre">Incertitudes critiques sur l&#x27;état réel des risques IA</h3>
   <p class="carte-horizon">Cartographier les déploiements IA existants (shadow inclus) et évaluer l&#x27;exposition données. Décision COMEX sur la posture risque IA d&#x27;ici fin Q2 2026</p>
+  <ul class="sources-inline"><li><a href="https://www.alignmentforum.org/posts/WjaGAA4xCAXeFpyWm/my-picture-of-the-present-in-ai" target="_blank" class="source-link">My picture of the present in AI</a> <span class="source-name">Alignment Forum</span></li></ul>
 </div>
   </div>
 </section>
@@ -247,7 +253,7 @@ section { margin-bottom: 40px; }
   <h3 class="sous-theme-titre">Agents & Automatisation</h3>
   <div class="signaux-liste">
     <div class="carte-signal">
-  <div class="carte-signal-header" onclick="toggleSignal('signal_2317239800704_n7670230883165238261')">
+  <div class="carte-signal-header" onclick="toggleSignal('signal_2153267627776_2088539306723709117')">
     <div class="signal-meta">
       <span class="badge badge-accélération">ACCÉLÉRATION</span>
       <span class="tier-badge tier-2">T2</span>
@@ -256,12 +262,13 @@ section { margin-bottom: 40px; }
     <div class="signal-indicateurs">
       <div class="force-dots small"><span class="dot dot-on"></span><span class="dot dot-on"></span><span class="dot dot-on"></span></div>
       <span class="signal-score">8/10</span>
-      <span class="toggle-arrow" id="arrow-signal_2317239800704_n7670230883165238261">▼</span>
+      <span class="toggle-arrow" id="arrow-signal_2153267627776_2088539306723709117">▼ Analyse</span>
     </div>
   </div>
 
-  <div id="signal_2317239800704_n7670230883165238261" class="signal-body" style="display:none;">
-    <div class="sources-liste"><strong>Sources :</strong><ul><li><a href="https://www.alignmentforum.org/posts/dKpC6wHFqDrGZwnah/ais-can-now-often-do-massive-easy-to-verify-swe-tasks-and-i" target="_blank" class="source-link">AIs can now often do massive easy-to-verify SWE tasks and I&#x27;ve updated towards s</a> <span class="source-name">(Alignment Forum)</span></li><li><a href="https://www.alignmentforum.org/posts/qdhyrN4uKwBAftmQx/there-should-be-usd100m-grants-to-automate-ai-safety" target="_blank" class="source-link">There should be $100M grants to automate AI safety</a> <span class="source-name">(Alignment Forum)</span></li><li><a href="https://huggingface.co/papers/2604.06132" target="_blank" class="source-link">Claw-Eval: Toward Trustworthy Evaluation of Autonomous Agents</a> <span class="source-name">(HuggingFace Papers)</span></li></ul></div>
+  <ul class="sources-inline"><li><a href="https://www.alignmentforum.org/posts/dKpC6wHFqDrGZwnah/ais-can-now-often-do-massive-easy-to-verify-swe-tasks-and-i" target="_blank" class="source-link">AIs can now often do massive easy-to-verify SWE tasks and I&#x27;ve updated towards s</a> <span class="source-name">(Alignment Forum)</span></li><li><a href="https://www.alignmentforum.org/posts/qdhyrN4uKwBAftmQx/there-should-be-usd100m-grants-to-automate-ai-safety" target="_blank" class="source-link">There should be $100M grants to automate AI safety</a> <span class="source-name">(Alignment Forum)</span></li><li><a href="https://huggingface.co/papers/2604.06132" target="_blank" class="source-link">Claw-Eval: Toward Trustworthy Evaluation of Autonomous Agents</a> <span class="source-name">(HuggingFace Papers)</span></li></ul>
+
+  <div id="signal_2153267627776_2088539306723709117" class="signal-body" style="display:none;">
     <div class="analyse-container">
   <div class="tab-nav"><button class="tab-btn" onclick="switchTab(this, 'panel-A')" data-panel="panel-A">A. Lecture Marché</button><button class="tab-btn" onclick="switchTab(this, 'panel-B')" data-panel="panel-B">B. Impact Entreprise</button><button class="tab-btn" onclick="switchTab(this, 'panel-C')" data-panel="panel-C">C. Impact DSI</button><button class="tab-btn" onclick="switchTab(this, 'panel-D')" data-panel="panel-D">D. Impact Métiers</button><button class="tab-btn" onclick="switchTab(this, 'panel-E')" data-panel="panel-E">E. Opportunités</button><button class="tab-btn" onclick="switchTab(this, 'panel-F')" data-panel="panel-F">F. Risques</button><button class="tab-btn" onclick="switchTab(this, 'panel-G')" data-panel="panel-G">G. Actions</button><button class="tab-btn" onclick="switchTab(this, 'panel-H')" data-panel="panel-H">H. Horizon</button><button class="tab-btn" onclick="switchTab(this, 'panel-I')" data-panel="panel-I">I. Nuances</button></div>
   <div class="tab-content"><div id="panel-A" class="tab-panel" style="display:none;"><div class="analyse-section">
@@ -297,7 +304,7 @@ section { margin-bottom: 40px; }
   <h3 class="sous-theme-titre">Adoption Entreprise</h3>
   <div class="signaux-liste">
     <div class="carte-signal">
-  <div class="carte-signal-header" onclick="toggleSignal('signal_2317239800640_n8918327968531632795')">
+  <div class="carte-signal-header" onclick="toggleSignal('signal_2153267633408_1197912118622180743')">
     <div class="signal-meta">
       <span class="badge badge-émergent">ÉMERGENT</span>
       <span class="tier-badge tier-2">T2</span>
@@ -306,12 +313,13 @@ section { margin-bottom: 40px; }
     <div class="signal-indicateurs">
       <div class="force-dots small"><span class="dot dot-on"></span><span class="dot dot-on"></span><span class="dot dot-on"></span></div>
       <span class="signal-score">6/10</span>
-      <span class="toggle-arrow" id="arrow-signal_2317239800640_n8918327968531632795">▼</span>
+      <span class="toggle-arrow" id="arrow-signal_2153267633408_1197912118622180743">▼ Analyse</span>
     </div>
   </div>
 
-  <div id="signal_2317239800640_n8918327968531632795" class="signal-body" style="display:none;">
-    <div class="sources-liste"><strong>Sources :</strong><ul><li><a href="https://www.alignmentforum.org/posts/dYHFtEnKc4BdJEYY4/my-most-common-research-advice-do-quick-sanity-checks" target="_blank" class="source-link">My most common research advice: do quick sanity checks</a> <span class="source-name">(Alignment Forum)</span></li><li><a href="https://www.alignmentforum.org/posts/tDJWZLQNN7poqCwKa/test-your-best-methods-on-our-hard-cot-interp-tasks" target="_blank" class="source-link">Test your best methods on our hard CoT interp tasks</a> <span class="source-name">(Alignment Forum)</span></li><li><a href="https://huggingface.co/papers/2604.01591" target="_blank" class="source-link">ThinkTwice: Jointly Optimizing Large Language Models for Reasoning and Self-Refi</a> <span class="source-name">(HuggingFace Papers)</span></li></ul></div>
+  <ul class="sources-inline"><li><a href="https://www.alignmentforum.org/posts/dYHFtEnKc4BdJEYY4/my-most-common-research-advice-do-quick-sanity-checks" target="_blank" class="source-link">My most common research advice: do quick sanity checks</a> <span class="source-name">(Alignment Forum)</span></li><li><a href="https://www.alignmentforum.org/posts/tDJWZLQNN7poqCwKa/test-your-best-methods-on-our-hard-cot-interp-tasks" target="_blank" class="source-link">Test your best methods on our hard CoT interp tasks</a> <span class="source-name">(Alignment Forum)</span></li><li><a href="https://huggingface.co/papers/2604.01591" target="_blank" class="source-link">ThinkTwice: Jointly Optimizing Large Language Models for Reasoning and Self-Refi</a> <span class="source-name">(HuggingFace Papers)</span></li></ul>
+
+  <div id="signal_2153267633408_1197912118622180743" class="signal-body" style="display:none;">
     <div class="analyse-container">
   <div class="tab-nav"><button class="tab-btn" onclick="switchTab(this, 'panel-A')" data-panel="panel-A">A. Lecture Marché</button><button class="tab-btn" onclick="switchTab(this, 'panel-B')" data-panel="panel-B">B. Impact Entreprise</button><button class="tab-btn" onclick="switchTab(this, 'panel-C')" data-panel="panel-C">C. Impact DSI</button><button class="tab-btn" onclick="switchTab(this, 'panel-D')" data-panel="panel-D">D. Impact Métiers</button><button class="tab-btn" onclick="switchTab(this, 'panel-E')" data-panel="panel-E">E. Opportunités</button><button class="tab-btn" onclick="switchTab(this, 'panel-F')" data-panel="panel-F">F. Risques</button><button class="tab-btn" onclick="switchTab(this, 'panel-G')" data-panel="panel-G">G. Actions</button><button class="tab-btn" onclick="switchTab(this, 'panel-H')" data-panel="panel-H">H. Horizon</button><button class="tab-btn" onclick="switchTab(this, 'panel-I')" data-panel="panel-I">I. Nuances</button></div>
   <div class="tab-content"><div id="panel-A" class="tab-panel" style="display:none;"><div class="analyse-section">
@@ -352,7 +360,7 @@ section { margin-bottom: 40px; }
   <h3 class="sous-theme-titre">Menaces Structurantes</h3>
   <div class="signaux-liste">
     <div class="carte-signal">
-  <div class="carte-signal-header" onclick="toggleSignal('signal_2317239798400_4467085795883813930')">
+  <div class="carte-signal-header" onclick="toggleSignal('signal_2153267636608_n4991263541193304985')">
     <div class="signal-meta">
       <span class="badge badge-émergent">ÉMERGENT</span>
       <span class="tier-badge tier-2">T2</span>
@@ -361,12 +369,13 @@ section { margin-bottom: 40px; }
     <div class="signal-indicateurs">
       <div class="force-dots small"><span class="dot dot-on"></span><span class="dot dot-off"></span><span class="dot dot-off"></span></div>
       <span class="signal-score">4/10</span>
-      <span class="toggle-arrow" id="arrow-signal_2317239798400_4467085795883813930">▼</span>
+      <span class="toggle-arrow" id="arrow-signal_2153267636608_n4991263541193304985">▼ Analyse</span>
     </div>
   </div>
 
-  <div id="signal_2317239798400_4467085795883813930" class="signal-body" style="display:none;">
-    <div class="sources-liste"><strong>Sources :</strong><ul><li><a href="https://www.alignmentforum.org/posts/WjaGAA4xCAXeFpyWm/my-picture-of-the-present-in-ai" target="_blank" class="source-link">My picture of the present in AI</a> <span class="source-name">(Alignment Forum)</span></li></ul></div>
+  <ul class="sources-inline"><li><a href="https://www.alignmentforum.org/posts/WjaGAA4xCAXeFpyWm/my-picture-of-the-present-in-ai" target="_blank" class="source-link">My picture of the present in AI</a> <span class="source-name">(Alignment Forum)</span></li></ul>
+
+  <div id="signal_2153267636608_n4991263541193304985" class="signal-body" style="display:none;">
     <div class="analyse-container">
   <div class="tab-nav"><button class="tab-btn" onclick="switchTab(this, 'panel-A')" data-panel="panel-A">A. Lecture Marché</button><button class="tab-btn" onclick="switchTab(this, 'panel-B')" data-panel="panel-B">B. Impact Entreprise</button><button class="tab-btn" onclick="switchTab(this, 'panel-C')" data-panel="panel-C">C. Impact DSI</button><button class="tab-btn" onclick="switchTab(this, 'panel-D')" data-panel="panel-D">D. Impact Métiers</button><button class="tab-btn" onclick="switchTab(this, 'panel-E')" data-panel="panel-E">E. Opportunités</button><button class="tab-btn" onclick="switchTab(this, 'panel-F')" data-panel="panel-F">F. Risques</button><button class="tab-btn" onclick="switchTab(this, 'panel-G')" data-panel="panel-G">G. Actions</button><button class="tab-btn" onclick="switchTab(this, 'panel-H')" data-panel="panel-H">H. Horizon</button><button class="tab-btn" onclick="switchTab(this, 'panel-I')" data-panel="panel-I">I. Nuances</button></div>
   <div class="tab-content"><div id="panel-A" class="tab-panel" style="display:none;"><div class="analyse-section">
@@ -468,7 +477,7 @@ Meilleur moment : jeudi 8h00</pre>
 
 <section id="sessions">
   <h2 class="section-title">Sessions précédentes</h2>
-  <div class="sessions-nav"><a class="nav-session active" href="../2026-04-08/dashboard.html">2026-04-08</a><a class="nav-session" href="../2026-04-07/dashboard.html">2026-04-07</a><a class="nav-session" href="../2026-04-01/dashboard.html">2026-04-01</a></div>
+  <div class="sessions-nav"><a class="nav-session active" href="../2026-04-08/dashboard_v2.html">2026-04-08</a><a class="nav-session" href="../2026-04-07/dashboard.html">2026-04-07</a><a class="nav-session" href="../2026-04-01/dashboard.html">2026-04-01</a></div>
 </section>
 
 </main>
