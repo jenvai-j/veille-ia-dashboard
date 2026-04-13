@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veille IA Stratégique — 2026-04-13</title>
+<style>
+:root {
+  --bg: #0d1117;
+  --bg2: #161b22;
+  --bg3: #21262d;
+  --border: #30363d;
+  --text: #e6edf3;
+  --text-muted: #8b949e;
+  --accent: #58a6ff;
+  --accent2: #3fb950;
+  --warn: #d29922;
+  --danger: #f85149;
+  --purple: #bc8cff;
+  --radius: 8px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; line-height: 1.6; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Header */
+.site-header { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 16px 24px; }
+.header-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.header-title h1 { font-size: 20px; font-weight: 600; color: var(--accent); }
+.header-date { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+.header-stats { display: flex; gap: 10px; flex-wrap: wrap; }
+.stat-pill { background: var(--bg3); border: 1px solid var(--border); border-radius: 20px; padding: 4px 12px; display: flex; align-items: center; gap: 6px; }
+.stat-pill.highlight { border-color: var(--accent); }
+.stat-num { font-weight: 700; font-size: 15px; color: var(--text); }
+.stat-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* Navigation */
+.top-nav { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 0 24px; display: flex; gap: 4px; max-width: 100%; overflow-x: auto; }
+.nav-link { display: inline-block; padding: 10px 16px; font-size: 13px; color: var(--text-muted); border-bottom: 2px solid transparent; white-space: nowrap; }
+.nav-link:hover, .nav-link.active { color: var(--accent); border-bottom-color: var(--accent); text-decoration: none; }
+
+/* Container */
+.container { max-width: 1200px; margin: 0 auto; padding: 24px 16px; }
+
+/* Sections */
+section { margin-bottom: 40px; }
+.section-title { font-size: 18px; font-weight: 600; color: var(--text); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+.empty-state { color: var(--text-muted); font-style: italic; padding: 16px 0; }
+
+/* Badges */
+.badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; }
+.badge-émergent { background: rgba(188,140,255,0.15); color: var(--purple); border: 1px solid rgba(188,140,255,0.3); }
+.badge-accélération { background: rgba(88,166,255,0.15); color: var(--accent); border: 1px solid rgba(88,166,255,0.3); }
+.badge-structuration { background: rgba(63,185,80,0.15); color: var(--accent2); border: 1px solid rgba(63,185,80,0.3); }
+.badge-mainstream { background: rgba(210,153,34,0.15); color: var(--warn); border: 1px solid rgba(210,153,34,0.3); }
+.badge-role { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; }
+.badge-success { background: rgba(63,185,80,0.15); color: var(--accent2); }
+.badge-warning { background: rgba(210,153,34,0.15); color: var(--warn); }
+.badge-danger { background: rgba(248,81,73,0.15); color: var(--danger); }
+.badge-info { background: rgba(88,166,255,0.15); color: var(--accent); }
+.badge-evolution { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 10px; font-weight: 600; }
+.badge-en-hausse { background: rgba(63,185,80,0.15); color: var(--accent2); }
+.badge-en-baisse { background: rgba(248,81,73,0.15); color: var(--danger); }
+.badge-stable { background: rgba(139,148,158,0.15); color: var(--text-muted); }
+.badge-nouveau { background: rgba(188,140,255,0.15); color: var(--purple); }
+.tier-badge { display: inline-block; padding: 1px 6px; border-radius: 4px; font-size: 10px; font-weight: 700; }
+.tier-1 { background: rgba(63,185,80,0.15); color: var(--accent2); }
+.tier-2 { background: rgba(88,166,255,0.15); color: var(--accent); }
+.tier-3 { background: rgba(139,148,158,0.15); color: var(--text-muted); }
+
+/* Force dots */
+.force-dots { display: flex; gap: 3px; align-items: center; }
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot-on { background: var(--accent); }
+.dot-off { background: var(--bg3); border: 1px solid var(--border); }
+.force-dots.small .dot { width: 7px; height: 7px; }
+
+/* Top mouvements */
+.mouvements-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.carte-mouvement { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; position: relative; }
+.carte-mouvement[data-score="8"],.carte-mouvement[data-score="9"],.carte-mouvement[data-score="10"] { border-color: rgba(88,166,255,0.4); }
+.carte-header { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+.carte-badges { display: flex; gap: 4px; flex-wrap: wrap; }
+.carte-force { display: flex; align-items: center; gap: 6px; }
+.force-label { font-size: 10px; color: var(--text-muted); text-transform: uppercase; }
+.carte-score { font-size: 18px; font-weight: 700; color: var(--accent); min-width: 40px; text-align: right; }
+.carte-titre { font-size: 14px; font-weight: 600; color: var(--text); margin: 8px 0 6px; line-height: 1.4; }
+.carte-horizon { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+
+/* Sous-thèmes */
+.sous-theme { margin-bottom: 24px; }
+.sous-theme-titre { font-size: 14px; font-weight: 600; color: var(--accent); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+.signaux-liste { display: flex; flex-direction: column; gap: 8px; }
+
+/* Cartes signal */
+.carte-signal { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+.carte-signal-header { padding: 12px 16px; cursor: pointer; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; transition: background 0.15s; }
+.carte-signal-header:hover { background: var(--bg3); }
+.signal-meta { display: flex; gap: 4px; flex-shrink: 0; }
+.signal-titre { flex: 1; font-size: 13px; font-weight: 500; color: var(--text); min-width: 200px; }
+.signal-indicateurs { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.signal-score { font-size: 13px; font-weight: 700; color: var(--accent); }
+.toggle-arrow { font-size: 10px; color: var(--text-muted); transition: transform 0.2s; }
+
+/* Signal body */
+.signal-body { padding: 16px; border-top: 1px solid var(--border); }
+.sources-liste { margin-bottom: 16px; }
+.sources-liste ul { list-style: none; margin-top: 6px; }
+.sources-liste li { padding: 3px 0; }
+.source-link { color: var(--accent); font-size: 12px; }
+.source-name { font-size: 11px; color: var(--text-muted); }
+.sources-inline { list-style: none; padding: 6px 16px 8px; border-top: 1px solid var(--border); }
+.sources-inline li { padding: 3px 0; display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+.sources-inline .source-name { background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; padding: 0 5px; font-size: 10px; }
+
+/* Analyse container (tabs) */
+.analyse-container { }
+.tab-nav { display: flex; flex-wrap: wrap; gap: 2px; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+.tab-btn { background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; padding: 4px 10px; font-size: 11px; color: var(--text-muted); cursor: pointer; transition: all 0.15s; }
+.tab-btn:hover { color: var(--text); }
+.tab-btn.active { background: var(--accent); color: var(--bg); border-color: var(--accent); font-weight: 600; }
+.tab-panel { }
+.analyse-section { }
+.analyse-section p { margin-bottom: 8px; font-size: 13px; }
+.analyse-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 8px; }
+.analyse-table tr { border-bottom: 1px solid var(--border); }
+.analyse-table td { padding: 6px 8px; vertical-align: top; }
+.td-label { font-weight: 600; color: var(--text-muted); width: 160px; white-space: nowrap; }
+.tag { display: inline-block; background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; padding: 1px 6px; font-size: 11px; margin: 2px; }
+.group-bloc { margin-bottom: 12px; }
+.group-bloc ul { margin-top: 4px; margin-left: 16px; }
+.group-bloc li { font-size: 13px; margin-bottom: 3px; }
+.risk-item { color: #f0a0a0; }
+.alert-text { color: var(--warn); }
+.horizon-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.horizon-item { background: var(--bg3); border: 1px solid var(--border); border-radius: 6px; padding: 12px; }
+.horizon-label { font-size: 11px; font-weight: 700; color: var(--accent); text-transform: uppercase; display: block; margin-bottom: 6px; }
+.contradiction-bloc { background: rgba(210,153,34,0.06); border: 1px solid rgba(210,153,34,0.2); border-radius: 6px; padding: 12px; }
+.contradiction-bloc p { margin-bottom: 8px; }
+
+/* Score détaillé */
+.score-total { font-size: 15px; font-weight: 700; color: var(--accent); margin-bottom: 12px; }
+.score-row { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; font-size: 12px; }
+.score-label { width: 150px; color: var(--text-muted); flex-shrink: 0; }
+.score-bar-bg { flex: 1; height: 7px; background: var(--bg3); border-radius: 4px; overflow: hidden; }
+.score-bar-fill { height: 100%; border-radius: 4px; transition: width 0.3s; }
+.score-val { width: 28px; text-align: right; color: var(--text); font-weight: 600; flex-shrink: 0; }
+.score-justif { font-size: 12px; color: var(--text-muted); margin-top: 10px; font-style: italic; }
+
+/* Idées exploitables */
+.idees-bloc { margin-bottom: 24px; }
+.idees-bloc h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 12px; }
+.posts-grid, .missions-grid, .questions-grid { display: flex; flex-direction: column; gap: 12px; }
+.post-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; }
+.post-header { display: flex; justify-content: space-between; margin-bottom: 8px; }
+.post-signal { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+.post-contenu { font-size: 12px; white-space: pre-wrap; line-height: 1.6; color: var(--text); max-height: 300px; overflow-y: auto; background: var(--bg3); padding: 12px; border-radius: 4px; margin-bottom: 8px; }
+.btn-copy { background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; padding: 6px 14px; font-size: 12px; color: var(--text); cursor: pointer; }
+.btn-copy:hover { border-color: var(--accent); color: var(--accent); }
+.mission-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; }
+.mission-theme { display: block; font-size: 11px; font-weight: 700; color: var(--accent); text-transform: uppercase; margin-bottom: 6px; }
+.question-card { background: var(--bg3); border-left: 3px solid var(--accent); padding: 12px 16px; border-radius: 0 6px 6px 0; font-size: 13px; color: var(--text); }
+
+/* Sessions nav */
+.sessions-nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.nav-session { background: var(--bg2); border: 1px solid var(--border); border-radius: 4px; padding: 6px 14px; font-size: 12px; color: var(--text-muted); }
+.nav-session.active { border-color: var(--accent); color: var(--accent); font-weight: 600; }
+.nav-session:hover { text-decoration: none; color: var(--text); }
+
+@media (max-width: 768px) {
+  .horizon-grid { grid-template-columns: 1fr; }
+  .mouvements-grid { grid-template-columns: 1fr; }
+  .header-inner { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-title">
+      <h1>Veille IA Stratégique</h1>
+      <p class="header-date">2026-04-13</p>
+    </div>
+    <div class="header-stats">
+      <div class="stat-pill"><span class="stat-num">4</span><span class="stat-label">signaux</span></div>
+      <div class="stat-pill highlight"><span class="stat-num">0</span><span class="stat-label">signaux forts</span></div>
+      <div class="stat-pill"><span class="stat-num">2.8/10</span><span class="stat-label">score moyen</span></div>
+      <div class="stat-pill"><span class="stat-num">0</span><span class="stat-label">posts générés</span></div>
+    </div>
+  </div>
+</header>
+<nav class="top-nav">
+  <a href="#mouvements" class="nav-link active">Mouvements</a>
+  <a href="#veille-ia" class="nav-link">Veille IA</a>
+  <a href="#veille-cyber" class="nav-link">Veille Cyber</a>
+  <a href="#idees" class="nav-link">Idées</a>
+  <a href="#sessions" class="nav-link">Sessions</a>
+</nav>
+
+<main class="container">
+
+<section id="mouvements">
+  <h2 class="section-title">Top Mouvements de Marché</h2>
+  <div class="mouvements-grid">
+    <div class="carte-mouvement" data-score="6">
+  <div class="carte-header">
+    <div class="carte-badges">
+      <span class="badge badge-structuration">STRUCTURATION</span>
+      <span class="badge-evolution badge-stable">stable</span>
+      <span class="tier-badge tier-1">T1</span>
+    </div>
+    <div class="carte-force">
+      <span class="force-label">Force</span>
+      <div class="force-dots"><span class="dot dot-on"></span><span class="dot dot-on"></span><span class="dot dot-on"></span></div>
+    </div>
+    <div class="carte-score">6/10</div>
+  </div>
+  <h3 class="carte-titre">Vulnérabilités critiques et menaces internes convergent</h3>
+  <p class="carte-horizon">Patch Edge critique à déployer sous 72h maximum. Vérification de la couverture parc navigateur. Communication interne sur le risque actif.</p>
+  <ul class="sources-inline"><li><a href="https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0392/" target="_blank" class="source-link">Multiples vulnérabilités dans Microsoft Edge (03 avril 2026)</a> <span class="source-name">ANSSI</span></li><li><a href="https://www.technologyreview.com/2026/04/08/1135405/the-download-water-threats-iran-ais-impact-on-entrepreneurs-make/" target="_blank" class="source-link">The Download: water threats in Iran and AI’s impact on what entrepreneurs make</a> <span class="source-name">MIT Technology Review</span></li><li><a href="https://www.cisa.gov/news-events/news/cisa-urges-critical-infrastructure-organizations-take-action-against-insider-threats" target="_blank" class="source-link">CISA Urges Critical Infrastructure Organizations to Take Action Against Insider Threats</a> <span class="source-name">CISA</span></li></ul>
+</div><div class="carte-mouvement" data-score="5">
+  <div class="carte-header">
+    <div class="carte-badges">
+      <span class="badge badge-émergent">ÉMERGENT</span>
+      <span class="badge-evolution badge-stable">stable</span>
+      <span class="tier-badge tier-2">T2</span>
+    </div>
+    <div class="carte-force">
+      <span class="force-label">Force</span>
+      <div class="force-dots"><span class="dot dot-on"></span><span class="dot dot-on"></span><span class="dot dot-on"></span></div>
+    </div>
+    <div class="carte-score">5/10</div>
+  </div>
+  <h3 class="carte-titre">LLMs évoluent vers sociétés d&#x27;agents et représentations universelles</h3>
+  <p class="carte-horizon">0-3 mois : aucune action requise. Maintenir une veille passive sur les publications académiques et les annonces Huawei.</p>
+  <ul class="sources-inline"><li><a href="https://importai.substack.com/p/import-ai-444-llm-societies-huawei" target="_blank" class="source-link">Import AI 444: LLM societies; Huawei makes kernels with AI; ChipBench</a> <span class="source-name">Import AI (Jack Clark)</span></li><li><a href="https://importai.substack.com/p/import-ai-439-ai-kernels-decentralized" target="_blank" class="source-link">Import AI 439: AI kernels; decentralized training; and universal representations</a> <span class="source-name">Import AI (Jack Clark)</span></li><li><a href="https://importai.substack.com/p/import-ai-438-cyber-capability-overhang" target="_blank" class="source-link">Import AI 438: Silent sirens, flashing for us all</a> <span class="source-name">Import AI (Jack Clark)</span></li></ul>
+</div>
+  </div>
+</section>
+
+<section id="veille-ia">
+  <h2 class="section-title">Veille IA Entreprise</h2>
+  <div class="sous-theme">
+  <h3 class="sous-theme-titre">Gouvernance IA</h3>
+  <div class="signaux-liste">
+    <div class="carte-signal">
+  <div class="carte-signal-header" onclick="toggleSignal('signal_3013570388928_6239591943575194012')">
+    <div class="signal-meta">
+      <span class="badge badge-accélération">ACCÉLÉRATION</span>
+      <span class="tier-badge tier-2">T2</span>
+    </div>
+    <h4 class="signal-titre">Gouvernance &amp; régulation IA</h4>
+    <div class="signal-indicateurs">
+      <div class="force-dots small"><span class="dot dot-on"></span><span class="dot dot-off"></span><span class="dot dot-off"></span></div>
+      <span class="signal-score">0/10</span>
+      <span class="toggle-arrow" id="arrow-signal_3013570388928_6239591943575194012">▼ Analyse</span>
+    </div>
+  </div>
+
+  <ul class="sources-inline"><li><a href="https://huggingface.co/papers/2604.04415" target="_blank" class="source-link">Structured Causal Video Reasoning via Multi-Objective Alignment</a> <span class="source-name">(HuggingFace Papers)</span></li></ul>
+
+  <div id="signal_3013570388928_6239591943575194012" class="signal-body" style="display:none;">
+    <p class="empty-state">Analyse non disponible.</p>
+  </div>
+</div>
+  </div>
+</div><div class="sous-theme">
+  <h3 class="sous-theme-titre">Industrialisation</h3>
+  <div class="signaux-liste">
+    <div class="carte-signal">
+  <div class="carte-signal-header" onclick="toggleSignal('signal_3013578205888_n6173153964852884515')">
+    <div class="signal-meta">
+      <span class="badge badge-accélération">ACCÉLÉRATION</span>
+      <span class="tier-badge tier-2">T2</span>
+    </div>
+    <h4 class="signal-titre">Data &amp; architecture IA</h4>
+    <div class="signal-indicateurs">
+      <div class="force-dots small"><span class="dot dot-on"></span><span class="dot dot-off"></span><span class="dot dot-off"></span></div>
+      <span class="signal-score">0/10</span>
+      <span class="toggle-arrow" id="arrow-signal_3013578205888_n6173153964852884515">▼ Analyse</span>
+    </div>
+  </div>
+
+  <ul class="sources-inline"><li><a href="https://huggingface.co/papers/2604.08995" target="_blank" class="source-link">Matrix-Game 3.0: Real-Time and Streaming Interactive World Model with Long-Horiz</a> <span class="source-name">(HuggingFace Papers)</span></li></ul>
+
+  <div id="signal_3013578205888_n6173153964852884515" class="signal-body" style="display:none;">
+    <p class="empty-state">Analyse non disponible.</p>
+  </div>
+</div>
+  </div>
+</div><div class="sous-theme">
+  <h3 class="sous-theme-titre">Adoption Entreprise</h3>
+  <div class="signaux-liste">
+    <div class="carte-signal">
+  <div class="carte-signal-header" onclick="toggleSignal('signal_3013580393600_8647149101036843778')">
+    <div class="signal-meta">
+      <span class="badge badge-émergent">ÉMERGENT</span>
+      <span class="tier-badge tier-2">T2</span>
+    </div>
+    <h4 class="signal-titre">LLMs évoluent vers sociétés d&#x27;agents et représentations universelles</h4>
+    <div class="signal-indicateurs">
+      <div class="force-dots small"><span class="dot dot-on"></span><span class="dot dot-on"></span><span class="dot dot-on"></span></div>
+      <span class="signal-score">5/10</span>
+      <span class="toggle-arrow" id="arrow-signal_3013580393600_8647149101036843778">▼ Analyse</span>
+    </div>
+  </div>
+
+  <ul class="sources-inline"><li><a href="https://importai.substack.com/p/import-ai-444-llm-societies-huawei" target="_blank" class="source-link">Import AI 444: LLM societies; Huawei makes kernels with AI; ChipBench</a> <span class="source-name">(Import AI (Jack Clark))</span></li><li><a href="https://importai.substack.com/p/import-ai-439-ai-kernels-decentralized" target="_blank" class="source-link">Import AI 439: AI kernels; decentralized training; and universal representations</a> <span class="source-name">(Import AI (Jack Clark))</span></li><li><a href="https://importai.substack.com/p/import-ai-438-cyber-capability-overhang" target="_blank" class="source-link">Import AI 438: Silent sirens, flashing for us all</a> <span class="source-name">(Import AI (Jack Clark))</span></li></ul>
+
+  <div id="signal_3013580393600_8647149101036843778" class="signal-body" style="display:none;">
+    <div class="analyse-container">
+  <div class="tab-nav"><button class="tab-btn" onclick="switchTab(this, 'panel-379125-S')" data-panel="panel-379125-S">Score</button><button class="tab-btn" onclick="switchTab(this, 'panel-379125-1')" data-panel="panel-379125-1">Faits</button><button class="tab-btn" onclick="switchTab(this, 'panel-379125-2')" data-panel="panel-379125-2">Lecture Stratégique</button><button class="tab-btn" onclick="switchTab(this, 'panel-379125-3')" data-panel="panel-379125-3">Impact Entreprise</button><button class="tab-btn" onclick="switchTab(this, 'panel-379125-4')" data-panel="panel-379125-4">Impact DSI</button><button class="tab-btn" onclick="switchTab(this, 'panel-379125-5')" data-panel="panel-379125-5">Impact Métiers</button><button class="tab-btn" onclick="switchTab(this, 'panel-379125-6')" data-panel="panel-379125-6">Opportunités</button><button class="tab-btn" onclick="switchTab(this, 'panel-379125-7')" data-panel="panel-379125-7">Risques</button><button class="tab-btn" onclick="switchTab(this, 'panel-379125-8')" data-panel="panel-379125-8">Actions</button><button class="tab-btn" onclick="switchTab(this, 'panel-379125-9')" data-panel="panel-379125-9">Horizon</button><button class="tab-btn" onclick="switchTab(this, 'panel-379125-N')" data-panel="panel-379125-N">Nuances</button></div>
+  <div class="tab-content"><div id="panel-379125-S" class="tab-panel" style="display:none;"><div class="analyse-section">
+  <div class="score-total">Score total : <strong>5/10</strong></div>
+  <div class="score-row">
+  <span class="score-label">Force signal</span>
+  <div class="score-bar-bg"><div class="score-bar-fill" style="width:50%;background:#d29922;"></div></div>
+  <span class="score-val">1/2</span>
+</div><div class="score-row">
+  <span class="score-label">Crédibilité sources</span>
+  <div class="score-bar-bg"><div class="score-bar-fill" style="width:50%;background:#d29922;"></div></div>
+  <span class="score-val">1/2</span>
+</div><div class="score-row">
+  <span class="score-label">Impact business</span>
+  <div class="score-bar-bg"><div class="score-bar-fill" style="width:50%;background:#d29922;"></div></div>
+  <span class="score-val">1/2</span>
+</div><div class="score-row">
+  <span class="score-label">Urgence</span>
+  <div class="score-bar-bg"><div class="score-bar-fill" style="width:50%;background:#d29922;"></div></div>
+  <span class="score-val">1/2</span>
+</div><div class="score-row">
+  <span class="score-label">Disruption org.</span>
+  <div class="score-bar-bg"><div class="score-bar-fill" style="width:50%;background:#d29922;"></div></div>
+  <span class="score-val">1/2</span>
+</div>
+  <p class="score-justif">Signal récurrent mais faible : une seule source (Import AI, Tier 2) avec des résumés très abstraits ne permettant pas d&#x27;établir des faits exploitables. Les thématiques (sociétés LLM, représentations universelles, génération de kernels) restent au stade recherche sans applications business immédiates documentées.</p>
+</div></div><div id="panel-379125-1" class="tab-panel" style="display:none;"><div class="analyse-section"><p>Huawei développe des capacités de génération automatique de kernels (code bas niveau optimisé) via IA. Des travaux de recherche explorent les &#x27;sociétés de LLMs&#x27; — architectures où plusieurs modèles interagissent de manière autonome. Le concept de &#x27;représentations universelles&#x27; fait l&#x27;objet d&#x27;investigations théoriques sur la façon dont des systèmes avancés pourraient encoder des concepts abstraits. Un benchmark &#x27;ChipBench&#x27; émerge pour évaluer les capacités IA sur la conception hardware. [INCERTAIN] Les résumés fournis sont trop abstraits pour établir des métriques de performance ou des cas d&#x27;usage concrets.</p></div></div><div id="panel-379125-2" class="tab-panel" style="display:none;"><div class="analyse-section"><p>Le mouvement de fond observable est une complexification architecturale des LLMs : passage du modèle unique vers des systèmes multi-agents coordonnés, et extension vers des domaines très spécialisés (conception de puces, optimisation système). Cette évolution suggère que la prochaine vague d&#x27;IA générative visera l&#x27;automatisation de tâches d&#x27;ingénierie bas niveau historiquement réservées aux experts. [HYPOTHÈSE] La convergence de ces signaux pourrait indiquer une course à l&#x27;autonomisation complète des chaînes de développement hardware/software, avec Huawei comme acteur notable sur le volet semiconducteurs.</p></div></div><div id="panel-379125-3" class="tab-panel" style="display:none;"><div class="analyse-section"><p>Impact limité à court terme pour la majorité des entreprises. Les organisations fortement dépendantes de développement hardware propriétaire (automobile, aéronautique, télécoms) pourraient voir leurs cycles R&amp;D transformés si la génération automatique de kernels se fiabilise. [HYPOTHÈSE] À moyen terme, les &#x27;sociétés de LLMs&#x27; pourraient modifier les architectures de systèmes décisionnels complexes (trading, supply chain), mais aucune application industrielle documentée à ce stade.</p></div></div><div id="panel-379125-4" class="tab-panel" style="display:none;"><div class="analyse-section"><p>Pour les DSI, ce signal reste dans le domaine de la veille technologique. L&#x27;émergence de ChipBench suggère une maturation des outils d&#x27;évaluation IA pour l&#x27;infrastructure — utile pour les équipes architecture. La génération automatique de kernels pourrait à terme impacter les stratégies d&#x27;optimisation performance, mais les cas d&#x27;usage restent expérimentaux. Aucun impact immédiat sur la gouvernance ou le modèle opérationnel IT.</p></div></div><div id="panel-379125-5" class="tab-panel" style="display:none;"><div class="analyse-section"><p>Niveau d&#x27;autonomie technologique des métiers : faible à ce stade. Les concepts évoqués (sociétés LLM, représentations universelles) n&#x27;ont pas encore de traduction en outils métiers accessibles. Les équipes R&amp;D en ingénierie système ou développement embarqué sont les seules potentiellement concernées par la génération de kernels. [HYPOTHÈSE] Les fonctions analytiques avancées (data science, quant) pourraient être impactées si les architectures multi-agents se démocratisent, mais l&#x27;horizon reste flou. Risque de shadow AI minimal car technologies encore trop complexes.</p></div></div><div id="panel-379125-6" class="tab-panel" style="display:none;"><div class="analyse-section"><p>Pour les équipes R&amp;D hardware : initier une veille structurée sur les outils de génération de code bas niveau assistée par IA (potentiel gain de productivité sur l&#x27;optimisation). Pour la DSI : intégrer ChipBench dans les protocoles d&#x27;évaluation si des projets IA-hardware sont en cours. Pour les directions stratégie : surveiller le positionnement de Huawei et autres acteurs chinois sur l&#x27;IA appliquée aux semiconducteurs comme indicateur géopolitique.</p></div></div><div id="panel-379125-7" class="tab-panel" style="display:none;"><div class="analyse-section"><p>Risque principal : bruit stratégique. Les concepts présentés sont très abstraits et pourraient ne pas se concrétiser industriellement avant plusieurs années. La source unique (Import AI) limite la corroboration. Sur le plan réglementaire, les systèmes multi-agents autonomes soulèveront des questions de traçabilité sous l&#x27;AI Act si déployés en production. Limite technique majeure : la génération de kernels fiables nécessite des garanties de correction que l&#x27;IA ne peut pas encore fournir de manière robuste.</p></div></div><div id="panel-379125-8" class="tab-panel" style="display:none;"><div class="analyse-section"><p>DSI : créer un point de veille trimestriel sur les architectures multi-agents et la génération de code système (horizon 6-12 mois, pas d&#x27;action immédiate). R&amp;D/Engineering : si projets d&#x27;optimisation hardware en cours, évaluer les outils émergents type Huawei kernel generation dans un sandbox isolé (horizon 3-6 mois). Gouvernance : aucune action requise à ce stade, signal trop immature. Direction Stratégie : intégrer la dimension &#x27;IA pour semiconducteurs&#x27; dans l&#x27;analyse concurrentielle si secteur concerné (télécoms, automotive, défense).</p></div></div><div id="panel-379125-9" class="tab-panel" style="display:none;"><div class="analyse-section horizon-grid"><div class="horizon-item"><span class="horizon-label">Immédiat (0-3 mois)</span><p>0-3 mois : aucune action requise. Maintenir une veille passive sur les publications académiques et les annonces Huawei.</p></div><div class="horizon-item"><span class="horizon-label">6 mois</span><p>6 mois : premiers retours d&#x27;expérience attendus sur les outils de génération de kernels. Possible clarification des cas d&#x27;usage industriels.</p></div><div class="horizon-item"><span class="horizon-label">12-24 mois</span><p>12-24 mois : si les architectures multi-agents se structurent, émergence probable de frameworks commerciaux. Point de décision sur l&#x27;expérimentation.</p></div></div></div><div id="panel-379125-N" class="tab-panel" style="display:none;"><div class="analyse-section"><p>Ce signal peut être significativement surestimé. Les résumés fournis sont philosophiques (&#x27;quantifier la créativité&#x27;, &#x27;représenter une âme&#x27;) plutôt qu&#x27;opérationnels, suggérant des contenus orientés prospective/recherche et non déploiement industriel. Pour les PME et la majorité des ETI, ce signal n&#x27;a aucune pertinence immédiate. Même pour les grands groupes, l&#x27;absence de données chiffrées ou de cas d&#x27;usage documentés impose la prudence.</p></div></div></div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+</section>
+
+<section id="veille-cyber">
+  <h2 class="section-title">Veille Cyber</h2>
+  <div class="sous-theme">
+  <h3 class="sous-theme-titre">Menaces Structurantes</h3>
+  <div class="signaux-liste">
+    <div class="carte-signal">
+  <div class="carte-signal-header" onclick="toggleSignal('signal_3013580395584_1556011947986781955')">
+    <div class="signal-meta">
+      <span class="badge badge-structuration">STRUCTURATION</span>
+      <span class="tier-badge tier-1">T1</span>
+    </div>
+    <h4 class="signal-titre">Vulnérabilités critiques et menaces internes convergent</h4>
+    <div class="signal-indicateurs">
+      <div class="force-dots small"><span class="dot dot-on"></span><span class="dot dot-on"></span><span class="dot dot-on"></span></div>
+      <span class="signal-score">6/10</span>
+      <span class="toggle-arrow" id="arrow-signal_3013580395584_1556011947986781955">▼ Analyse</span>
+    </div>
+  </div>
+
+  <ul class="sources-inline"><li><a href="https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0392/" target="_blank" class="source-link">Multiples vulnérabilités dans Microsoft Edge (03 avril 2026)</a> <span class="source-name">(ANSSI)</span></li><li><a href="https://www.technologyreview.com/2026/04/08/1135405/the-download-water-threats-iran-ais-impact-on-entrepreneurs-make/" target="_blank" class="source-link">The Download: water threats in Iran and AI’s impact on what entrepreneurs make</a> <span class="source-name">(MIT Technology Review)</span></li><li><a href="https://www.cisa.gov/news-events/news/cisa-urges-critical-infrastructure-organizations-take-action-against-insider-threats" target="_blank" class="source-link">CISA Urges Critical Infrastructure Organizations to Take Action Against Insider </a> <span class="source-name">(CISA)</span></li></ul>
+
+  <div id="signal_3013580395584_1556011947986781955" class="signal-body" style="display:none;">
+    <div class="analyse-container">
+  <div class="tab-nav"><button class="tab-btn" onclick="switchTab(this, 'panel-549751-S')" data-panel="panel-549751-S">Score</button><button class="tab-btn" onclick="switchTab(this, 'panel-549751-1')" data-panel="panel-549751-1">Faits</button><button class="tab-btn" onclick="switchTab(this, 'panel-549751-2')" data-panel="panel-549751-2">Lecture Stratégique</button><button class="tab-btn" onclick="switchTab(this, 'panel-549751-3')" data-panel="panel-549751-3">Impact Entreprise</button><button class="tab-btn" onclick="switchTab(this, 'panel-549751-4')" data-panel="panel-549751-4">Impact DSI</button><button class="tab-btn" onclick="switchTab(this, 'panel-549751-5')" data-panel="panel-549751-5">Impact Métiers</button><button class="tab-btn" onclick="switchTab(this, 'panel-549751-6')" data-panel="panel-549751-6">Opportunités</button><button class="tab-btn" onclick="switchTab(this, 'panel-549751-7')" data-panel="panel-549751-7">Risques</button><button class="tab-btn" onclick="switchTab(this, 'panel-549751-8')" data-panel="panel-549751-8">Actions</button><button class="tab-btn" onclick="switchTab(this, 'panel-549751-9')" data-panel="panel-549751-9">Horizon</button><button class="tab-btn" onclick="switchTab(this, 'panel-549751-N')" data-panel="panel-549751-N">Nuances</button></div>
+  <div class="tab-content"><div id="panel-549751-S" class="tab-panel" style="display:none;"><div class="analyse-section">
+  <div class="score-total">Score total : <strong>6/10</strong></div>
+  <div class="score-row">
+  <span class="score-label">Force signal</span>
+  <div class="score-bar-bg"><div class="score-bar-fill" style="width:50%;background:#d29922;"></div></div>
+  <span class="score-val">1/2</span>
+</div><div class="score-row">
+  <span class="score-label">Crédibilité sources</span>
+  <div class="score-bar-bg"><div class="score-bar-fill" style="width:100%;background:#3fb950;"></div></div>
+  <span class="score-val">2/2</span>
+</div><div class="score-row">
+  <span class="score-label">Impact business</span>
+  <div class="score-bar-bg"><div class="score-bar-fill" style="width:50%;background:#d29922;"></div></div>
+  <span class="score-val">1/2</span>
+</div><div class="score-row">
+  <span class="score-label">Urgence</span>
+  <div class="score-bar-bg"><div class="score-bar-fill" style="width:50%;background:#d29922;"></div></div>
+  <span class="score-val">1/2</span>
+</div><div class="score-row">
+  <span class="score-label">Disruption org.</span>
+  <div class="score-bar-bg"><div class="score-bar-fill" style="width:50%;background:#d29922;"></div></div>
+  <span class="score-val">1/2</span>
+</div>
+  <p class="score-justif">Sources Tier 1 (ANSSI, CISA) confèrent une crédibilité maximale, mais les trois articles traitent de sujets cybersécurité distincts sans convergence thématique forte. Le signal est fragmenté : une vulnérabilité Edge exploitée activement, un appel générique CISA sur les insider threats, et une mention périphérique sur les infrastructures critiques au Moyen-Orient.</p>
+</div></div><div id="panel-549751-1" class="tab-panel" style="display:none;"><div class="analyse-section"><p>Microsoft Edge présente plusieurs vulnérabilités dont CVE-2026-5281, confirmée comme activement exploitée selon le bulletin ANSSI du 3 avril 2026. La CISA a émis fin janvier 2026 une alerte invitant les opérateurs d&#x27;infrastructures critiques à renforcer leurs défenses contre les menaces internes (insider threats). Le MIT Technology Review rapporte une vulnérabilité croissante des usines de désalinisation au Moyen-Orient dans le contexte du conflit iranien, sans détails techniques publiés. [INCERTAIN] L&#x27;article CISA ne fournit pas de résumé détaillé, limitant l&#x27;analyse des mesures recommandées.</p></div></div><div id="panel-549751-2" class="tab-panel" style="display:none;"><div class="analyse-section"><p>Ces signaux, bien que disparates, révèlent une surface d&#x27;attaque qui s&#x27;élargit simultanément sur trois vecteurs : navigateurs d&#x27;entreprise massivement déployés, acteurs internes malveillants ou négligents, et infrastructures critiques géopolitiquement exposées. La vulnérabilité Edge activement exploitée illustre la persistance des zero-days sur des composants omniprésents. L&#x27;alerte insider threats de la CISA, bien qu&#x27;ancienne (janvier), signale une préoccupation structurelle des autorités américaines post-incidents. [HYPOTHÈSE] La conjonction de ces alertes peut indiquer une recrudescence coordonnée des attaques ou une vigilance accrue des régulateurs avant l&#x27;été 2026.</p></div></div><div id="panel-549751-3" class="tab-panel" style="display:none;"><div class="analyse-section"><p>L&#x27;exploitation active de CVE-2026-5281 impose une mise à jour immédiate de Edge sur l&#x27;ensemble du parc, impactant IT et utilisateurs finaux. Les organisations utilisant Edge en environnement métier critique (portails internes, applications web) sont directement exposées. La menace insider threat concerne RH, Compliance et Sécurité : les processus d&#x27;offboarding, de gestion des accès privilégiés et de surveillance comportementale doivent être audités. Les secteurs dépendant d&#x27;infrastructures critiques (énergie, utilities, industrie) doivent évaluer leur exposition géopolitique indirecte via leurs fournisseurs.</p></div></div><div id="panel-549751-4" class="tab-panel" style="display:none;"><div class="analyse-section"><p>La DSI doit immédiatement prioriser le patch management Edge et vérifier la couverture du parc (BYOD, postes non managés). La vulnérabilité active nécessite une validation du fonctionnement des EDR/XDR sur ce vecteur navigateur. Sur les insider threats, la DSI est challengée sur la gouvernance des accès : IAM, PAM, et monitoring comportemental (UEBA) deviennent des sujets de conformité réglementaire, pas seulement techniques. [HYPOTHÈSE] Le rôle de la DSI se renforce sur la dimension préventive mais nécessite une coordination accrue avec RH et Juridique sur la surveillance des employés.</p></div></div><div id="panel-549751-5" class="tab-panel" style="display:none;"><div class="analyse-section"><p>Les métiers utilisant Edge comme interface principale (accès CRM, ERP web, outils collaboratifs) subissent un risque d&#x27;interruption si le patch impose des redémarrages ou des incompatibilités. Niveau d&#x27;autonomie technologique : faible — les métiers dépendent entièrement de la DSI pour la remédiation. Sur les insider threats, les managers opérationnels doivent être sensibilisés aux signaux faibles (comportements inhabituels, accès hors périmètre). Les fonctions Finance et Achats, manipulant des données sensibles, sont des cibles prioritaires. La transformation des compétences inclut désormais une culture cyber minimale pour tous les managers intermédiaires.</p></div></div><div id="panel-549751-6" class="tab-panel" style="display:none;"><div class="analyse-section"><p>Accélérer le déploiement d&#x27;un Browser Management centralisé (policies Edge via Intune/GPO) pour réduire le délai de patch de 72h à 24h. Positionner un programme insider threat comme initiative de conformité proactive vis-à-vis des régulateurs (NIS2, DORA). Utiliser cet incident pour auditer la couverture réelle du parc navigateur et identifier le shadow IT (navigateurs non standard). Renforcer le dialogue DSI-RH sur les processus d&#x27;offboarding automatisés.</p></div></div><div id="panel-549751-7" class="tab-panel" style="display:none;"><div class="analyse-section"><p>Risque technique : les patchs Edge peuvent introduire des régressions sur des applications métiers legacy non testées. Risque organisationnel : la surveillance insider threat peut créer des tensions sociales si mal communiquée (perception de surveillance généralisée). Risque réglementaire : le monitoring comportemental (UEBA) doit être conforme RGPD — proportionnalité et information des employés obligatoires. Limite du signal : l&#x27;article CISA date de janvier 2026, son actualité réelle en avril est incertaine.</p></div></div><div id="panel-549751-8" class="tab-panel" style="display:none;"><div class="analyse-section"><p>DSI — Immédiat (0-72h) : déployer le patch Edge CVE-2026-5281 sur 100% du parc managé, bloquer Edge sur les postes non patchés via conditional access. DSI — Court terme (0-30 jours) : auditer la couverture EDR sur le vecteur navigateur et valider les règles de détection. RH/Compliance — 0-3 mois : cartographier les processus d&#x27;offboarding et identifier les accès résiduels post-départ. Gouvernance — 3-6 mois : formaliser une politique insider threat conforme RGPD avec avis DPO et communication interne transparente.</p></div></div><div id="panel-549751-9" class="tab-panel" style="display:none;"><div class="analyse-section horizon-grid"><div class="horizon-item"><span class="horizon-label">Immédiat (0-3 mois)</span><p>Patch Edge critique à déployer sous 72h maximum. Vérification de la couverture parc navigateur. Communication interne sur le risque actif.</p></div><div class="horizon-item"><span class="horizon-label">6 mois</span><p>Structuration d&#x27;un programme insider threat avec indicateurs (taux d&#x27;offboarding sécurisé, couverture PAM). Intégration des alertes ANSSI/CISA dans le processus de veille sécurité.</p></div><div class="horizon-item"><span class="horizon-label">12-24 mois</span><p>Conformité NIS2/DORA exigera des preuves de gestion des menaces internes et de patch management rapide. Les assureurs cyber durciront leurs questionnaires sur ces points.</p></div></div></div><div id="panel-549751-N" class="tab-panel" style="display:none;"><div class="analyse-section"><p>Ce signal agrège des contenus faiblement corrélés : une vulnérabilité navigateur, une alerte générique sur les insiders, et un sujet géopolitique Moyen-Orient. La force du signal est artificiellement gonflée par la qualité des sources (ANSSI, CISA) plutôt que par une convergence réelle. Les PME sans parc Edge significatif ou sans exposition infrastructures critiques sont peu concernées. L&#x27;alerte CISA de janvier peut être datée et déjà intégrée par les organisations matures.</p></div></div></div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+</section>
+
+<section id="idees">
+  <h2 class="section-title">Idées Exploitables</h2>
+
+  
+  <div class="idees-bloc"><h3>Idées de Mission / Offre</h3><div class="missions-grid"><div class="mission-card">
+  <span class="mission-theme">Cybersécurité</span>
+  <p>Accélérer le déploiement d&#x27;un Browser Management centralisé (policies Edge via Intune/GPO) pour réduire le délai de patch de 72h à 24h. Positionner un programme insider threat comme initiative de conformité proactive vis-à-vis des régulateurs (NIS2, DORA). Utiliser cet incident pour auditer la couve</p>
+</div><div class="mission-card">
+  <span class="mission-theme">LLMs &amp; modèles de fondation</span>
+  <p>Pour les équipes R&amp;D hardware : initier une veille structurée sur les outils de génération de code bas niveau assistée par IA (potentiel gain de productivité sur l&#x27;optimisation). Pour la DSI : intégrer ChipBench dans les protocoles d&#x27;évaluation si des projets IA-hardware sont en cours. Pour les dire</p>
+</div></div></div>
+  <div class="idees-bloc"><h3>Questions pour CIO / CTO / CISO</h3><div class="questions-grid"><div class="question-card">[Vulnérabilités critiques et menaces inte] DSI — Immédiat (0-72h) : déployer le patch Edge CVE-2026-5281 sur 100% du parc managé, bloquer Edge sur les postes non patchés via conditional access. DSI — Court terme (0-30 jours) : auditer la couve</div><div class="question-card">[LLMs évoluent vers sociétés d&#x27;agents et ] DSI : créer un point de veille trimestriel sur les architectures multi-agents et la génération de code système (horizon 6-12 mois, pas d&#x27;action immédiate). R&amp;D/Engineering : si projets d&#x27;optimisation </div></div></div>
+</section>
+
+<section id="sessions">
+  <h2 class="section-title">Sessions précédentes</h2>
+  <div class="sessions-nav"><a class="nav-session active" href="../2026-04-13/dashboard.html">2026-04-13</a><a class="nav-session" href="../2026-04-08/dashboard_v2.html">2026-04-08</a><a class="nav-session" href="../2026-04-07/dashboard.html">2026-04-07</a><a class="nav-session" href="../2026-04-01/dashboard.html">2026-04-01</a></div>
+</section>
+
+</main>
+
+<script>
+// ── Toggle signal body ──────────────────────────────────────
+function toggleSignal(uid) {
+  var body = document.getElementById(uid);
+  var arrow = document.getElementById('arrow-' + uid);
+  if (!body) return;
+  var isOpen = body.style.display !== 'none';
+  body.style.display = isOpen ? 'none' : 'block';
+  if (arrow) arrow.style.transform = isOpen ? '' : 'rotate(180deg)';
+
+  // Initialise le premier onglet si c'est la première ouverture
+  if (!isOpen) {
+    var firstBtn = body.querySelector('.tab-btn');
+    if (firstBtn && !body.querySelector('.tab-btn.active')) {
+      firstBtn.click();
+    }
+  }
+}
+
+// ── Onglets d'analyse ───────────────────────────────────────
+function switchTab(btn, panelId) {
+  var container = btn.closest('.analyse-container');
+  if (!container) return;
+
+  // Reset tous les boutons et panels du conteneur
+  container.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+  container.querySelectorAll('.tab-panel').forEach(function(p) { p.style.display = 'none'; });
+
+  // Active le bouton et panel cliqués
+  btn.classList.add('active');
+  var panel = document.getElementById(panelId);
+  if (panel) panel.style.display = 'block';
+}
+
+// ── Copier texte ─────────────────────────────────────────────
+function copierTexte(uid) {
+  var elem = document.getElementById(uid);
+  if (!elem) return;
+  var texte = elem.innerText || elem.textContent;
+  navigator.clipboard.writeText(texte).then(function() {
+    var btn = elem.nextElementSibling;
+    if (btn) { btn.textContent = 'Copié !'; setTimeout(function() { btn.textContent = 'Copier'; }, 2000); }
+  }).catch(function() {
+    // Fallback pour navigateurs anciens
+    var ta = document.createElement('textarea');
+    ta.value = texte;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+  });
+}
+
+// ── Navigation active au scroll ─────────────────────────────
+document.addEventListener('DOMContentLoaded', function() {
+  var sections = document.querySelectorAll('section[id]');
+  var navLinks = document.querySelectorAll('.top-nav .nav-link');
+
+  window.addEventListener('scroll', function() {
+    var pos = window.scrollY + 100;
+    sections.forEach(function(s) {
+      if (pos >= s.offsetTop && pos < s.offsetTop + s.offsetHeight) {
+        navLinks.forEach(function(l) { l.classList.remove('active'); });
+        var link = document.querySelector('.top-nav a[href="#' + s.id + '"]');
+        if (link) link.classList.add('active');
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>
