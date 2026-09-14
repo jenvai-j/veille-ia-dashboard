@@ -5,6 +5,10 @@ export type VoteRow = { name: string; choice: Choice; updated_at?: string };
 
 export type Tally = {
   mode: "shared" | "local";
+  /** Les variables d'environnement sont-elles arrivées jusqu'au build ? */
+  configured?: boolean;
+  /** Erreur renvoyée par la base quand elle est configurée mais refuse. */
+  reason?: string;
   votes: VoteRow[];
   counts: Record<Choice, number>;
 };

@@ -12,9 +12,10 @@ export function Gallery({ slots }: { slots: string[] }) {
               key={id}
               className="snap-item w-[78vw] shrink-0 sm:w-[340px]"
             >
+              {/* Pas de voile : rien n'est posé par-dessus dans la galerie. */}
               <Frame
                 slot={id}
-                scrim="soft"
+                scrim="none"
                 className="h-[240px] w-full rounded-2xl sm:h-[260px]"
               />
               <figcaption className="mt-2 px-1 text-[12px] leading-snug text-mute">

@@ -204,7 +204,9 @@ export default function InfosPage() {
               />
               <span className="flex-1 text-mute">{p.subject}</span>
               <span className={p.src ? "text-emerald-300" : "text-mute"}>
-                {p.src ? (p.credit ?? "photo fournie") : "rendu généré"}
+                {p.src
+                  ? `${p.credit ?? "photo fournie"}${p.license ? ` · ${p.license}` : ""}`
+                  : "rendu généré"}
               </span>
             </li>
           ))}
