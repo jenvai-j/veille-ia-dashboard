@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Anton", "Arial Narrow", "Haettenschweiler", sans-serif;
+  --font-editorial: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --color-ink: #08090a;
+  --color-ink-2: #101114;
+  --color-ink-3: #1a1c21;
+  --color-bone: #f5f3ef;
+  --color-mute: #8b8f98;
+  --color-gold: #e7c873;
+
+  --color-ocean-deep: #041521;
+  --color-ocean-1: #00d4c8;
+  --color-ocean-2: #ff5a1f;
+
+  --color-desert-deep: #150d07;
+  --color-desert-1: #d4622f;
+  --color-desert-2: #f2b233;
+}
+
+:root {
+  color-scheme: dark;
+  --accent-1: var(--color-gold);
+  --accent-2: var(--color-bone);
+  --surface-deep: var(--color-ink);
+}
+
+[data-theme="ocean"] {
+  --accent-1: var(--color-ocean-1);
+  --accent-2: var(--color-ocean-2);
+  --surface-deep: var(--color-ocean-deep);
+}
+
+[data-theme="desert"] {
+  --accent-1: var(--color-desert-2);
+  --accent-2: var(--color-desert-1);
+  --surface-deep: var(--color-desert-deep);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-bone);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  /* laisse la place a la barre de vote fixe */
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+::selection {
+  background: var(--accent-1);
+  color: var(--color-ink);
+}
+
+/* ---------- Typographie ---------- */
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 0.86;
+  text-transform: uppercase;
+}
+
+.editorial {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.eyebrow {
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-mute);
+}
+
+/* ---------- Grain cinematique ---------- */
+
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.16;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- Surfaces ---------- */
+
+.glass {
+  background: color-mix(in srgb, var(--color-bone) 6%, transparent);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid color-mix(in srgb, var(--color-bone) 12%, transparent);
+}
+
+.hairline {
+  border-color: color-mix(in srgb, var(--color-bone) 12%, transparent);
+}
+
+.vignette::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    120% 90% at 50% 25%,
+    transparent 30%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+}
+
+/* ---------- Scroll horizontal ---------- */
+
+.snap-row {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.snap-row::-webkit-scrollbar {
+  display: none;
+}
+.snap-item {
+  scroll-snap-align: center;
+}
+
+/* ---------- Animations ---------- */
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1.06);
+  }
+  50% {
+    transform: translate3d(-1.5%, -1.5%, 0) scale(1.12);
+  }
+}
+
+@keyframes pulseDot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.drift {
+  animation: drift 26s ease-in-out infinite;
+}
+
+.live-dot {
+  animation: pulseDot 2.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .drift,
+  .live-dot {
+    animation: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
