@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Info } from "lucide-react";
 import { Hero } from "@/components/home/Hero";
 import { FinalTwo } from "@/components/home/FinalTwo";
+import { HowItWorks } from "@/components/home/HowItWorks";
 import { Reveal } from "@/components/ui/Reveal";
 import { VERDICT } from "@/data/comparison";
 import { PRICES_CHECKED_AT, TRAVELERS, PAYER_COUNT } from "@/data/trip";
@@ -10,6 +11,7 @@ export default function HomePage() {
   return (
     <main>
       <Hero />
+      <HowItWorks />
       <FinalTwo />
 
       {/* Teaser comparateur */}
