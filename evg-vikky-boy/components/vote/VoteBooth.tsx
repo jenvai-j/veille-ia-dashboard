@@ -175,7 +175,15 @@ export function VoteBooth() {
           </p>
         )}
 
-        {tally.mode === "local" && (
+        {tally.mode === "local" && tally.configured && (
+          <p className="mt-5 rounded-xl border border-rose-400/30 bg-rose-400/8 p-4 text-[12px] leading-relaxed text-rose-200">
+            Supabase est bien configuré mais refuse la requête. Raison renvoyée
+            par la base : {tally.reason ?? "inconnue"}. La table `votes`
+            existe-t-elle, et les policies de lecture sont-elles en place ?
+          </p>
+        )}
+
+        {tally.mode === "local" && !tally.configured && (
           <p className="mt-5 rounded-xl border border-bone/10 bg-ink-2 p-4 text-[12px] leading-relaxed text-mute">
             Le vote partagé n&apos;est pas encore branché : ton choix est
             enregistré sur cet appareil uniquement et les totaux restent à zéro.

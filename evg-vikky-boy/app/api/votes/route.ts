@@ -13,8 +13,18 @@ export const dynamic = "force-dynamic";
 const VALID_NAMES = new Set<string>(PAYERS);
 const VALID_CHOICES = new Set<string>(["tenerife", "marrakech"]);
 
-function emptyPayload(mode: "shared" | "local") {
-  return { mode, votes: [] as VoteRow[], counts: { tenerife: 0, marrakech: 0 } };
+function emptyPayload(mode: "shared" | "local", reason?: string) {
+  return {
+    mode,
+    // `configured` dit si les variables d'environnement sont bien arrivées
+    // jusqu'au build. `reason` porte l'erreur quand la base est configurée
+    // mais refuse la requête : sans ça, un vrai problème de base se
+    // confondait avec une absence de configuration.
+    configured: sharedVoteEnabled,
+    reason,
+    votes: [] as VoteRow[],
+    counts: { tenerife: 0, marrakech: 0 },
+  };
 }
 
 export async function GET() {
@@ -27,12 +37,18 @@ export async function GET() {
     .order("updated_at", { ascending: true });
 
   if (error) {
-    // Le site ne doit jamais tomber parce que le vote est indisponible.
-    return NextResponse.json(emptyPayload("local"));
+    // Le site ne doit jamais tomber parce que le vote est indisponible,
+    // mais la raison doit rester lisible.
+    return NextResponse.json(emptyPayload("local", error.message));
   }
 
   const votes = (data ?? []) as VoteRow[];
-  return NextResponse.json({ mode: "shared", votes, counts: tallyOf(votes) });
+  return NextResponse.json({
+    mode: "shared",
+    configured: true,
+    votes,
+    counts: tallyOf(votes),
+  });
 }
 
 export async function POST(request: Request) {
@@ -76,7 +92,10 @@ export async function POST(request: Request) {
 
   if (error) {
     return NextResponse.json(
-      { error: "Enregistrement impossible pour le moment." },
+      {
+        error: "Enregistrement impossible pour le moment.",
+        reason: error.message,
+      },
       { status: 500 },
     );
   }
