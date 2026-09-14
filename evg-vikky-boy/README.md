@@ -19,22 +19,20 @@ npm run dev
 Le site est en `noindex` : il ne sera pas référencé par Google. Il reste
 accessible à quiconque a le lien.
 
-## Accès : le site est secret pour Vikky
+## Accès : ouvert par défaut, verrouillable si besoin
 
-Toutes les pages sont derrière un code. Sans cookie valide, chaque URL redirige
-vers `/acces` et **aucun contenu n'est servi** : ce n'est pas un masque côté
-navigateur, le HTML ne part jamais.
+Le site s'ouvre directement. Le lien circule dans un groupe fermé où le marié
+n'est pas, donc aucune friction n'est imposée à la première ouverture.
 
-- Code par défaut : `vikkyboy2027` (casse et espaces ignorés)
-- Pour le changer : variable d'environnement `SITE_ACCESS_CODE` dans Vercel
-- Le cookie dure 180 jours, personne ne retape le code
+L'aperçu affiché par WhatsApp reste volontairement muet (« Opération Janvier
+2027 · Accès réservé ») : si le lien est transféré par erreur, la vignette ne
+révèle rien.
 
-L'aperçu affiché par WhatsApp est volontairement muet (« Opération Janvier
-2027 · Accès réservé »). Si le lien est transféré à Vikky par erreur, la
-vignette ne révèle rien et la page se referme sur le code.
-
-Ce verrou empêche une ouverture accidentelle, pas un curieux déterminé qui
-aurait le code. C'est le niveau proportionné à l'enjeu.
+**Pour verrouiller** (si le lien se met à circuler plus large) : poser la
+variable `SITE_ACCESS_CODE` dans Vercel avec le code de ton choix, puis
+redéployer. Toutes les pages passent alors derrière `/acces` et aucun HTML
+n'est servi sans cookie valide. Vider la variable rouvre le site. La casse et
+les espaces sont ignorés, le cookie dure 180 jours.
 
 ## Activer le vote partagé (5 minutes)
 

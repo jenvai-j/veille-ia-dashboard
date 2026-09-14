@@ -4,6 +4,11 @@ import { ACCESS_COOKIE, accessCode, normalize } from "@/lib/access";
 export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
+  const expected = accessCode();
+  if (!expected) {
+    return NextResponse.json({ ok: true, gate: "disabled" });
+  }
+
   let code = "";
   try {
     const body = (await request.json()) as { code?: string };
@@ -12,12 +17,12 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Requête illisible." }, { status: 400 });
   }
 
-  if (code !== accessCode()) {
+  if (code !== expected) {
     return NextResponse.json({ error: "Code incorrect." }, { status: 401 });
   }
 
   const res = NextResponse.json({ ok: true });
-  res.cookies.set(ACCESS_COOKIE, accessCode(), {
+  res.cookies.set(ACCESS_COOKIE, expected, {
     httpOnly: true,
     sameSite: "lax",
     secure: process.env.NODE_ENV === "production",
