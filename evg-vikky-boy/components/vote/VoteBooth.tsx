@@ -51,7 +51,7 @@ export function VoteBooth() {
       )}
 
       {/* Etape 1 : identite */}
-      <p className="overline mb-3">1 · Qui es-tu ?</p>
+      <p className="eyebrow mb-3">1 · Qui es-tu ?</p>
       <div className="flex flex-wrap gap-2">
         {PAYERS.map((p) => (
           <button
@@ -67,7 +67,7 @@ export function VoteBooth() {
       </div>
 
       {/* Etape 2 : choix */}
-      <p className="overline mt-10 mb-3">2 · On emmène Vikky où ?</p>
+      <p className="eyebrow mt-10 mb-3">2 · On emmène Vikky où ?</p>
       <div className="grid gap-3 sm:grid-cols-2">
         {ALL_DESTINATIONS.map((d) => {
           const chosen = myVote?.choice === d.slug;
@@ -123,7 +123,7 @@ export function VoteBooth() {
       {/* Resultats */}
       <div className="mt-12">
         <div className="mb-4 flex items-center justify-between gap-3">
-          <p className="overline">
+          <p className="eyebrow">
             Résultats · {total}/{PAYER_COUNT}
           </p>
           <button

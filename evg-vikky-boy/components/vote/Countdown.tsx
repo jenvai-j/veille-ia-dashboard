@@ -46,7 +46,7 @@ export function Countdown() {
 
   return (
     <div>
-      <p className="overline mb-2">Clôture du vote</p>
+      <p className="eyebrow mb-2">Clôture du vote</p>
       <div className="flex gap-2">
         {cells.map((c) => (
           <div

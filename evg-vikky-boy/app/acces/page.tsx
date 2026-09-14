@@ -11,7 +11,7 @@ export default function AccessPage() {
   return (
     <main className="flex min-h-[100svh] items-center justify-center px-5 py-12">
       <div className="w-full max-w-sm">
-        <p className="overline mb-3">Accès privé</p>
+        <p className="eyebrow mb-3">Accès privé</p>
         <h1 className="display text-[clamp(2.4rem,11vw,3.6rem)]">
           Pas si vite
         </h1>

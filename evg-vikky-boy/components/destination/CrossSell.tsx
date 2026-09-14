@@ -23,7 +23,7 @@ export function CrossSell({ other }: { other: Destination }) {
     >
       <Frame slot={other.heroPhoto} scrim="strong" className="h-[280px] w-full">
         <div className="flex h-full flex-col justify-end p-6">
-          <p className="overline mb-1.5">Avant de voter</p>
+          <p className="eyebrow mb-1.5">Avant de voter</p>
           <p className="display text-[clamp(1.8rem,7vw,2.6rem)]">
             Et {other.name} alors ? {other.flag}
           </p>

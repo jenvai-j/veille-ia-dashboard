@@ -8,14 +8,14 @@ import { Frame } from "@/components/ui/Frame";
 export function Hero() {
   return (
     <header className="relative h-[100svh] min-h-[560px] w-full">
-      <Frame slot="home-hero" scrim="strong" className="absolute inset-0 h-full w-full" />
+      <Frame slot="home-hero" scrim="strong" fill />
 
       <div className="relative z-10 flex h-full flex-col justify-between px-5 pt-[max(1.5rem,env(safe-area-inset-top))] pb-8 sm:px-8">
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="overline text-bone/70"
+          className="eyebrow text-bone/70"
         >
           Privé · 🤫 Ne pas transférer à Vikky
         </motion.p>

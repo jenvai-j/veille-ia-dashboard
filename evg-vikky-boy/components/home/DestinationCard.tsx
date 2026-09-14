@@ -23,7 +23,7 @@ export function DestinationCard({ destination }: { destination: Destination }) {
         className="h-[480px] w-full sm:h-[560px]"
       >
         <div className="flex h-full flex-col justify-end p-6 sm:p-7">
-          <p className="overline mb-2" style={{ color: "var(--accent-1)" }}>
+          <p className="eyebrow mb-2" style={{ color: "var(--accent-1)" }}>
             {destination.flag} {destination.flight.duration}
           </p>
 

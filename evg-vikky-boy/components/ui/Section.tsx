@@ -20,7 +20,7 @@ export function Section({
       <div className="mx-auto w-full max-w-5xl">
         {(overline || title) && (
           <header className="mb-8 md:mb-12">
-            {overline && <p className="overline mb-3">{overline}</p>}
+            {overline && <p className="eyebrow mb-3">{overline}</p>}
             {title && (
               <h2 className="display text-[clamp(2.2rem,8vw,4.5rem)]">{title}</h2>
             )}

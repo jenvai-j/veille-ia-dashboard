@@ -5,8 +5,9 @@ type Props = {
   className?: string;
   /** Assombrit le visuel pour poser du texte par-dessus. */
   scrim?: "none" | "soft" | "strong";
+  /** Remplit le parent positionné, au lieu d'occuper le flux normal. */
+  fill?: boolean;
   children?: React.ReactNode;
-  priority?: boolean;
 };
 
 /**
@@ -14,9 +15,16 @@ type Props = {
  * rendu procédural bi-ton déterministe (dérivé du seed) qui reste dans la
  * direction artistique de la destination.
  */
-export function Frame({ slot, className = "", scrim = "soft", children }: Props) {
+export function Frame({
+  slot,
+  className = "",
+  scrim = "soft",
+  fill = false,
+  children,
+}: Props) {
   const p = photo(slot);
   const [dark, light] = p.duotone;
+  const accent = p.accent ?? light;
   const a = (p.seed * 37) % 100;
   const b = (p.seed * 53) % 100;
   const c = (p.seed * 71) % 100;
@@ -31,7 +39,7 @@ export function Frame({ slot, className = "", scrim = "soft", children }: Props)
 
   return (
     <div
-      className={`relative isolate overflow-hidden grain ${className}`}
+      className={`${fill ? "absolute inset-0 h-full w-full" : "relative"} isolate overflow-hidden grain ${className}`}
       style={{ background: dark }}
       role="img"
       aria-label={p.subject}
@@ -51,7 +59,7 @@ export function Frame({ slot, className = "", scrim = "soft", children }: Props)
             style={{
               background: `
                 radial-gradient(62% 48% at ${a}% ${b}%, ${light}cc 0%, transparent 62%),
-                radial-gradient(48% 62% at ${c}% ${(a + 40) % 100}%, ${light}66 0%, transparent 70%),
+                radial-gradient(52% 64% at ${c}% ${(a + 40) % 100}%, ${accent}88 0%, transparent 70%),
                 radial-gradient(90% 70% at ${(b + 60) % 100}% 110%, ${dark} 20%, transparent 80%),
                 linear-gradient(${angle}deg, ${dark} 0%, ${light}33 55%, ${dark} 100%)
               `,

@@ -54,11 +54,7 @@ export default async function DestinationPage({
 
       {/* Hero */}
       <header className="relative h-[86svh] min-h-[520px] w-full">
-        <Frame
-          slot={d.heroPhoto}
-          scrim="strong"
-          className="absolute inset-0 h-full w-full"
-        />
+        <Frame slot={d.heroPhoto} scrim="strong" fill />
         <div className="relative z-10 flex h-full flex-col justify-between px-5 pt-[max(1.25rem,env(safe-area-inset-top))] pb-8 sm:px-8">
           <Link
             href="/"
@@ -69,7 +65,7 @@ export default async function DestinationPage({
           </Link>
 
           <div>
-            <p className="overline mb-2" style={{ color: "var(--accent-1)" }}>
+            <p className="eyebrow mb-2" style={{ color: "var(--accent-1)" }}>
               {d.flag} {d.flight.duration} · 27 → 31 janvier 2027
             </p>
             <h1 className="display text-[clamp(3.4rem,18vw,8rem)]">{d.name}</h1>
@@ -98,7 +94,7 @@ export default async function DestinationPage({
           </p>
         </Reveal>
         <Reveal delay={0.08} className="mt-8 max-w-md">
-          <p className="overline mb-2.5">On part quand ?</p>
+          <p className="eyebrow mb-2.5">On part quand ?</p>
           <ScenarioSwitch destination={d} />
         </Reveal>
         <Reveal delay={0.14} className="mt-6">

@@ -23,7 +23,7 @@ export function BudgetBreakdown({ destination }: { destination: Destination }) {
       <div className="glass rounded-3xl p-6">
         <div className="flex items-start justify-between gap-4">
           <div>
-            <p className="overline mb-1.5">Budget de travail</p>
+            <p className="eyebrow mb-1.5">Budget de travail</p>
             <p className="display text-[clamp(2.6rem,12vw,4rem)]">
               ≈ {euro(perPayer ? budget.perPayer : budget.perTraveler)}
             </p>
@@ -45,9 +45,17 @@ export function BudgetBreakdown({ destination }: { destination: Destination }) {
           <div>
             <dt className="text-mute">Fourchette réaliste</dt>
             <dd className="mt-0.5 font-semibold">
-              {euro(perPayer ? budget.payerRange[0] : budget.payerRange[0] * PAYER_COUNT / TRAVELERS)}
+              {euro(
+                perPayer
+                  ? budget.payerRange[0]
+                  : (budget.payerRange[0] * PAYER_COUNT) / TRAVELERS,
+              )}
               {" → "}
-              {euro(perPayer ? budget.payerRange[1] : budget.payerRange[1] * PAYER_COUNT / TRAVELERS)}
+              {euro(
+                perPayer
+                  ? budget.payerRange[1]
+                  : (budget.payerRange[1] * PAYER_COUNT) / TRAVELERS,
+              )}
             </dd>
           </div>
           <div>
@@ -95,9 +103,9 @@ export function BudgetBreakdown({ destination }: { destination: Destination }) {
             >
               <div className="flex items-start justify-between gap-3">
                 <div className="min-w-0 flex-1">
-                  <p className="flex items-center gap-2 text-[14px] font-semibold">
+                  <p className="flex items-start gap-2 text-[14px] font-semibold">
                     <span aria-hidden>{line.icon}</span>
-                    <span className="truncate">{line.label}</span>
+                    <span className="leading-snug">{line.label}</span>
                   </p>
                   <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
                     <StatusTag
@@ -106,7 +114,8 @@ export function BudgetBreakdown({ destination }: { destination: Destination }) {
                     />
                     {line.price.range && (
                       <span className="text-[11px] text-mute">
-                        marché {euro(line.price.range[0])}–{euro(line.price.range[1])}
+                        marché {euro(convert(line.price.range[0]))}–
+                        {euro(convert(line.price.range[1]))}
                       </span>
                     )}
                   </div>

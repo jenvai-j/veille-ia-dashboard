@@ -34,7 +34,7 @@ export default function FaceToFacePage() {
         lede="Les critères mesurables sont tranchés. Les critères subjectifs ne le sont pas, et ne le seront pas : ambiance, nightlife, bouffe et potentiel EVG se présentent, ils ne se notent pas."
       >
         <Reveal className="max-w-md">
-          <p className="overline mb-2.5">Scénario comparé</p>
+          <p className="eyebrow mb-2.5">Scénario comparé</p>
           <ScenarioSwitch />
         </Reveal>
         <Reveal delay={0.08} className="mt-6">

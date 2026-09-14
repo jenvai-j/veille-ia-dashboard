@@ -16,7 +16,7 @@ export default function HomePage() {
       <section className="px-5 py-16 sm:px-8 md:py-24">
         <div className="mx-auto w-full max-w-5xl">
           <Reveal>
-            <p className="overline mb-3">Face to face</p>
+            <p className="eyebrow mb-3">Face to face</p>
             <h2 className="display text-[clamp(2.2rem,8vw,4.2rem)]">
               Aucune des deux
               <br />

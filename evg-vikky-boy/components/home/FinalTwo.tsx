@@ -15,7 +15,7 @@ export function FinalTwo() {
     <section id="final-two" className="px-5 py-16 sm:px-8 md:py-24">
       <div className="mx-auto w-full max-w-5xl">
         <Reveal>
-          <p className="overline mb-3">Les deux finalistes</p>
+          <p className="eyebrow mb-3">Les deux finalistes</p>
           <h2 className="display text-[clamp(2.4rem,9vw,5rem)]">The Final Two</h2>
           <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-mute">
             Deux EVG très différents, chiffrés au même niveau de détail. Les prix
@@ -26,7 +26,7 @@ export function FinalTwo() {
         </Reveal>
 
         <Reveal delay={0.08} className="mt-8 max-w-md">
-          <p className="overline mb-2.5">On part quand ?</p>
+          <p className="eyebrow mb-2.5">On part quand ?</p>
           <ScenarioSwitch />
         </Reveal>
 

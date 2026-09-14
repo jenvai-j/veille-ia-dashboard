@@ -24,6 +24,8 @@ export type PhotoSlot = {
   license?: string;
   /** Couleurs du rendu de repli, du plus sombre au plus clair. */
   duotone: [string, string];
+  /** Troisième teinte optionnelle, pour un rendu moins plat. */
+  accent?: string;
   /** Oriente la composition du rendu de repli. */
   seed: number;
 };
@@ -33,7 +35,9 @@ export const PHOTOS: Record<string, PhotoSlot> = {
     id: "home-hero",
     subject: "Ambiance de départ entre potes, lumière de fin de journée",
     searchTerms: "friends group travel night city lights",
-    duotone: ["#08090A", "#E7C873"],
+    // L'accueil tease les deux destinations : cyan océan + terracotta désert.
+    duotone: ["#08090A", "#00D4C8"],
+    accent: "#D4622F",
     seed: 5,
   },
   "tfs-hero": {
