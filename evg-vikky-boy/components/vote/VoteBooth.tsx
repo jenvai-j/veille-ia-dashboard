@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Check, CircleAlert, CloudOff, RefreshCw } from "lucide-react";
+import { Check, CircleAlert, CloudOff, EyeOff, RefreshCw } from "lucide-react";
 import { ALL_DESTINATIONS } from "@/data";
 import { PAYERS, PAYER_COUNT } from "@/data/trip";
 import { useTrip } from "@/lib/trip-context";
@@ -154,32 +154,48 @@ export function VoteBooth() {
           </button>
         </div>
 
-        <div className="space-y-4">
-          {ALL_DESTINATIONS.map((d) => {
-            const count = tally.counts[d.slug];
-            const pct = total ? (count / total) * 100 : 0;
-            return (
-              <div key={d.slug} data-theme={d.theme}>
-                <div className="flex items-baseline justify-between gap-3">
-                  <span className="text-[13px] font-semibold">
-                    {d.flag} {d.name}
-                  </span>
-                  <span className="display text-xl tabular-nums">
-                    {count} {count > 1 ? "votes" : "vote"}
-                  </span>
+        {/* Le détail du score reste caché tant qu'on n'a pas voté : voir
+            2-0 avant de choisir oriente le vote suivant. Le nombre de
+            votants, lui, reste visible, il fait pression sans influencer. */}
+        {!myVote ? (
+          <div className="rounded-2xl border border-dashed border-bone/20 p-6 text-center">
+            <EyeOff className="mx-auto h-5 w-5 text-mute" aria-hidden />
+            <p className="mt-3 text-[14px] font-semibold">
+              Le score est masqué
+            </p>
+            <p className="mx-auto mt-1.5 max-w-xs text-[13px] leading-relaxed text-mute">
+              Il apparaîtra dès que tu auras voté. On veut ton avis, pas celui
+              de ceux qui sont passés avant toi.
+            </p>
+          </div>
+        ) : (
+          <div className="space-y-4">
+            {ALL_DESTINATIONS.map((d) => {
+              const count = tally.counts[d.slug];
+              const pct = total ? (count / total) * 100 : 0;
+              return (
+                <div key={d.slug} data-theme={d.theme}>
+                  <div className="flex items-baseline justify-between gap-3">
+                    <span className="text-[13px] font-semibold">
+                      {d.flag} {d.name}
+                    </span>
+                    <span className="display text-xl tabular-nums">
+                      {count} {count > 1 ? "votes" : "vote"}
+                    </span>
+                  </div>
+                  <div className="mt-2 h-3 w-full overflow-hidden rounded-full bg-bone/10">
+                    <div
+                      className="h-full rounded-full transition-[width] duration-700 ease-out"
+                      style={{ width: `${pct}%`, background: "var(--accent-1)" }}
+                    />
+                  </div>
                 </div>
-                <div className="mt-2 h-3 w-full overflow-hidden rounded-full bg-bone/10">
-                  <div
-                    className="h-full rounded-full transition-[width] duration-700 ease-out"
-                    style={{ width: `${pct}%`, background: "var(--accent-1)" }}
-                  />
-                </div>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
+        )}
 
-        {tally.votes.length > 0 && (
+        {myVote && tally.votes.length > 0 && (
           <p className="mt-5 text-[12px] leading-relaxed text-mute">
             Ont voté :{" "}
             {tally.votes.map((v) => v.name).join(", ")}
