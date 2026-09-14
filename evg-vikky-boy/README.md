@@ -44,7 +44,9 @@ Pour que les votes de tout le monde remontent :
 3. Settings → API → copier `Project URL` et la clé `anon public`.
 4. Dans Vercel, Settings → Environment Variables :
    - `NEXT_PUBLIC_SUPABASE_URL`
-   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY` **ou** `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`
+     (Supabase a renommé « anon public » en « publishable key » ; les deux noms
+     de variable sont acceptés)
 5. Redéployer.
 
 ## Les deux scénarios de départ

@@ -14,7 +14,19 @@ export type Tally = {
 };
 
 const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+/**
+ * Supabase a renommé la clé publique « anon public » en « publishable key ».
+ * Les deux noms de variable sont acceptés : la valeur joue le même rôle, et
+ * imposer une seule orthographe n'apporte rien sinon des pannes silencieuses.
+ *
+ * Les deux références doivent rester écrites en toutes lettres : Next.js
+ * remplace `process.env.NEXT_PUBLIC_*` par sa valeur à la compilation, et ne
+ * sait pas le faire sur un accès dynamique.
+ */
+const key =
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
+  process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
 
 /** Le vote partagé n'est actif que si les deux variables sont renseignées. */
 export const sharedVoteEnabled = Boolean(url && key);
