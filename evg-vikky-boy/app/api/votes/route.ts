@@ -13,6 +13,17 @@ export const dynamic = "force-dynamic";
 const VALID_NAMES = new Set<string>(PAYERS);
 const VALID_CHOICES = new Set<string>(["tenerife", "marrakech"]);
 
+/**
+ * Noms des variables d'environnement contenant "SUPABASE", sans leur valeur.
+ * Permet de distinguer une variable absente d'une variable mal nommée, sans
+ * jamais exposer de secret.
+ */
+function supabaseEnvKeys(): string[] {
+  return Object.keys(process.env)
+    .filter((k) => k.toUpperCase().includes("SUPABASE"))
+    .sort();
+}
+
 function emptyPayload(mode: "shared" | "local", reason?: string) {
   return {
     mode,
@@ -22,6 +33,7 @@ function emptyPayload(mode: "shared" | "local", reason?: string) {
     // confondait avec une absence de configuration.
     configured: sharedVoteEnabled,
     reason,
+    envKeys: supabaseEnvKeys(),
     votes: [] as VoteRow[],
     counts: { tenerife: 0, marrakech: 0 },
   };

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Check, CircleAlert, RefreshCw } from "lucide-react";
+import { Check, CircleAlert, CloudOff, RefreshCw } from "lucide-react";
 import { ALL_DESTINATIONS } from "@/data";
 import { PAYERS, PAYER_COUNT } from "@/data/trip";
 import { useTrip } from "@/lib/trip-context";
@@ -11,7 +11,8 @@ import { computeBudget, euro } from "@/lib/pricing";
 
 export function VoteBooth() {
   const { seen } = useTrip();
-  const { tally, total, myVote, error, submit, refresh } = useVotes();
+  const { tally, total, myVote, error, refreshing, lastSync, submit, refresh } =
+    useVotes();
   const [name, setName] = useState<string>(myVote?.name ?? "");
   const [busy, setBusy] = useState(false);
 
@@ -116,8 +117,18 @@ export function VoteBooth() {
           Choisis d&apos;abord ton prénom pour débloquer le vote.
         </p>
       )}
-      {error && (
-        <p className="mt-3 text-[12px] leading-relaxed text-amber-300">{error}</p>
+
+      {myVote && (
+        <p className="mt-4 flex items-center gap-2 rounded-xl border border-emerald-400/25 bg-emerald-400/5 px-4 py-3 text-[13px] text-emerald-200">
+          <Check className="h-4 w-4 shrink-0" aria-hidden />
+          <span>
+            <strong>{myVote.name}</strong>, ton vote pour{" "}
+            <strong>
+              {myVote.choice === "tenerife" ? "Tenerife" : "Marrakech"}
+            </strong>{" "}
+            est enregistré. Tu peux en changer jusqu&apos;à la clôture.
+          </span>
+        </p>
       )}
 
       {/* Resultats */}
@@ -128,10 +139,18 @@ export function VoteBooth() {
           </p>
           <button
             onClick={() => void refresh()}
-            className="inline-flex items-center gap-1.5 text-[12px] text-mute hover:text-bone"
+            disabled={refreshing}
+            className="inline-flex items-center gap-1.5 text-[12px] text-mute transition hover:text-bone disabled:opacity-60"
           >
-            <RefreshCw className="h-3.5 w-3.5" aria-hidden />
-            Actualiser
+            <RefreshCw
+              className={`h-3.5 w-3.5 ${refreshing ? "animate-spin" : ""}`}
+              aria-hidden
+            />
+            {refreshing
+              ? "Mise à jour…"
+              : lastSync
+                ? `À jour à ${lastSync.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" })}`
+                : "Actualiser"}
           </button>
         </div>
 
@@ -175,23 +194,17 @@ export function VoteBooth() {
           </p>
         )}
 
-        {tally.mode === "local" && tally.configured && (
-          <p className="mt-5 rounded-xl border border-rose-400/30 bg-rose-400/8 p-4 text-[12px] leading-relaxed text-rose-200">
-            Supabase est bien configuré mais refuse la requête. Raison renvoyée
-            par la base : {tally.reason ?? "inconnue"}. La table `votes`
-            existe-t-elle, et les policies de lecture sont-elles en place ?
+        {tally.mode === "local" && (
+          <p className="mt-5 flex items-start gap-2.5 rounded-xl border border-bone/10 bg-ink-2 p-4 text-[12px] leading-relaxed text-mute">
+            <CloudOff className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden />
+            <span>
+              Les votes du groupe ne sont pas encore synchronisés. Ton choix est
+              bien gardé sur cet appareil, et les totaux apparaîtront ici dès que
+              la synchro sera active. Personne n&apos;aura à revoter.
+            </span>
           </p>
         )}
 
-        {tally.mode === "local" && !tally.configured && (
-          <p className="mt-5 rounded-xl border border-bone/10 bg-ink-2 p-4 text-[12px] leading-relaxed text-mute">
-            Le vote partagé n&apos;est pas encore branché : ton choix est
-            enregistré sur cet appareil uniquement et les totaux restent à zéro.
-            Il suffit de renseigner les deux variables Supabase dans Vercel pour
-            que les votes de tout le monde remontent ici, sans rien changer
-            d&apos;autre.
-          </p>
-        )}
       </div>
     </div>
   );
