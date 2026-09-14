@@ -8,6 +8,18 @@ export const metadata: Metadata = {
   description:
     "Deux destinations, un seul vote. Tenerife ou Marrakech pour l'EVG de Vikky.",
   robots: { index: false, follow: false, nocache: true },
+  // L'aperçu affiché dans WhatsApp ne doit rien révéler : si le lien est
+  // transféré à Vikky par erreur, la vignette reste muette.
+  openGraph: {
+    title: "Opération Janvier 2027",
+    description: "Accès réservé. Code requis.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Opération Janvier 2027",
+    description: "Accès réservé. Code requis.",
+  },
 };
 
 export const viewport: Viewport = {

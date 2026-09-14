@@ -10,7 +10,7 @@ export function VoteBar() {
   const pathname = usePathname();
   const { total, myVote, loading } = useVotes();
 
-  if (pathname === "/vote") return null;
+  if (pathname === "/vote" || pathname === "/acces") return null;
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-50 px-3 pb-3">

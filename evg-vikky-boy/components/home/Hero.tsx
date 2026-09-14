@@ -17,7 +17,7 @@ export function Hero() {
           transition={{ duration: 0.8 }}
           className="overline text-bone/70"
         >
-          Privé · Ne pas diffuser
+          Privé · 🤫 Ne pas transférer à Vikky
         </motion.p>
 
         <div>

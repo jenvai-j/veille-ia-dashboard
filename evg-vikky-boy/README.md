@@ -19,6 +19,23 @@ npm run dev
 Le site est en `noindex` : il ne sera pas référencé par Google. Il reste
 accessible à quiconque a le lien.
 
+## Accès : le site est secret pour Vikky
+
+Toutes les pages sont derrière un code. Sans cookie valide, chaque URL redirige
+vers `/acces` et **aucun contenu n'est servi** : ce n'est pas un masque côté
+navigateur, le HTML ne part jamais.
+
+- Code par défaut : `vikkyboy2027` (casse et espaces ignorés)
+- Pour le changer : variable d'environnement `SITE_ACCESS_CODE` dans Vercel
+- Le cookie dure 180 jours, personne ne retape le code
+
+L'aperçu affiché par WhatsApp est volontairement muet (« Opération Janvier
+2027 · Accès réservé »). Si le lien est transféré à Vikky par erreur, la
+vignette ne révèle rien et la page se referme sur le code.
+
+Ce verrou empêche une ouverture accidentelle, pas un curieux déterminé qui
+aurait le code. C'est le niveau proportionné à l'enjeu.
+
 ## Activer le vote partagé (5 minutes)
 
 Sans base de données, chacun voit son propre vote mais les totaux restent à zéro.
@@ -31,6 +48,19 @@ Pour que les votes de tout le monde remontent :
    - `NEXT_PUBLIC_SUPABASE_URL`
    - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 5. Redéployer.
+
+## Les deux scénarios de départ
+
+Le site bascule entre un départ mercredi 27 (4 nuits, 3 journées pleines) et
+mardi 26 au soir (5 nuits, 4 journées pleines). Tout se recalcule : budgets,
+programme, fourchettes.
+
+Mercredi est le défaut : c'est le seul scénario qui tient la cible des 1 000 €
+par payeur sur les deux destinations. Pour changer ce défaut, modifier
+`DEFAULT_DEPARTURE` dans `data/trip.ts`.
+
+Côté Tenerife, le scénario mardi affiche un avertissement : aucun vol du soir
+ne dessert Tenerife depuis CDG, le départ se ferait donc depuis Orly.
 
 ## Modifier les prix
 

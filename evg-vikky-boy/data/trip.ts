@@ -59,4 +59,8 @@ export const SCENARIOS: Record<
   },
 };
 
-export const DEFAULT_DEPARTURE: Departure = "tue";
+/**
+ * Mercredi par défaut : c'est le seul scénario qui tient la cible des 1 000 €
+ * par payeur sur les deux destinations. Mardi reste accessible d'un tap.
+ */
+export const DEFAULT_DEPARTURE: Departure = "wed";
