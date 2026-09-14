@@ -1,5 +1,12 @@
 # Déposer de vraies photos
 
+Dix emplacements pointent déjà vers des photos Wikimedia Commons sous licence
+libre, servies via `Special:FilePath`. Les autres affichent le rendu graphique
+généré. Si une URL distante casse, le rendu généré reprend la main tout seul :
+il n'y a jamais d'image brisée à l'écran.
+
+Une photo déposée ici remplace la photo distante.
+
 Le site affiche un rendu graphique généré tant qu'un emplacement n'a pas de photo.
 Pour remplacer un rendu par une vraie photo :
 
