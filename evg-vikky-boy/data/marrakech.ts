@@ -108,6 +108,7 @@ export const marrakech: Destination = {
     },
     {
       id: "riad",
+      shared: true,
       label: "Riad privatisé 8 personnes",
       icon: "🏛️",
       extraNight: 48,
@@ -172,6 +173,7 @@ export const marrakech: Destination = {
     },
     {
       id: "theatro",
+      shared: true,
       label: "Theatro, table VIP pour 8",
       icon: "🍾",
       price: {
@@ -202,6 +204,7 @@ export const marrakech: Destination = {
     },
     {
       id: "transport",
+      shared: true,
       label: "Transferts et taxis",
       icon: "🚕",
       extraNight: 3,

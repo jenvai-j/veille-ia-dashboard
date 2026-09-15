@@ -43,6 +43,13 @@ export type BudgetLine = {
   price: TrackedPrice;
   /** Supplement par voyageur si on part le mardi soir (1 nuit de plus). */
   extraNight?: number;
+  /**
+   * Coût fixe du groupe, pas prix par tête : une villa, une table réservée,
+   * un véhicule. Le montant saisi reste exprimé par voyageur sur la base de
+   * PRICING_BASIS, et se redivise selon la taille réelle du groupe. Retirer
+   * quelqu'un renchérit donc ces lignes pour tous les autres.
+   */
+  shared?: boolean;
   /** Hors total de base, activable par l'utilisateur. */
   optional?: boolean;
   /** Pourquoi c'est une option, affiche sous la ligne. */

@@ -1,5 +1,5 @@
 import type { BudgetLine, Departure, Destination } from "@/data/types";
-import { PAYER_COUNT, TRAVELERS } from "@/data/trip";
+import { PAYER_COUNT, PRICING_BASIS, TRAVELERS } from "@/data/trip";
 
 export type LineComputation = {
   line: BudgetLine;
@@ -22,9 +22,17 @@ export type BudgetTotals = {
   v0PerPayer: number;
 };
 
-/** La seule division 8/7 de toute l'application. */
+/** La seule redistribution de la part du marie de toute l'application. */
 export function toPerPayer(perTraveler: number): number {
   return (perTraveler * TRAVELERS) / PAYER_COUNT;
+}
+
+/**
+ * Ramene un montant saisi sur la base PRICING_BASIS a l'effectif reel.
+ * Un cout fixe se redivise, un prix par tete ne bouge pas.
+ */
+function forGroup(amount: number, shared?: boolean): number {
+  return shared ? (amount * PRICING_BASIS) / TRAVELERS : amount;
 }
 
 export function computeBudget(
@@ -36,11 +44,14 @@ export function computeBudget(
 
   const lines: LineComputation[] = destination.budget.map((line) => {
     const included = !line.optional || enabledOptions.includes(line.id);
-    const base = line.price.current + (extraNight ? (line.extraNight ?? 0) : 0);
+    const base = forGroup(
+      line.price.current + (extraNight ? (line.extraNight ?? 0) : 0),
+      line.shared,
+    );
     return {
       line,
       amount: base,
-      deltaV0: line.price.current - line.price.v0,
+      deltaV0: base - forGroup(line.price.v0, line.shared),
       included,
     };
   });
@@ -50,15 +61,26 @@ export function computeBudget(
 
   const low = kept.reduce((sum, l) => {
     const r = l.line.price.range?.[0] ?? l.line.price.current;
-    return sum + r + (extraNight ? (l.line.extraNight ?? 0) : 0);
+    return (
+      sum +
+      forGroup(r + (extraNight ? (l.line.extraNight ?? 0) : 0), l.line.shared)
+    );
   }, 0);
   const high = kept.reduce((sum, l) => {
     const r = l.line.price.range?.[1] ?? l.line.price.current;
-    return sum + r + (extraNight ? (l.line.extraNight ?? 0) : 0);
+    return (
+      sum +
+      forGroup(r + (extraNight ? (l.line.extraNight ?? 0) : 0), l.line.shared)
+    );
   }, 0);
 
   const v0PerTraveler = kept.reduce(
-    (sum, l) => sum + l.line.price.v0 + (extraNight ? (l.line.extraNight ?? 0) : 0),
+    (sum, l) =>
+      sum +
+      forGroup(
+        l.line.price.v0 + (extraNight ? (l.line.extraNight ?? 0) : 0),
+        l.line.shared,
+      ),
     0,
   );
 

@@ -11,11 +11,21 @@ export const PAYERS = [
   "Jehanan",
   "Lukshan",
   "Rathusan",
-  "Rajith",
 ] as const;
 
-export const TRAVELERS = PAYERS.length + 1; // 8
-export const PAYER_COUNT = PAYERS.length; // 7
+/** Desistements, gardes pour expliquer l'evolution du budget. */
+export const WITHDRAWN = [{ name: "Rajith", since: "2026-09-15" }] as const;
+
+export const TRAVELERS = PAYERS.length + 1; // 7
+export const PAYER_COUNT = PAYERS.length; // 6
+
+/**
+ * Taille du groupe pour laquelle les prix `current` ont ete releves.
+ * Les lignes marquees `shared` sont redivisees a partir de cette base.
+ * Ne pas y toucher en changeant la composition du groupe : c'est une
+ * reference historique, pas l'effectif courant.
+ */
+export const PRICING_BASIS = 8;
 
 /** Cloture du vote. */
 export const VOTE_DEADLINE = "2026-09-28T23:59:59+02:00";

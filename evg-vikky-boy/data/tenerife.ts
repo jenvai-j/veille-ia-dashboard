@@ -116,6 +116,7 @@ export const tenerife: Destination = {
     },
     {
       id: "villa",
+      shared: true,
       label: "Villa 8 personnes, piscine",
       icon: "🏡",
       extraNight: 30,
@@ -161,6 +162,7 @@ export const tenerife: Destination = {
     },
     {
       id: "buggy",
+      shared: true,
       label: "Buggy, parc national du Teide",
       icon: "🏎️",
       price: {
@@ -208,6 +210,7 @@ export const tenerife: Destination = {
     },
     {
       id: "transport",
+      shared: true,
       label: "Transferts et déplacements",
       icon: "🚐",
       extraNight: 3,
@@ -236,6 +239,7 @@ export const tenerife: Destination = {
     },
     {
       id: "chef",
+      shared: true,
       label: "Chef privé à la villa",
       icon: "👨‍🍳",
       optional: true,

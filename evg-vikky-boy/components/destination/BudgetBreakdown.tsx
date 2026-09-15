@@ -1,11 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { ExternalLink, TrendingDown, TrendingUp } from "lucide-react";
+import { ExternalLink, TrendingDown, TrendingUp, Users } from "lucide-react";
 import { StatusTag } from "@/components/ui/StatusTag";
 import { useTrip } from "@/lib/trip-context";
 import { computeBudget, euro } from "@/lib/pricing";
-import { PAYER_COUNT, PRICES_CHECKED_AT, TRAVELERS } from "@/data/trip";
+import {
+  PAYER_COUNT,
+  PRICES_CHECKED_AT,
+  PRICING_BASIS,
+  TRAVELERS,
+  WITHDRAWN,
+} from "@/data/trip";
 import type { Destination } from "@/data/types";
 
 export function BudgetBreakdown({ destination }: { destination: Destination }) {
@@ -112,6 +118,12 @@ export function BudgetBreakdown({ destination }: { destination: Destination }) {
                       status={optional && !included ? "OPTIONAL" : line.price.status}
                       compact
                     />
+                    {line.shared && (
+                      <span className="inline-flex shrink-0 items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-medium whitespace-nowrap text-sky-200 ring-1 ring-sky-400/25">
+                        <Users className="h-3 w-3" aria-hidden />
+                        Coût partagé
+                      </span>
+                    )}
                     {line.price.range && (
                       <span className="text-[11px] text-mute">
                         marché {euro(convert(line.price.range[0]))}–
@@ -197,7 +209,24 @@ export function BudgetBreakdown({ destination }: { destination: Destination }) {
         })}
       </ul>
 
-      <p className="mt-5 rounded-xl border border-bone/10 bg-ink-2 p-4 text-[12px] leading-relaxed text-mute">
+      {WITHDRAWN.length > 0 && (
+        <div className="mt-5 rounded-xl border border-amber-400/25 bg-amber-400/8 p-4">
+          <p className="flex items-center gap-2 text-[13px] font-bold text-amber-200">
+            <Users className="h-4 w-4 shrink-0" aria-hidden />
+            Le groupe est passé de {PRICING_BASIS} à {TRAVELERS}
+          </p>
+          <p className="mt-2 text-[13px] leading-relaxed text-amber-100/75">
+            {WITHDRAWN.map((w) => w.name).join(", ")} ne vient plus. Les lignes
+            marquées « coût partagé » (logement, table réservée, véhicules) ne
+            baissent pas pour autant : elles se redivisent sur une personne de
+            moins, donc chacun paie davantage. La part de Vikky se répartit
+            elle aussi sur {PAYER_COUNT} payeurs au lieu de {PRICING_BASIS - 1}.
+            Les prix par tête, eux, sont inchangés.
+          </p>
+        </div>
+      )}
+
+      <p className="mt-4 rounded-xl border border-bone/10 bg-ink-2 p-4 text-[12px] leading-relaxed text-mute">
         Prix relevés le{" "}
         {new Date(PRICES_CHECKED_AT).toLocaleDateString("fr-FR")} sur les sites
         des prestataires. Aucune réservation n&apos;est effectuée. Les montants
